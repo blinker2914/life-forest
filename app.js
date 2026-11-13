@@ -16,6 +16,10 @@ function allDates() {
   (DATA.daily || []).forEach(r => s.add(r.date));
   (DATA.sleep || []).forEach(r => s.add(r.date));
   (DATA.training || []).forEach(r => s.add(r.date));
+  // 板子永远默认停在今天：哪怕今天还没数据，也显示今天这一天（待记录），不再停在上一个有数据的日子。
+  const now = new Date();
+  const today = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
+  s.add(today);
   return [...s].sort();
 }
 
