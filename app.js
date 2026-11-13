@@ -150,6 +150,8 @@ function renderBody() {
     rows.map(([k, v]) => `<div class="kv"><span class="k">${k}</span><span class="v">${v}</span></div>`).join('');
   $('weighInNote').textContent =
     '称重节奏：' + (DATA.meta.weighInRule || '') + '，下次约 ' + fmtDate(DATA.meta.nextWeighIn) + '。';
+  $('bodyCheckupNote').textContent =
+    '体检项目（2026-11-17 体检后）将加进本区。';
 
   const pts = DATA.bodyMetrics.map(m => ({ x: m.date, y: m.fatPct }));
   const ptsM = DATA.bodyMetrics.map(m => ({ x: m.date, y: m.muscleKg }));
@@ -210,6 +212,21 @@ function renderTraining() {
   }).join('');
 }
 
+function takenNamesFor(date) {
+  // supplementCheckins 目前是空数组；形状按飞书导出常见的几种都容着，
+  // 没打卡就不勾，绝不编一个“已吃”。
+  const names = new Set();
+  (DATA.supplementCheckins || []).forEach(c => {
+    if (!c || c.date !== date) return;
+    if (Array.isArray(c.taken)) c.taken.forEach(n => names.add(n));
+    if (Array.isArray(c.items)) c.items.forEach(it => {
+      if (it && (it.taken === true || it.checked === true)) names.add(it.name);
+    });
+    if (c.name && (c.taken === true || c.checked === true)) names.add(c.name);
+  });
+  return names;
+}
+
 function renderSupplements() {
   const order = ['早', '午', '隔天', '晚'];
   const groups = {};
@@ -220,8 +237,47 @@ function renderSupplements() {
     `<div class="supp-group"><h3>${g}</h3><ul>` +
     groups[g].map(s => `<li><b>${s.name}</b> · ${s.dose}</li>`).join('') +
     '</ul></div>').join('');
+  const taken = takenNamesFor(selectedDate);
+  const total = (DATA.supplements || []).length;
+  $('suppToday').innerHTML =
+    `<div class="faint" style="margin-bottom:4px">${fmtDate(selectedDate)} 打卡：` +
+    (taken.size === 0
+      ? '今天还没打卡（在飞书每日补剂打卡表里勾，同步后这里自动变 ☑）'
+      : `已打 ${taken.size} / ${total}`) + '</div>' +
+    order.filter(g => groups[g]).map(g =>
+      `<div class="supp-group"><h3>${g}</h3>` +
+      groups[g].map(s => {
+        const done = taken.has(s.name);
+        return `<div class="ck"><span class="box${done ? ' done' : ''}">${done ? '☑' : '☐'}</span>` +
+          `<span><b>${s.name}</b> · ${s.dose}</span></div>`;
+      }).join('') + '</div>').join('');
   const n = (DATA.supplementCheckins || []).length;
   $('suppCheckin').innerHTML = n === 0 ? '今天还没打卡（在飞书里勾）' : n + ' 条';
+}
+
+// 今日主面板：每天变化的数据放这里一眼看完；细节仍在下面各卡里。
+function renderDaily() {
+  const dy = byDate(DATA.daily, selectedDate)[0];
+  const sl = byDate(DATA.sleep, selectedDate)[0];
+  const tr = byDate(DATA.training, selectedDate).filter(r => r.source === '手动');
+  const kcal = (v, d = 0) => (v === null || v === undefined) ? pending : Number(v).toFixed(d);
+  const rows = [
+    ['摄入卡路里', dy ? kcal(dy.intakeKcal) : pending],
+    ['消耗卡路里', dy ? kcal(dy.expenditureKcal, 1) : pending],
+    ['能量盈余', dy ? kcal(dy.surplusKcal, 1) : pending],
+    ['平均心率', dy && dy.avgHeartRate !== null && dy.avgHeartRate !== undefined ? dy.avgHeartRate + ' bpm' : pending],
+    ['静息心率', dy && dy.restingHeartRate !== null && dy.restingHeartRate !== undefined ? dy.restingHeartRate + ' bpm' : pendingSync],
+    ['步数', dy && dy.steps !== null && dy.steps !== undefined ? String(dy.steps) : pendingSync],
+    ['睡眠', sl ? `${sl.hours} 小时（深睡 ${sl.deepHours}、浅睡 ${sl.lightHours}、REM ${sl.remHours}）` : pending],
+    ['今天训练', tr.length ? tr.map(t => t.type).join('、') : pending],
+  ];
+  let html = `<div class="faint">${selectedDate} · 用顶上日期箭头可以切到别的日子</div>` +
+    rows.map(([k, v]) => `<div class="kv"><span class="k">${k}</span><span class="v">${v}</span></div>`).join('');
+  if (tr.length) {
+    html += tr.map(t => `<p class="muted" style="margin-top:6px">${t.content}</p>`).join('');
+  }
+  if (dy && dy.note) html += `<div class="note">${dy.note}</div>`;
+  $('dailyToday').innerHTML = html;
 }
 
 function renderTimeline() {
@@ -284,6 +340,7 @@ function renderDateBar() {
 function render() {
   renderDateBar();
   renderHeader();
+  renderDaily();
   renderBody();
   renderSleep();
   renderEnergy();

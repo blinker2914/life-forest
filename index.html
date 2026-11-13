@@ -67,6 +67,24 @@
     padding:16px 18px;
   }
   .card.wide{grid-column:1 / -1}
+  /* 主面板：每天变化的数据，放最上面 */
+  .card.main{border-width:2px;border-color:#3f7d58}
+  .card.main h2 .tag{color:var(--accent)}
+  /* 身体条件区：紫色块，相对稳定的数；体检项目以后加进本区 */
+  .card.purple{
+    background:linear-gradient(160deg,#2c1c52,#221640 70%,#241a4a);
+    border-color:#5b4a9e;
+  }
+  .card.purple h2{color:#ddd2ff}
+  .card.purple h2 .tag{color:#b7a6e8}
+  .card.purple .kv{border-bottom-color:#4a3a80}
+  .card.purple .kv .k{color:#c3b8e8}
+  .card.purple .faint{color:#a99bd4}
+  .supp-check{margin-top:10px}
+  .supp-check .ck{display:flex;gap:8px;align-items:baseline;font-size:13px;padding:4px 0;color:var(--ink-dim)}
+  .supp-check .ck b{color:var(--ink);font-weight:600}
+  .supp-check .box{font-size:15px}
+  .supp-check .box.done{color:var(--accent)}
   .card h2{font-size:16px;letter-spacing:1px;margin-bottom:10px}
   .card h2 .tag{font-size:11px;color:var(--ink-faint);font-weight:400;margin-left:6px}
   .kv{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px dashed #1f4d36;font-size:14px}
@@ -127,8 +145,13 @@
   <div id="loadError" class="err" style="display:none">数据没读到（data.json）。请确认 data.json 和这个页面放在同一个目录下。</div>
 
   <div class="grid" id="board" style="display:none">
-    <section class="card">
-      <h2>体重与身体指标 <span class="tag">最新一次体测</span></h2>
+    <section class="card wide main">
+      <h2>今日主面板 <span class="tag">每天变化的数据</span></h2>
+      <div id="dailyToday"></div>
+    </section>
+
+    <section class="card purple">
+      <h2>身体条件 <span class="tag">相对稳定 · 最新一次体测</span></h2>
       <div id="bodyLatest"></div>
       <canvas id="trendChart" height="180"></canvas>
       <div class="legend">
@@ -136,6 +159,7 @@
         <span><i style="background:#e8c97a"></i>肌肉 kg（右轴）</span>
       </div>
       <div class="faint" id="weighInNote" style="margin-top:8px"></div>
+      <div class="faint" id="bodyCheckupNote" style="margin-top:4px"></div>
     </section>
 
     <section class="card">
@@ -160,9 +184,10 @@
       <div id="trainingList"></div>
     </section>
 
-    <section class="card">
-      <h2>补剂清单 <span class="tag">每天在飞书打卡</span></h2>
+    <section class="card wide">
+      <h2>补剂 <span class="tag">清单 + 今日打卡</span></h2>
       <div id="suppList"></div>
+      <div class="supp-check" id="suppToday"></div>
       <div class="faint" style="margin-top:8px">打卡状态：<span id="suppCheckin"></span></div>
     </section>
 
