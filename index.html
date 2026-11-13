@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>生命森林 · 老杨的每日健康看板</title>
+<style>
+  :root{
+    --bg:#0c2318;
+    --bg2:#0f2d20;
+    --card:#143627;
+    --card2:#17402e;
+    --line:#1f4d36;
+    --ink:#e8f2ea;
+    --ink-dim:#a9c4b2;
+    --ink-faint:#7fa08d;
+    --accent:#8fd6a8;
+    --accent2:#e8c97a;
+    --amber:#e8c97a;
+    --deep:#5b8dd9;
+    --light:#8fd6a8;
+    --rem:#c9a7e8;
+    --warn:#e88a7a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.6;
+    padding:16px;
+  }
+  .wrap{max-width:1020px;margin:0 auto}
+  header{
+    background:linear-gradient(135deg,#123524,#0f2d20 60%,#123524);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:20px 22px 16px;
+    margin-bottom:14px;
+  }
+  header h1{font-size:26px;letter-spacing:2px}
+  header h1 span{font-size:14px;color:var(--ink-dim);letter-spacing:1px;margin-left:8px}
+  .sub{color:var(--ink-dim);font-size:13px;margin-top:4px}
+  .datebar{display:flex;align-items:center;gap:12px;margin-top:14px}
+  .datebar button{
+    background:var(--card2);color:var(--ink);
+    border:1px solid var(--line);border-radius:8px;
+    width:36px;height:36px;font-size:18px;cursor:pointer;
+  }
+  .datebar button:disabled{opacity:.35;cursor:default}
+  .datebar .date{font-size:18px;font-weight:700;min-width:150px;text-align:center}
+  .datebar .today-note{font-size:12px;color:var(--ink-faint)}
+  .headstats{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+  .hstat{
+    flex:1 1 140px;background:rgba(255,255,255,.04);
+    border:1px solid var(--line);border-radius:12px;padding:10px 12px;
+  }
+  .hstat .k{font-size:12px;color:var(--ink-dim)}
+  .hstat .v{font-size:20px;font-weight:700;margin-top:2px}
+  .hstat .v small{font-size:12px;color:var(--ink-dim);font-weight:400}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:760px){.grid{grid-template-columns:1fr}}
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:16px 18px;
+  }
+  .card.wide{grid-column:1 / -1}
+  .card h2{font-size:16px;letter-spacing:1px;margin-bottom:10px}
+  .card h2 .tag{font-size:11px;color:var(--ink-faint);font-weight:400;margin-left:6px}
+  .kv{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px dashed #1f4d36;font-size:14px}
+  .kv:last-child{border-bottom:none}
+  .kv .k{color:var(--ink-dim)}
+  .kv .v{font-weight:600;text-align:right}
+  .muted{color:var(--ink-dim);font-size:13px}
+  .faint{color:var(--ink-faint);font-size:12px}
+  .pending{color:var(--amber)}
+  .note{
+    background:rgba(232,201,122,.08);border:1px solid rgba(232,201,122,.35);
+    border-radius:10px;padding:10px 12px;font-size:13px;margin-top:10px;color:#f0e2b8;
+  }
+  canvas{width:100%;height:180px;display:block;margin-top:6px}
+  .legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--ink-dim);margin-top:6px}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px}
+  th,td{padding:7px 4px;border-bottom:1px dashed #1f4d36;text-align:left}
+  th{color:var(--ink-dim);font-weight:500}
+  td.num,th.num{text-align:right}
+  .pill{display:inline-block;font-size:11px;padding:1px 8px;border-radius:99px;border:1px solid var(--line);color:var(--ink-dim)}
+  .pill.watch{color:var(--accent);border-color:#2c6b47}
+  .pill.manual{color:var(--accent2);border-color:#6b5a2c}
+  .train{margin-bottom:12px}
+  .train .t-head{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+  .train .t-date{font-weight:700}
+  .train .t-type{color:var(--accent);font-weight:600}
+  .train p{font-size:13px;color:var(--ink-dim);margin-top:4px}
+  .supp-group{margin-bottom:10px}
+  .supp-group h3{font-size:13px;color:var(--accent);margin-bottom:4px}
+  .supp-group li{list-style:none;font-size:13px;padding:3px 0;color:var(--ink-dim)}
+  .supp-group li b{color:var(--ink);font-weight:600}
+  .timeline-item{border-left:2px solid var(--line);padding:0 0 14px 14px;position:relative}
+  .timeline-item::before{
+    content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;
+    border-radius:50%;background:var(--accent);
+  }
+  .timeline-item .d{font-weight:700;font-size:14px}
+  .timeline-item p{font-size:13px;color:var(--ink-dim);margin-top:2px}
+  footer{color:var(--ink-faint);font-size:12px;margin:16px 4px 8px;line-height:1.8}
+  .err{background:#3d1a16;border:1px solid #7a3226;border-radius:12px;padding:14px;color:#f2b8ae}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>🌲 生命森林 <span>老杨的每日健康看板</span></h1>
+    <div class="sub">主曲线只看体脂和肌肉，不看体重 · 没有数据的日子显示待记录，不编数</div>
+    <div class="datebar">
+      <button id="prevDay" aria-label="前一天">‹</button>
+      <div class="date" id="dateLabel">—</div>
+      <button id="nextDay" aria-label="后一天">›</button>
+      <span class="today-note" id="dateNote"></span>
+    </div>
+    <div class="headstats" id="headStats"></div>
+  </header>
+
+  <div id="loadError" class="err" style="display:none">数据没读到（data.json）。请确认 data.json 和这个页面放在同一个目录下。</div>
+
+  <div class="grid" id="board" style="display:none">
+    <section class="card">
+      <h2>体重与身体指标 <span class="tag">最新一次体测</span></h2>
+      <div id="bodyLatest"></div>
+      <canvas id="trendChart" height="180"></canvas>
+      <div class="legend">
+        <span><i style="background:#8fd6a8"></i>体脂 %（左轴）</span>
+        <span><i style="background:#e8c97a"></i>肌肉 kg（右轴）</span>
+      </div>
+      <div class="faint" id="weighInNote" style="margin-top:8px"></div>
+    </section>
+
+    <section class="card">
+      <h2>睡眠 <span class="tag">手表自动记</span></h2>
+      <div id="sleepLatest"></div>
+      <canvas id="sleepChart" height="180"></canvas>
+      <div class="legend">
+        <span><i style="background:#5b8dd9"></i>深睡</span>
+        <span><i style="background:#8fd6a8"></i>浅睡</span>
+        <span><i style="background:#c9a7e8"></i>REM</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>三餐与补给 <span class="tag">能量盈余 = 摄入 − 消耗</span></h2>
+      <div id="energyTable"></div>
+      <div class="note" id="energyNote"></div>
+    </section>
+
+    <section class="card">
+      <h2>运动与康复 <span class="tag">手动 + 手表</span></h2>
+      <div id="trainingList"></div>
+    </section>
+
+    <section class="card">
+      <h2>补剂清单 <span class="tag">每天在飞书打卡</span></h2>
+      <div id="suppList"></div>
+      <div class="faint" style="margin-top:8px">打卡状态：<span id="suppCheckin"></span></div>
+    </section>
+
+    <section class="card">
+      <h2>心情与感受</h2>
+      <div class="pending">待记录</div>
+      <p class="muted" style="margin-top:6px">这一项还没有记过。每天想记什么就记什么，不记也不编。</p>
+    </section>
+
+    <section class="card wide">
+      <h2>时间线 <span class="tag">最近几天</span></h2>
+      <div id="timeline"></div>
+    </section>
+
+    <section class="card wide">
+      <h2>近 30 天复盘</h2>
+      <div id="review"></div>
+    </section>
+
+    <section class="card wide">
+      <h2>体检报告</h2>
+      <div id="checkup"></div>
+    </section>
+  </div>
+
+  <footer id="footer"></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
