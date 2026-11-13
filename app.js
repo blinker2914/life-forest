@@ -233,10 +233,8 @@ function renderSupplements() {
   (DATA.supplements || []).forEach(s => {
     (groups[s.timeOfDay] = groups[s.timeOfDay] || []).push(s);
   });
-  $('suppList').innerHTML = order.filter(g => groups[g]).map(g =>
-    `<div class="supp-group"><h3>${g}</h3><ul>` +
-    groups[g].map(s => `<li><b>${s.name}</b> · ${s.dose}</li>`).join('') +
-    '</ul></div>').join('');
+  // 清单只在打卡行里出一次（每项带 ☐/☑），不在上面再重复列一遍。
+  $('suppList').innerHTML = '';
   const taken = takenNamesFor(selectedDate);
   const total = (DATA.supplements || []).length;
   $('suppToday').innerHTML =
