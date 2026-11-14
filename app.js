@@ -155,7 +155,7 @@ function renderBody() {
   $('weighInNote').textContent =
     '称重节奏：' + (DATA.meta.weighInRule || '') + '，下次约 ' + fmtDate(DATA.meta.nextWeighIn) + '。';
   $('bodyCheckupNote').textContent =
-    '体检项目（2026-11-17 体检后）将加进本区。';
+    '体检项目（2026-11-19 体检后）将加进本区。';
 
   const pts = DATA.bodyMetrics.map(m => ({ x: m.date, y: m.fatPct }));
   const ptsM = DATA.bodyMetrics.map(m => ({ x: m.date, y: m.muscleKg }));
@@ -314,7 +314,7 @@ function renderCheckup() {
   if (!rows.length) {
     $('checkup').innerHTML =
       '<div class="pending">待体检</div>' +
-      '<p class="muted" style="margin-top:6px">体检约在 2026-11-17（周二）8:00–10:00，爱康卓悦广州琶洲保利中悦分院。体检完把报告填进来，这里才会出数。</p>';
+      '<p class="muted" style="margin-top:6px">体检约在 2026-11-19（周四）8:00–10:00，爱康卓悦广州琶洲保利中悦分院。体检完把报告填进来，这里才会出数。</p>';
     return;
   }
   $('checkup').innerHTML = rows.map(r => `<div class="kv"><span class="k">${r.date}</span><span class="v">${r.summary || ''}</span></div>`).join('');
