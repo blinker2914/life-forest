@@ -377,7 +377,6 @@
     {
       "fatEndPct": 19.6,
       "fatStartPct": 19.4,
-      "gapToTargetPoints": 1.6,
       "muscleEndKg": 48.8,
       "muscleStartKg": 48.7,
       "summary": "自 2026-10-16 体脂率 22.4% 以来已下降 2.8 个百分点；本周变化较小，体重与体脂略升、肌肉微增。",
@@ -405,17 +404,6 @@
       "dinnerRemainingProteinG": 0,
       "note": "全天已吃完：约 1575 千卡、蛋白约 128 克。都是估算不是称重数。"
     },
-    "dinnerPlan": {
-      "first": "切鸡饭正常份（白切鸡约 200 克＋正常量米饭＋青菜）再加 1 个蛋，约 750 千卡、蛋白约 52 克",
-      "backup": "gaga 牛肉饭（瘦牛肉约 200 克＋正常量米饭＋青菜），约 750–800 千卡、蛋白约 48 克",
-      "firstDesc": "切鸡饭正常份（白切鸡约 200 克＋正常量米饭＋青菜）再加 1 个蛋",
-      "firstKcal": 750,
-      "firstProteinG": 52,
-      "backupDesc": "gaga 牛肉饭（瘦牛肉约 200 克＋正常量米饭＋青菜）",
-      "backupKcalMin": 750,
-      "backupKcalMax": 800,
-      "backupProteinG": 48
-    },
     "toBuy": [
       "合格酸奶几盒备着：蛋白 >8 克/100 克、碳水 <4 克/100 克、配料只有生牛乳加菌种（早上那杯蛋白 9.1 克过了，碳水 8.9 克、脂肪 12.3 克没过）",
       "蛋白粉买小袋：纯乳清、无糖，别买增肌粉，每天 1–2 勺补正餐不够的部分"
@@ -425,7 +413,7 @@
     "reportChannel": "每顿吃完在旁聊报我一句，我估算记数，板子同步更新。",
     "currentFatPct": 19.6,
     "targetFatPct": 18,
-    "fatToLoseKg": 1.0,
+    "fatToLoseKg": 1.04,
     "fatToLoseKcal": 8000,
     "dailyDeficitTargetKcal": 400,
     "todayDeficitKcal": 525,

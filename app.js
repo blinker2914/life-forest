@@ -130,7 +130,6 @@ function renderHeader() {
   if (b) {
     // 头上只放现在多少、目标多少，不放“距目标多少个点”。
     stats.push(['体脂率', b.fatPct + '%', '目标 ' + (fl.targetFatPct || meta.fatTargetPct) + '%']);
-    stats.push(['肌肉', b.muscleKg + ' kg', '']);
     stats.push(['体重', b.weightKg ? b.weightKg + ' kg' : '待记录', '']);
     stats.push(['下次称重', fmtDate(meta.nextWeighIn), meta.weighInRule || '']);
   }
@@ -183,6 +182,8 @@ function sleepScore(sel) {
   // 浅睡占比越低越好（粗略）：浅睡 < 3h 加 15 分
   const light = sel.lightHours || 0;
   if (light < 3) s += 15; else if (light < 4) s += 10; else s += 5;
+  // 总时长 < 6 小时，分数封顶 60（5.5 小时拿 80 分太 generous）
+  if (h < 6) s = Math.min(s, 60);
   return Math.min(100, s);
 }
 
@@ -222,7 +223,7 @@ function renderEnergy() {
       `<td class="num">${cell(r.expenditureKcal)}</td><td class="num">${surplusCell(r)}</td></tr>`).join('') +
     '</table>';
   $('energyNote').textContent =
-    '盈余是“到现在为止”的数：三顿还没吃完，摄入是到现在的数，消耗是全天估算。等三顿吃完，盈余才是全天缺口。摄入没填的日子，盈余显示待记录，不拿 0 去算。11 月 13 日是半天的数。';
+    '盈余是“到现在为止”的数：今天的 5 顿还没吃完，摄入是到现在的数，消耗是全天估算。等 5 顿吃完，盈余才是全天缺口。摄入没填的日子，盈余显示待记录，不拿 0 去算。11 月 13 日是半天的数。';
 }
 
 function renderFatLoss() {
@@ -239,7 +240,7 @@ function renderFatLoss() {
   const progressPct = fl.todayProgressPct !== undefined ? fl.todayProgressPct : 0;
   html += `<div class="kv"><span class="k">体脂率</span><span class="v">现在 ${curFat}% → 目标 ${tgtFat}%</span></div>`;
   html += `<div class="progress-bar"><div class="fill" style="width:${Math.min(100, Math.max(0, progressPct))}%"></div></div>`;
-  html += `<div class="faint">还要减约 ${fl.fatToLoseKg || '1.0'} kg 脂肪（约 ${fl.fatToLoseKcal || 8000} 千卡）；今天已缺 ${fl.todayDeficitKcal || 0} 千卡，完成约 ${progressPct}%；按每天缺 ${fl.dailyDeficitTargetKcal || 400}–500 千卡，约 ${fl.estDaysRemaining || '16–20'} 天完成。</div>`;
+  html += `<div class="faint">还要减约 ${fl.fatToLoseKg || '1.04'} kg 脂肪（约 ${fl.fatToLoseKcal || 8000} 千卡）；本周已缺 ${fl.weeklyDeficitSoFarKcal || 0} 千卡，完成约 ${progressPct}%；按每天缺 ${fl.dailyDeficitTargetKcal || 400}–500 千卡，约 ${fl.estDaysRemaining || '16–20'} 天完成。</div>`;
 
   // --- 2. 今天吃了什么：按顿分开 ---
   html += `<h3>今天吃了什么（${t.date || selectedDate}）</h3>`;
@@ -265,7 +266,8 @@ function renderFatLoss() {
   html += `<div class="kv"><span class="k">蛋白</span><span class="v">${protein === null || protein === undefined ? '待记录' : '约 ' + protein + ' 克（目标 ' + (fl.dailyProteinTargetG || 120) + ' 克）'}</span></div>`;
   html += `<div class="kv"><span class="k">今天缺口</span><span class="v">${deficit === null || deficit === undefined ? '待记录' : '已缺 ' + Math.abs(deficit) + ' 千卡（目标缺 ' + (fl.dailyDeficitTargetKcal || 400) + ' 千卡）'}</span></div>`;
   if (fl.weeklyDeficitProgress) {
-    html += `<div class="kv"><span class="k">本周缺口（平均）</span><span class="v">${fl.weeklyDeficitProgress}；每周目标约 ${fl.weeklyDeficitTargetKcal || '2400–2800'} 千卡</span></div>`;
+    html += `<div class="kv"><span class="k">本周累计缺口</span><span class="v">${fl.weeklyDeficitProgress}</span></div>`;
+    html += `<div class="kv"><span class="k">每周缺口目标</span><span class="v">约 ${fl.weeklyDeficitTargetKcal || '2400–2800'} 千卡</span></div>`;
   }
 
   // --- 4. 今天运动了什么（只要大项，不要细节） ---
@@ -288,7 +290,6 @@ function renderFatLoss() {
   const expend = dy ? dy.expenditureKcal : null;
   html += `<div class="kv"><span class="k">基础代谢</span><span class="v">${bmr === null || bmr === undefined ? '待记录' : bmr + ' 千卡'}</span></div>`;
   html += `<div class="kv"><span class="k">全天正常消耗</span><span class="v">${expend === null || expend === undefined ? '待记录' : '约 ' + expend + ' 千卡（基础代谢＋活动＋运动）'}</span></div>`;
-  html += `<div class="kv"><span class="k">今天缺口</span><span class="v">${deficit === null || deficit === undefined ? '待记录' : (deficit < 0 ? '已缺 ' + Math.abs(deficit) + ' 千卡' : '盈余 ' + deficit + ' 千卡')}</span></div>`;
 
   if (t.note) html += `<div class="faint" style="margin-top:8px">${t.note}</div>`;
   const toBuy = fl.toBuy || [];
@@ -379,7 +380,8 @@ function renderTimeline() {
     // “总卡路里”是手表的消耗，不是摄入，写清楚；半天的日子加个（半天）。
     if (dy && dy.totalKcal !== null) {
       const halfDay = dy.note && dy.note.indexOf('半天') !== -1 ? '（半天）' : '';
-      bits.push('消耗约 ' + Math.round(dy.totalKcal) + ' kcal（手表）' + halfDay);
+      const srcTag = (dy.activityKcal !== null && dy.activityKcal !== undefined) ? '（手表）' : '（估算）';
+      bits.push('消耗约 ' + Math.round(dy.totalKcal) + ' kcal' + srcTag + halfDay);
     }
     if (!bits.length) bits.push('待记录');
     return `<div class="timeline-item"><div class="d">${d}（${['周日', '周一', '周二', '周三', '周四', '周五', '周六'][new Date(d + 'T12:00:00').getDay()]}）</div><p>${bits.join('；')}</p></div>`;
@@ -394,7 +396,6 @@ function renderReview() {
     `<div class="kv"><span class="k">体重</span><span class="v">${w.weightStartKg} → ${w.weightEndKg} kg</span></div>` +
     `<div class="kv"><span class="k">体脂</span><span class="v">${w.fatStartPct}% → ${w.fatEndPct}%</span></div>` +
     `<div class="kv"><span class="k">肌肉</span><span class="v">${w.muscleStartKg} → ${w.muscleEndKg} kg</span></div>` +
-    `<div class="kv"><span class="k">距 18% 目标</span><span class="v">${w.gapToTargetPoints} 个点</span></div>` +
     `<p class="muted" style="margin-top:10px">${w.summary}</p>`;
 }
 
@@ -444,7 +445,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=9')
+  fetch('data.json?v=10')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;
