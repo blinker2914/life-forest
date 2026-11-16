@@ -1,1 +1,378 @@
-{"bodyMetrics":[{"date":"2026-10-16","fatPct":22.4,"muscleKg":null,"note":"基线（Fitdays 体测）","weightKg":null},{"date":"2026-11-05","fatPct":19.4,"muscleKg":48.7,"note":"体成分锚点（Fitdays 体测）","weightKg":64.85},{"asmi":8.1,"bmi":23,"bmrKcal":1497,"bodyAge":45,"boneMassKg":3.5,"date":"2026-11-13","fatFreeMassKg":52.3,"fatMassKg":12.7,"fatPct":19.6,"muscleKg":48.8,"note":"Fitdays；对比 2026-11-05：体重 +0.15kg，体脂率 +0.2%，脂肪量 +0.1kg，肌肉量 +0.1kg，骨骼肌持平。","proteinPct":16.1,"score":76,"skeletalMuscleKg":29.3,"subcutaneousFatPct":14.0,"visceralFat":4,"waistHipRatio":0.87,"waterPct":58.9,"weightKg":65.0}],"checkup":[],"daily":[{"activityKcal":null,"avgHeartRate":75.9,"date":"2026-11-09","expenditureKcal":null,"intakeKcal":null,"restingHeartRate":null,"steps":null,"surplusKcal":null,"totalKcal":null},{"activityKcal":null,"avgHeartRate":104.5,"date":"2026-11-10","expenditureKcal":null,"intakeKcal":null,"restingHeartRate":null,"steps":null,"surplusKcal":null,"totalKcal":null},{"activityKcal":579.2,"avgHeartRate":99.6,"date":"2026-11-11","expenditureKcal":2143.7,"intakeKcal":null,"restingHeartRate":null,"steps":null,"surplusKcal":-2143.7,"totalKcal":2143.7},{"activityKcal":461.1,"avgHeartRate":129.7,"date":"2026-11-12","expenditureKcal":2025.6,"intakeKcal":null,"restingHeartRate":null,"steps":null,"surplusKcal":-2025.6,"totalKcal":2025.6},{"activityKcal":null,"avgHeartRate":null,"date":"2026-11-13","expenditureKcal":1109.6,"intakeKcal":null,"note":"当天还没过完，是半天的数。","restingHeartRate":null,"steps":null,"surplusKcal":-1109.6,"totalKcal":1109.6}],"meta":{"fatGapPoints":1.6,"fatTargetPct":18,"nextWeighIn":"2026-11-27","notes":["手动记录优先于手表。","没有数据的日子显示待记录，不编数。","静息心率和步数在真实同步里还没进来，显示待同步，不写 0。","三顿卡路里未填时摄入显示待记录（飞书公式字段在未填时默认为 0，不代表真的吃了 0）。"],"owner":"老杨","source":"飞书多维表格「生命森林」","sourceUrl":"https://my.feishu.cn/base/EqNYbA8PPaTzMPsYHjxck0WqnRc","title":"生命森林","updatedAt":"2026-11-15","weighInRule":"1 到 2 周在同一台体脂秤上称一次"},"sleep":[{"bedTime":"00:09","date":"2026-11-09","deepHours":2.1,"hours":6.9,"lightHours":3.2,"remHours":1.4,"wakeTime":"07:01"},{"bedTime":"01:03","date":"2026-11-10","deepHours":1.5,"hours":5.8,"lightHours":3.0,"remHours":1.2,"wakeTime":"06:51"},{"bedTime":"00:25","date":"2026-11-11","deepHours":1.9,"hours":7.0,"lightHours":3.1,"remHours":2.0,"wakeTime":"07:25"},{"bedTime":"00:53","date":"2026-11-12","deepHours":1.8,"hours":5.5,"lightHours":1.8,"remHours":1.9,"wakeTime":"06:26"}],"supplementCheckins":[],"supplements":[{"dose":"3g，随早餐，和绿粉一起","name":"肌酸","status":"在吃","timeOfDay":"早"},{"dose":"3.5g/包","name":"绿粉 eimele","status":"在吃","timeOfDay":"早"},{"dose":"2 粒，共 270mg","name":"PS 磷脂酰丝氨酸","status":"在吃","timeOfDay":"午"},{"dose":"200mg，1 粒","name":"辅酶 Q10","status":"在吃","timeOfDay":"午"},{"dose":"D3 10000 IU + K1/K2，1 粒","name":"维生素 D3 + K","status":"在吃","timeOfDay":"午"},{"dose":"500mg，1 粒","name":"姜黄素","status":"在吃","timeOfDay":"午"},{"dose":"EPA 900mg + DHA 660mg，2 粒","name":"鱼油","status":"在吃","timeOfDay":"午"},{"dose":"1 粒随餐；吃动物肝当天跳过","name":"护眼 PRO EYE SHIELD","status":"在吃","timeOfDay":"午"},{"dose":"8g 粉剂","name":"牛骨胶原蛋白肽","status":"在吃","timeOfDay":"午"},{"dose":"1 片；吃动物肝当天跳过","name":"硒片","status":"在吃","timeOfDay":"隔天"},{"dose":"2 片，元素镁 200mg","name":"镁（甘氨酸镁）","status":"在吃","timeOfDay":"晚"},{"dose":"3000mg/包","name":"海洋胶原 Vida Glow","status":"在吃","timeOfDay":"晚"},{"dose":"Natrol 软糖 5mg，睡不着时睡前 30 分钟 1 粒，非常规","name":"褪黑素","status":"在吃","timeOfDay":"晚"}],"training":[{"content":"斜推 25×12、30×10~12×2、25×10 收尾（34kg 不摸）；分动平推每边 10kg：12、10、8；夹胸 20kg×12×3（手肘弯 30°、手放松、肘带胸合；下放吸气、推出呼气、顶端夹紧）；绳索下压 15kg 为基准。肩推机下放时右肩疼、已停，改哑铃肩推（肩胛面、下放只到耳朵）7.5~10kg，左边仍比右边慢一点点。","date":"2026-11-09","source":"手动","type":"推日"},{"content":"坐姿划船为主菜（背感明显）；高位下拉每边 20kg 为配菜（感觉清楚、就是工作档，不冲更高重量；直臂下拉仍找不好背感）；面拉坐姿 20kg×12 为标准（带肩外旋，对右肩更好；站姿会被带跑）；反向飞鸟不做（与面拉重复）。呼吸：拉时呼气收紧、放时吸气。当天共 4 个动作，练完小臂很酸。","date":"2026-11-10","source":"手动","type":"拉日"},{"content":"深圳店。硬拉：60kg 正手握到第 7~8 个握不住，70kg 换正反握就稳了；没带腰带，底部停半秒更费力。腿举 65×12 → 70×12×2；俯卧腘绳弯举 22kg 偏重（屁股会抬），18kg 才是工作档；腿屈伸 27×10×2；髋外展 22×12、髋内收 22×12（内收偏轻）。深圳店也有哈克蹲：主菜仍用倒蹬，哈克只作配菜、轻重量练姿势。","date":"2026-11-11","note":"晚间网球双手反手后，左前臂屈肌腱酸痛：静息 3~4 分、击打时 6~7 分，无肿、无麻。当晚冰敷 + 轻拉伸，停用泡沫轴硬滚。累积原因：11-10 拉日小臂酸 + 当天早上硬拉握力顶满 + 网球反手。","source":"手动","type":"腿日"},{"content":"以正手为主，尽量少打反手。左前臂屈肌腱仍酸（晨起约 3 分，不摁、角度不大时还好），打完歇一阵子。","date":"2026-11-12","note":"左前臂：11-10 拉日小臂酸 + 11-11 早硬拉握力顶满 + 网球双手反手累积；已冰敷、轻拉伸处理，逐日好转中。11-12 下午：摁压昨天酸处仍酸，不摁、角度不大时还好，较昨天有改善；判断休息一下就好，打完网球后也会歇一阵子。","source":"手动","type":"网球"},{"content":"斜推（插销机）24×12、29×12、29×10、24×10（29kg 为工作档；第三组起不憋气，胸感一场比一场清楚）；分动平推每边 10kg×10×3（手肘张太开，力跑到手臂上，推时胸没感觉、推完才有感觉）；夹胸 20kg×12×2、20×10（20kg 为工作档；手肘弯 30°、合到中间停半秒；第三组除最后两个都呼着气做完）；哑铃肩推 7.5×12、10×12（肩胛面 30°、下放只到耳朵）；绳索下压（重的那台）12.5×10、10×10（这台 10kg 比另一台 15kg 还重，数字不能对着来）。共 14 组、154 次、总量 3091kg·次。","date":"2026-11-13","note":"左前臂全程无不适，右肩无疼；改过后的推日安全。拉日与硬拉暂缓，等按压不疼再说。拉伸按约定换成瑜伽：胸 90 度压胸、双手背后交扣、鹰式手臂、牛面式手臂、坐姿脊柱扭转、四足跪姿手腕伸展。","source":"手动","type":"推日"},{"content":"广州店，小肌群/补缺日，共 22 组。宽推（WIDE CHEST PRESS）每边 10kg：12、10、10，工作重量 10kg/边；罗马椅自重×12×3，铰链找到，第 3 组 8/10，下次加 5kg 片；器械反向飞鸟 20×10、15×10、15×8，15kg 为工作档；哑铃侧平举每边 5kg×12×3；小腿提踵 10kg×约20、10kg×12，幅度只做了一半（脚跟没掉到台阶下面），下次前脚掌踩台阶边；绳索卷腹（重架子）12.5kg×12×4，第 1 组站姿，后 3 组跪姿（髋在膝盖正上方、别坐脚跟上）；腹肌板卷腹自重×12×3（新动作）。拉伸简单版（手腕、胸背）。","date":"2026-11-15","note":"左前臂全程无不适，仍有点点紧，继续恢复。按压测试结果仍未重报。","source":"手动","type":"小肌群日"},{"content":"[手表] Workout 494 51分钟","date":"2026-11-10","exerciseAvgHeartRate":null,"exerciseKcal":null,"source":"手表","type":"其他"},{"content":"[手表] Workout 495 60分钟","date":"2026-11-10","exerciseAvgHeartRate":null,"exerciseKcal":null,"source":"手表","type":"其他"},{"content":"[手表] Workout 496 69分钟","date":"2026-11-11","exerciseAvgHeartRate":null,"exerciseKcal":null,"source":"手表","type":"其他"},{"content":"[手表] Workout 497 66分钟","date":"2026-11-11","exerciseAvgHeartRate":null,"exerciseKcal":null,"source":"手表","type":"网球"},{"content":"[手表] Workout 498 68分钟","date":"2026-11-12","exerciseAvgHeartRate":null,"exerciseKcal":null,"source":"手表","type":"网球"}],"weekly":[{"fatEndPct":19.6,"fatStartPct":19.4,"gapToTargetPoints":1.6,"muscleEndKg":48.8,"muscleStartKg":48.7,"summary":"自 2026-10-16 体脂率 22.4% 以来已下降 2.8 个百分点；本周变化较小，体重与体脂略升、肌肉微增。","week":"2026-11-05 至 2026-11-13","weightEndKg":65.0,"weightStartKg":64.85}]}
+{
+  "bodyMetrics": [
+    {
+      "date": "2026-10-16",
+      "fatPct": 22.4,
+      "muscleKg": null,
+      "note": "基线（Fitdays 体测）",
+      "weightKg": null
+    },
+    {
+      "date": "2026-11-05",
+      "fatPct": 19.4,
+      "muscleKg": 48.7,
+      "note": "体成分锚点（Fitdays 体测）",
+      "weightKg": 64.85
+    },
+    {
+      "asmi": 8.1,
+      "bmi": 23,
+      "bmrKcal": 1497,
+      "bodyAge": 45,
+      "boneMassKg": 3.5,
+      "date": "2026-11-13",
+      "fatFreeMassKg": 52.3,
+      "fatMassKg": 12.7,
+      "fatPct": 19.6,
+      "muscleKg": 48.8,
+      "note": "Fitdays；对比 2026-11-05：体重 +0.15kg，体脂率 +0.2%，脂肪量 +0.1kg，肌肉量 +0.1kg，骨骼肌持平。",
+      "proteinPct": 16.1,
+      "score": 76,
+      "skeletalMuscleKg": 29.3,
+      "subcutaneousFatPct": 14.0,
+      "visceralFat": 4,
+      "waistHipRatio": 0.87,
+      "waterPct": 58.9,
+      "weightKg": 65.0
+    }
+  ],
+  "checkup": [],
+  "daily": [
+    {
+      "activityKcal": null,
+      "avgHeartRate": 75.9,
+      "date": "2026-11-09",
+      "expenditureKcal": null,
+      "intakeKcal": null,
+      "restingHeartRate": null,
+      "steps": null,
+      "surplusKcal": null,
+      "totalKcal": null
+    },
+    {
+      "activityKcal": null,
+      "avgHeartRate": 104.5,
+      "date": "2026-11-10",
+      "expenditureKcal": null,
+      "intakeKcal": null,
+      "restingHeartRate": null,
+      "steps": null,
+      "surplusKcal": null,
+      "totalKcal": null
+    },
+    {
+      "activityKcal": 579.2,
+      "avgHeartRate": 99.6,
+      "date": "2026-11-11",
+      "expenditureKcal": 2143.7,
+      "intakeKcal": null,
+      "restingHeartRate": null,
+      "steps": null,
+      "surplusKcal": -2143.7,
+      "totalKcal": 2143.7
+    },
+    {
+      "activityKcal": 461.1,
+      "avgHeartRate": 129.7,
+      "date": "2026-11-12",
+      "expenditureKcal": 2025.6,
+      "intakeKcal": null,
+      "restingHeartRate": null,
+      "steps": null,
+      "surplusKcal": -2025.6,
+      "totalKcal": 2025.6
+    },
+    {
+      "activityKcal": null,
+      "avgHeartRate": null,
+      "date": "2026-11-13",
+      "expenditureKcal": 1109.6,
+      "intakeKcal": null,
+      "note": "当天还没过完，是半天的数。",
+      "restingHeartRate": null,
+      "steps": null,
+      "surplusKcal": -1109.6,
+      "totalKcal": 1109.6
+    },
+    {
+      "date": "2026-11-16",
+      "intakeKcal": 790,
+      "proteinG": 68,
+      "expenditureKcal": 2100,
+      "surplusKcal": -1310,
+      "totalKcal": 2100,
+      "avgHeartRate": null,
+      "restingHeartRate": null,
+      "steps": null,
+      "activityKcal": null,
+      "note": "到午饭后：约 790 千卡、蛋白约 68 克（估算）。晚饭还剩约 750–950 千卡、蛋白约 51 克。今日单练日，目标摄入 1600–1800 千卡、蛋白 120 克。"
+    }
+  ],
+  "meta": {
+    "fatGapPoints": 1.6,
+    "fatTargetPct": 18,
+    "nextWeighIn": "2026-11-27",
+    "notes": [
+      "手动记录优先于手表。",
+      "没有数据的日子显示待记录，不编数。",
+      "静息心率和步数在真实同步里还没进来，显示待同步，不写 0。",
+      "三顿卡路里未填时摄入显示待记录（飞书公式字段在未填时默认为 0，不代表真的吃了 0）。",
+      "减脂第 1 周（11/16–11/22）：目标体脂 19.6% → 18%，每周缺口约 2400–2800 千卡，蛋白每天 120 克、每周 840 克。"
+    ],
+    "owner": "老杨",
+    "source": "飞书多维表格「生命森林」",
+    "sourceUrl": "https://my.feishu.cn/base/EqNYbA8PPaTzMPsYHjxck0WqnRc",
+    "title": "健康小石子",
+    "updatedAt": "2026-11-16",
+    "weighInRule": "1 到 2 周在同一台体脂秤上称一次"
+  },
+  "sleep": [
+    {
+      "bedTime": "00:09",
+      "date": "2026-11-09",
+      "deepHours": 2.1,
+      "hours": 6.9,
+      "lightHours": 3.2,
+      "remHours": 1.4,
+      "wakeTime": "07:01"
+    },
+    {
+      "bedTime": "01:03",
+      "date": "2026-11-10",
+      "deepHours": 1.5,
+      "hours": 5.8,
+      "lightHours": 3.0,
+      "remHours": 1.2,
+      "wakeTime": "06:51"
+    },
+    {
+      "bedTime": "00:25",
+      "date": "2026-11-11",
+      "deepHours": 1.9,
+      "hours": 7.0,
+      "lightHours": 3.1,
+      "remHours": 2.0,
+      "wakeTime": "07:25"
+    },
+    {
+      "bedTime": "00:53",
+      "date": "2026-11-12",
+      "deepHours": 1.8,
+      "hours": 5.5,
+      "lightHours": 1.8,
+      "remHours": 1.9,
+      "wakeTime": "06:26"
+    }
+  ],
+  "supplementCheckins": [],
+  "supplements": [
+    {
+      "dose": "3g，随早餐，和绿粉一起",
+      "name": "肌酸",
+      "status": "在吃",
+      "timeOfDay": "早"
+    },
+    {
+      "dose": "3.5g/包",
+      "name": "绿粉 eimele",
+      "status": "在吃",
+      "timeOfDay": "早"
+    },
+    {
+      "dose": "2 粒，共 270mg",
+      "name": "PS 磷脂酰丝氨酸",
+      "status": "在吃",
+      "timeOfDay": "午"
+    },
+    {
+      "dose": "200mg，1 粒",
+      "name": "辅酶 Q10",
+      "status": "在吃",
+      "timeOfDay": "午"
+    },
+    {
+      "dose": "D3 10000 IU + K1/K2，1 粒",
+      "name": "维生素 D3 + K",
+      "status": "在吃",
+      "timeOfDay": "午"
+    },
+    {
+      "dose": "500mg，1 粒",
+      "name": "姜黄素",
+      "status": "在吃",
+      "timeOfDay": "午"
+    },
+    {
+      "dose": "EPA 900mg + DHA 660mg，2 粒",
+      "name": "鱼油",
+      "status": "在吃",
+      "timeOfDay": "午"
+    },
+    {
+      "dose": "1 粒随餐；吃动物肝当天跳过",
+      "name": "护眼 PRO EYE SHIELD",
+      "status": "在吃",
+      "timeOfDay": "午"
+    },
+    {
+      "dose": "8g 粉剂",
+      "name": "牛骨胶原蛋白肽",
+      "status": "在吃",
+      "timeOfDay": "午"
+    },
+    {
+      "dose": "1 片；吃动物肝当天跳过",
+      "name": "硒片",
+      "status": "在吃",
+      "timeOfDay": "隔天"
+    },
+    {
+      "dose": "2 片，元素镁 200mg",
+      "name": "镁（甘氨酸镁）",
+      "status": "在吃",
+      "timeOfDay": "晚"
+    },
+    {
+      "dose": "3000mg/包",
+      "name": "海洋胶原 Vida Glow",
+      "status": "在吃",
+      "timeOfDay": "晚"
+    },
+    {
+      "dose": "Natrol 软糖 5mg，睡不着时睡前 30 分钟 1 粒，非常规",
+      "name": "褪黑素",
+      "status": "在吃",
+      "timeOfDay": "晚"
+    }
+  ],
+  "training": [
+    {
+      "content": "斜推 25×12、30×10~12×2、25×10 收尾（34kg 不摸）；分动平推每边 10kg：12、10、8；夹胸 20kg×12×3（手肘弯 30°、手放松、肘带胸合；下放吸气、推出呼气、顶端夹紧）；绳索下压 15kg 为基准。肩推机下放时右肩疼、已停，改哑铃肩推（肩胛面、下放只到耳朵）7.5~10kg，左边仍比右边慢一点点。",
+      "date": "2026-11-09",
+      "source": "手动",
+      "type": "推日"
+    },
+    {
+      "content": "坐姿划船为主菜（背感明显）；高位下拉每边 20kg 为配菜（感觉清楚、就是工作档，不冲更高重量；直臂下拉仍找不好背感）；面拉坐姿 20kg×12 为标准（带肩外旋，对右肩更好；站姿会被带跑）；反向飞鸟不做（与面拉重复）。呼吸：拉时呼气收紧、放时吸气。当天共 4 个动作，练完小臂很酸。",
+      "date": "2026-11-10",
+      "source": "手动",
+      "type": "拉日"
+    },
+    {
+      "content": "深圳店。硬拉：60kg 正手握到第 7~8 个握不住，70kg 换正反握就稳了；没带腰带，底部停半秒更费力。腿举 65×12 → 70×12×2；俯卧腘绳弯举 22kg 偏重（屁股会抬），18kg 才是工作档；腿屈伸 27×10×2；髋外展 22×12、髋内收 22×12（内收偏轻）。深圳店也有哈克蹲：主菜仍用倒蹬，哈克只作配菜、轻重量练姿势。",
+      "date": "2026-11-11",
+      "note": "晚间网球双手反手后，左前臂屈肌腱酸痛：静息 3~4 分、击打时 6~7 分，无肿、无麻。当晚冰敷 + 轻拉伸，停用泡沫轴硬滚。累积原因：11-10 拉日小臂酸 + 当天早上硬拉握力顶满 + 网球反手。",
+      "source": "手动",
+      "type": "腿日"
+    },
+    {
+      "content": "以正手为主，尽量少打反手。左前臂屈肌腱仍酸（晨起约 3 分，不摁、角度不大时还好），打完歇一阵子。",
+      "date": "2026-11-12",
+      "note": "左前臂：11-10 拉日小臂酸 + 11-11 早硬拉握力顶满 + 网球双手反手累积；已冰敷、轻拉伸处理，逐日好转中。11-12 下午：摁压昨天酸处仍酸，不摁、角度不大时还好，较昨天有改善；判断休息一下就好，打完网球后也会歇一阵子。",
+      "source": "手动",
+      "type": "网球"
+    },
+    {
+      "content": "斜推（插销机）24×12、29×12、29×10、24×10（29kg 为工作档；第三组起不憋气，胸感一场比一场清楚）；分动平推每边 10kg×10×3（手肘张太开，力跑到手臂上，推时胸没感觉、推完才有感觉）；夹胸 20kg×12×2、20×10（20kg 为工作档；手肘弯 30°、合到中间停半秒；第三组除最后两个都呼着气做完）；哑铃肩推 7.5×12、10×12（肩胛面 30°、下放只到耳朵）；绳索下压（重的那台）12.5×10、10×10（这台 10kg 比另一台 15kg 还重，数字不能对着来）。共 14 组、154 次、总量 3091kg·次。",
+      "date": "2026-11-13",
+      "note": "左前臂全程无不适，右肩无疼；改过后的推日安全。拉日与硬拉暂缓，等按压不疼再说。拉伸按约定换成瑜伽：胸 90 度压胸、双手背后交扣、鹰式手臂、牛面式手臂、坐姿脊柱扭转、四足跪姿手腕伸展。",
+      "source": "手动",
+      "type": "推日"
+    },
+    {
+      "content": "广州店，小肌群/补缺日，共 22 组。宽推（WIDE CHEST PRESS）每边 10kg：12、10、10，工作重量 10kg/边；罗马椅自重×12×3，铰链找到，第 3 组 8/10，下次加 5kg 片；器械反向飞鸟 20×10、15×10、15×8，15kg 为工作档；哑铃侧平举每边 5kg×12×3；小腿提踵 10kg×约20、10kg×12，幅度只做了一半（脚跟没掉到台阶下面），下次前脚掌踩台阶边；绳索卷腹（重架子）12.5kg×12×4，第 1 组站姿，后 3 组跪姿（髋在膝盖正上方、别坐脚跟上）；腹肌板卷腹自重×12×3（新动作）。拉伸简单版（手腕、胸背）。",
+      "date": "2026-11-15",
+      "note": "左前臂全程无不适，仍有点点紧，继续恢复。按压测试结果仍未重报。",
+      "source": "手动",
+      "type": "小肌群日"
+    },
+    {
+      "content": "[手表] Workout 494 51分钟",
+      "date": "2026-11-10",
+      "exerciseAvgHeartRate": null,
+      "exerciseKcal": null,
+      "source": "手表",
+      "type": "其他"
+    },
+    {
+      "content": "[手表] Workout 495 60分钟",
+      "date": "2026-11-10",
+      "exerciseAvgHeartRate": null,
+      "exerciseKcal": null,
+      "source": "手表",
+      "type": "其他"
+    },
+    {
+      "content": "[手表] Workout 496 69分钟",
+      "date": "2026-11-11",
+      "exerciseAvgHeartRate": null,
+      "exerciseKcal": null,
+      "source": "手表",
+      "type": "其他"
+    },
+    {
+      "content": "[手表] Workout 497 66分钟",
+      "date": "2026-11-11",
+      "exerciseAvgHeartRate": null,
+      "exerciseKcal": null,
+      "source": "手表",
+      "type": "网球"
+    },
+    {
+      "content": "[手表] Workout 498 68分钟",
+      "date": "2026-11-12",
+      "exerciseAvgHeartRate": null,
+      "exerciseKcal": null,
+      "source": "手表",
+      "type": "网球"
+    },
+    {
+      "date": "2026-11-16",
+      "type": "腿日",
+      "source": "手动",
+      "content": "广州店，早上 08:01–09:13，15 组、178 次。哈克蹲（45°）60×12、70×12、80×10（3 组，第 4 组因左膝刺停掉；45° 首用，股四头集中；80×10 那组脚尖外开多了，左膝盖头轻微刺了一下）；俯卧腘绳弯举 20×12×4（挡板第二格正好）；臀推机 40×12×4（第 2 组视频 8/10）；髋内收 24×12、29×12（工作组 29）；髋外展 25×12×2。拉伸：下犬式、鸽子式、矛式、蝴蝶式、坐姿分腿前屈，各 30 秒。",
+      "note": "左膝：哈克蹲脚尖外开别超 30°，膝盖顺着脚尖走，刺再出现就停。45° 哈克蹲工作组未定，下次从 80 起步找。广州店内夹工作组 29、外展 25。前臂：按压不疼了（11/16 确认），旋转到最大幅度才疼；拉日可回（下拉、划船、面拉），弯举再等等，硬拉仍别碰。"
+    }
+  ],
+  "weekly": [
+    {
+      "fatEndPct": 19.6,
+      "fatStartPct": 19.4,
+      "gapToTargetPoints": 1.6,
+      "muscleEndKg": 48.8,
+      "muscleStartKg": 48.7,
+      "summary": "自 2026-10-16 体脂率 22.4% 以来已下降 2.8 个百分点；本周变化较小，体重与体脂略升、肌肉微增。",
+      "week": "2026-11-05 至 2026-11-13",
+      "weightEndKg": 65.0,
+      "weightStartKg": 64.85
+    }
+  ],
+  "fatLoss": {
+    "week": "第 1 周（11/16–11/22）",
+    "goal": "体脂 19.6% → 18%，先到 18% 再商量 16% 的事",
+    "weeklyDeficitTargetKcal": "2400–2800",
+    "weeklyProteinTargetG": 840,
+    "dailyProteinTargetG": 120,
+    "singleDayIntakeKcal": "1600–1800",
+    "twoADayIntakeKcal": "2200–2300",
+    "twoADayMaxPerWeek": 2,
+    "today": {
+      "date": "2026-11-16",
+      "dayType": "单练日（腿日）",
+      "targetDeficitKcal": 400,
+      "intakeSoFarKcal": "790–850",
+      "proteinSoFarG": "68–69",
+      "dinnerRemainingKcal": "750–950",
+      "dinnerRemainingProteinG": 51,
+      "note": "都是估算不是称重数（午饭牛肉粿条先算 415、后算 355，差在这儿）。"
+    },
+    "dinnerPlan": {
+      "first": "切鸡饭正常份（白切鸡约 200 克＋正常量米饭＋青菜）再加 1 个蛋，约 750 千卡、蛋白约 52 克，全天合计约 1600 千卡、蛋白约 121 克，正好压在目标线上",
+      "backup": "gaga 牛肉饭（瘦牛肉约 200 克＋正常量米饭＋青菜），约 750–800 千卡、蛋白约 48 克，全天约 1600–1650 千卡、蛋白约 117 克，蛋白差一点，再加个蛋或多点牛肉就行"
+    },
+    "toBuy": [
+      "合格酸奶几盒备着：蛋白 >8 克/100 克、碳水 <4 克/100 克、配料只有生牛乳加菌种（早上那杯蛋白 9.1 克过了，碳水 8.9 克、脂肪 12.3 克没过）",
+      "蛋白粉买小袋：纯乳清、无糖，别买增肌粉，每天 1–2 勺补正餐不够的部分"
+    ]
+  }
+}

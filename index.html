@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>生命森林 · 老杨的每日健康看板</title>
+<title>健康小石子 · 老杨的每日健康看板</title>
 <style>
   :root{
     --bg:#0c2318;
@@ -131,8 +131,8 @@
 <body>
 <div class="wrap">
   <header>
-    <h1>🌲 生命森林 <span>老杨的每日健康看板</span></h1>
-    <div class="sub">主曲线只看体脂和肌肉，不看体重 · 没有数据的日子显示待记录，不编数</div>
+    <h1>🪨 健康小石子 <span>老杨的每日健康看板</span></h1>
+    <div class="sub">每天一块小石子，慢慢筑成基本盘 · 主曲线只看体脂和肌肉，不看体重 · 没有数据的日子显示待记录，不编数</div>
     <div class="datebar">
       <button id="prevDay" aria-label="前一天">‹</button>
       <div class="date" id="dateLabel">—</div>
@@ -148,6 +148,11 @@
     <section class="card wide main">
       <h2>今日主面板 <span class="tag">每天变化的数据</span></h2>
       <div id="dailyToday"></div>
+    </section>
+
+    <section class="card wide" style="border-color:#8a6d2b">
+      <h2>🪨 减脂看板 <span class="tag">第 1 周 · 每天一块小石子</span></h2>
+      <div id="fatLossBoard"></div>
     </section>
 
     <section class="card purple">
@@ -215,6 +220,6 @@
 
   <footer id="footer"></footer>
 </div>
-<script src="app.js?v=5"></script>
+<script src="app.js?v=6"></script>
 </body>
 </html>

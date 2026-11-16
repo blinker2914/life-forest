@@ -1,4 +1,4 @@
-// 生命森林 · 纯前端渲染
+// 健康小石子 · 纯前端渲染
 // 数据全部来自同目录的 data.json（飞书「生命森林」多维表格的真实记录）。
 // 没有数据的日子显示「待记录」，静息心率和步数显示「待同步」，不编数、不写 0。
 
@@ -201,6 +201,37 @@ function renderEnergy() {
     '盈余为负不代表算错：三顿卡路里还没填，摄入是待记录，消耗是手表总卡路里。等三顿填了，盈余就正常了。11 月 13 日是半天的数。';
 }
 
+function renderFatLoss() {
+  const fl = DATA.fatLoss;
+  if (!fl) { $('fatLossBoard').innerHTML = pending; return; }
+  const t = fl.today || {};
+  const dinner = fl.dinnerPlan || {};
+  const toBuy = fl.toBuy || [];
+  let html = '';
+  html += `<div class="kv"><span class="k">目标</span><span class="v">${fl.goal}</span></div>`;
+  html += `<div class="kv"><span class="k">周期</span><span class="v">${fl.week}</span></div>`;
+  html += `<div class="kv"><span class="k">每周缺口目标</span><span class="v">约 ${fl.weeklyDeficitTargetKcal} 千卡</span></div>`;
+  html += `<div class="kv"><span class="k">每周蛋白目标</span><span class="v">${fl.weeklyProteinTargetG} 克（每天 ${fl.dailyProteinTargetG} 克）</span></div>`;
+  html += `<div class="kv"><span class="k">只撸铁日摄入</span><span class="v">${fl.singleDayIntakeKcal} 千卡</span></div>`;
+  html += `<div class="kv"><span class="k">两练日摄入</span><span class="v">${fl.twoADayIntakeKcal} 千卡（一周不超过 ${fl.twoADayMaxPerWeek} 次）</span></div>`;
+  html += `<div class="kv"><span class="k">今天（${t.date}）</span><span class="v">${t.dayType}，目标缺口约 ${t.targetDeficitKcal} 千卡</span></div>`;
+  html += `<div class="kv"><span class="k">今天到午饭后</span><span class="v">已吃约 ${t.intakeSoFarKcal} 千卡、蛋白约 ${t.proteinSoFarG} 克</span></div>`;
+  html += `<div class="kv"><span class="k">晚饭还剩</span><span class="v">约 ${t.dinnerRemainingKcal} 千卡、蛋白约 ${t.dinnerRemainingProteinG} 克</span></div>`;
+  if (t.note) html += `<div class="faint" style="margin-top:4px">${t.note}</div>`;
+  if (dinner.first) {
+    html += `<div class="note" style="margin-top:10px"><b>今晚晚饭首选：</b>${dinner.first}</div>`;
+  }
+  if (dinner.backup) {
+    html += `<div class="note" style="margin-top:8px"><b>备选：</b>${dinner.backup}</div>`;
+  }
+  if (toBuy.length) {
+    html += `<div style="margin-top:10px"><div class="faint">待买：</div>` +
+      toBuy.map(b => `<div class="muted" style="font-size:13px">· ${b}</div>`).join('') + '</div>';
+  }
+  html += `<div class="faint" style="margin-top:8px">热量按周算总账（今天多、明天少可以）；蛋白按天算，不能攒，今天不够明天吃双倍也补不回来。</div>`;
+  $('fatLossBoard').innerHTML = html;
+}
+
 function renderTraining() {
   const rows = [...(DATA.training || [])].sort((a, b) => b.date.localeCompare(a.date) || 0);
   $('trainingList').innerHTML = rows.map(r => {
@@ -343,6 +374,7 @@ function render() {
   renderDateBar();
   renderHeader();
   renderDaily();
+  renderFatLoss();
   renderBody();
   renderSleep();
   renderEnergy();
@@ -355,7 +387,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=2')
+  fetch('data.json?v=3')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;
