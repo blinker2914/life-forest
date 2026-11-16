@@ -326,9 +326,6 @@ function renderDaily() {
   rows.push(['心率 / 步数', hrBits.length ? hrBits.join('；') : '待同步（手表断联中，睡眠只到 11-12）']);
   let html = `<div class="faint">${selectedDate} · 用顶上日期箭头可以切到别的日子</div>` +
     rows.map(([k, v]) => `<div class="kv"><span class="k">${k}</span><span class="v">${v}</span></div>`).join('');
-  if (tr.length) {
-    html += tr.map(t => `<p class="muted" style="margin-top:6px">${t.content}</p>`).join('');
-  }
   if (dy && dy.note) html += `<div class="note">${dy.note}</div>`;
   $('dailyToday').innerHTML = html;
 }
@@ -407,7 +404,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=4')
+  fetch('data.json?v=5')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;
