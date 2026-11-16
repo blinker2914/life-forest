@@ -105,7 +105,46 @@
       "restingHeartRate": null,
       "steps": null,
       "activityKcal": null,
-      "note": "全天：约 1575 千卡、蛋白约 128 克，缺口约 525 千卡（今天目标 400）。都是估算不是称重数。"
+      "note": "全天：约 1575 千卡、蛋白约 128 克，缺口约 525 千卡（今天目标 400）。都是估算不是称重数。",
+      "meals": [
+        {
+          "name": "早餐",
+          "desc": "豆浆 1 杯＋鸡蛋 1 个＋香蕉 1 根",
+          "kcal": 275,
+          "proteinG": 14
+        },
+        {
+          "name": "练后加餐",
+          "desc": "关东煮（鱼豆腐 2 块＋魔芋丝＋白萝卜）＋水煮蛋 1 个",
+          "kcal": 160,
+          "proteinG": 12
+        },
+        {
+          "name": "午餐",
+          "desc": "牛肉粿条（牛肉约 200 克，面不到一半，汤基本没喝）",
+          "kcal": 355,
+          "proteinG": 42
+        },
+        {
+          "name": "下午加餐",
+          "desc": "红丝绒蛋糕一小块＋柚子 4–5 瓣",
+          "kcal": 135,
+          "proteinG": 2
+        },
+        {
+          "name": "晚餐",
+          "desc": "清汤麻辣烫（莲藕、青菜、金针菇、鹌鹑蛋 2 个、少许粉）＋卤菜（卤牛肉约 150 克＋卤下水约 80 克）",
+          "kcal": 650,
+          "proteinG": 58
+        }
+      ],
+      "exercise": {
+        "type": "腿日",
+        "place": "广州店健身房",
+        "kind": "力量训练",
+        "kcal": 300,
+        "durationMin": 72
+      }
     }
   ],
   "meta": {
@@ -383,6 +422,14 @@
     ],
     "weeklyDeficitSoFarKcal": 525,
     "weeklyDeficitProgress": "已缺 525 / 目标 2400–2800 千卡",
-    "reportChannel": "每顿吃完在旁聊报我一句，我估算记数，板子同步更新。"
+    "reportChannel": "每顿吃完在旁聊报我一句，我估算记数，板子同步更新。",
+    "currentFatPct": 19.6,
+    "targetFatPct": 18,
+    "fatToLoseKg": 1.0,
+    "fatToLoseKcal": 8000,
+    "dailyDeficitTargetKcal": 400,
+    "todayDeficitKcal": 525,
+    "todayProgressPct": 7,
+    "estDaysRemaining": "16–20"
   }
 }
