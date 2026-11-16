@@ -145,6 +145,27 @@
         "kcal": 300,
         "durationMin": 72
       }
+    },
+    {
+      "date": "2026-11-17",
+      "intakeKcal": 355,
+      "proteinG": 19,
+      "expenditureKcal": null,
+      "surplusKcal": null,
+      "totalKcal": null,
+      "avgHeartRate": null,
+      "restingHeartRate": null,
+      "steps": null,
+      "activityKcal": null,
+      "note": "早餐已吃：约355千卡、蛋白约19克。都是估算不是称重数。",
+      "meals": [
+        {
+          "name": "早餐",
+          "desc": "鸡蛋1个＋牛奶1盒（250ml）＋玉米半根＋烤面包片1片",
+          "kcal": 355,
+          "proteinG": 19
+        }
+      ]
     }
   ],
   "meta": {
@@ -162,7 +183,7 @@
     "source": "飞书多维表格「生命森林」",
     "sourceUrl": "https://my.feishu.cn/base/EqNYbA8PPaTzMPsYHjxck0WqnRc",
     "title": "健康小石子",
-    "updatedAt": "2026-11-16",
+    "updatedAt": "2026-11-17",
     "weighInRule": "1 到 2 周在同一台体脂秤上称一次"
   },
   "sleep": [
@@ -395,14 +416,14 @@
     "twoADayIntakeKcal": "2200–2300",
     "twoADayMaxPerWeek": 2,
     "today": {
-      "date": "2026-11-16",
-      "dayType": "单练日（腿日）",
+      "date": "2026-11-17",
+      "dayType": "单练日（推日）",
       "targetDeficitKcal": 400,
-      "intakeSoFarKcal": "1575",
-      "proteinSoFarG": "128",
-      "dinnerRemainingKcal": "0（已吃完）",
-      "dinnerRemainingProteinG": 0,
-      "note": "全天已吃完：约 1575 千卡、蛋白约 128 克。都是估算不是称重数。"
+      "intakeSoFarKcal": "355",
+      "proteinSoFarG": "19",
+      "dinnerRemainingKcal": "1245–1445",
+      "dinnerRemainingProteinG": 101,
+      "note": "早餐已吃：约355千卡、蛋白约19克。都是估算不是称重数。"
     },
     "toBuy": [
       "合格酸奶几盒备着：蛋白 >8 克/100 克、碳水 <4 克/100 克、配料只有生牛乳加菌种（早上那杯蛋白 9.1 克过了，碳水 8.9 克、脂肪 12.3 克没过）",
