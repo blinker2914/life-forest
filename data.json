@@ -148,8 +148,8 @@
     },
     {
       "date": "2026-11-17",
-      "intakeKcal": 355,
-      "proteinG": 19,
+      "intakeKcal": 320,
+      "proteinG": 18,
       "expenditureKcal": null,
       "surplusKcal": null,
       "totalKcal": null,
@@ -157,13 +157,13 @@
       "restingHeartRate": null,
       "steps": null,
       "activityKcal": null,
-      "note": "早餐已吃：约355千卡、蛋白约19克。都是估算不是称重数。",
+      "note": "早餐已吃：约320千卡、蛋白约18克。都是估算不是称重数。",
       "meals": [
         {
           "name": "早餐",
-          "desc": "鸡蛋1个＋牛奶1盒（250ml）＋玉米半根＋烤面包片1片",
-          "kcal": 355,
-          "proteinG": 19
+          "desc": "鸡蛋1个＋牛奶1盒（250ml）＋玉米四分之一根＋烤面包片1片",
+          "kcal": 320,
+          "proteinG": 18
         }
       ]
     }
@@ -419,11 +419,11 @@
       "date": "2026-11-17",
       "dayType": "单练日（推日）",
       "targetDeficitKcal": 400,
-      "intakeSoFarKcal": "355",
-      "proteinSoFarG": "19",
-      "dinnerRemainingKcal": "1245–1445",
-      "dinnerRemainingProteinG": 101,
-      "note": "早餐已吃：约355千卡、蛋白约19克。都是估算不是称重数。"
+      "intakeSoFarKcal": "320",
+      "proteinSoFarG": "18",
+      "dinnerRemainingKcal": "1280–1480",
+      "dinnerRemainingProteinG": 102,
+      "note": "早餐已吃：约320千卡、蛋白约18克。都是估算不是称重数。"
     },
     "toBuy": [
       "合格酸奶几盒备着：蛋白 >8 克/100 克、碳水 <4 克/100 克、配料只有生牛乳加菌种（早上那杯蛋白 9.1 克过了，碳水 8.9 克、脂肪 12.3 克没过）",
