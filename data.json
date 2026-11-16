@@ -96,16 +96,16 @@
     },
     {
       "date": "2026-11-16",
-      "intakeKcal": 890,
-      "proteinG": 70,
+      "intakeKcal": 1575,
+      "proteinG": 128,
       "expenditureKcal": 2100,
-      "surplusKcal": -1210,
+      "surplusKcal": -525,
       "totalKcal": 2100,
       "avgHeartRate": null,
       "restingHeartRate": null,
       "steps": null,
       "activityKcal": null,
-      "note": "到现在为止，晚饭还没吃，这不是全天缺口。"
+      "note": "全天：约 1575 千卡、蛋白约 128 克，缺口约 525 千卡（今天目标 400）。都是估算不是称重数。"
     }
   ],
   "meta": {
@@ -360,11 +360,11 @@
       "date": "2026-11-16",
       "dayType": "单练日（腿日）",
       "targetDeficitKcal": 400,
-      "intakeSoFarKcal": "890",
-      "proteinSoFarG": "70",
-      "dinnerRemainingKcal": "710–910",
-      "dinnerRemainingProteinG": 50,
-      "note": "都是估算不是称重数。"
+      "intakeSoFarKcal": "1575",
+      "proteinSoFarG": "128",
+      "dinnerRemainingKcal": "0（已吃完）",
+      "dinnerRemainingProteinG": 0,
+      "note": "全天已吃完：约 1575 千卡、蛋白约 128 克。都是估算不是称重数。"
     },
     "dinnerPlan": {
       "first": "切鸡饭正常份（白切鸡约 200 克＋正常量米饭＋青菜）再加 1 个蛋，约 750 千卡、蛋白约 52 克",
@@ -381,8 +381,8 @@
       "合格酸奶几盒备着：蛋白 >8 克/100 克、碳水 <4 克/100 克、配料只有生牛乳加菌种（早上那杯蛋白 9.1 克过了，碳水 8.9 克、脂肪 12.3 克没过）",
       "蛋白粉买小袋：纯乳清、无糖，别买增肌粉，每天 1–2 勺补正餐不够的部分"
     ],
-    "weeklyDeficitSoFarKcal": 400,
-    "weeklyDeficitProgress": "今天目标缺 400 千卡；本周目标 2400–2800 千卡（晚饭吃完按实测再算已缺）",
+    "weeklyDeficitSoFarKcal": 525,
+    "weeklyDeficitProgress": "已缺 525 / 目标 2400–2800 千卡",
     "reportChannel": "每顿吃完在旁聊报我一句，我估算记数，板子同步更新。"
   }
 }
