@@ -129,7 +129,7 @@ function renderHeader() {
   const stats = [];
   if (b) {
     // 头上只放现在多少、目标多少，不放“距目标多少个点”。
-    stats.push(['体脂率', b.fatPct + '%', '目标 ' + (fl.targetFatPct || meta.fatTargetPct) + '%']);
+    stats.push(['体脂率目标', b.fatPct + '% → ' + (fl.targetFatPct || meta.fatTargetPct) + '%', '']);
     stats.push(['体重', b.weightKg ? b.weightKg + ' kg' : '待记录', '']);
     stats.push(['下次称重', fmtDate(meta.nextWeighIn), meta.weighInRule || '']);
   }
@@ -170,31 +170,12 @@ function renderBody() {
   ]);
 }
 
-function sleepScore(sel) {
-  // 粗略打分（估算，不是医疗评分）：时长 + 深睡 + REM。
-  let s = 0;
-  const h = sel.hours || 0;
-  if (h >= 7) s += 40; else if (h >= 6) s += 30; else if (h >= 5) s += 20; else s += 10;
-  const deep = sel.deepHours || 0;
-  if (deep >= 1.5) s += 30; else if (deep >= 1) s += 20; else s += 10;
-  const rem = sel.remHours || 0;
-  if (rem >= 1) s += 15; else if (rem >= 0.5) s += 10; else s += 5;
-  // 浅睡占比越低越好（粗略）：浅睡 < 3h 加 15 分
-  const light = sel.lightHours || 0;
-  if (light < 3) s += 15; else if (light < 4) s += 10; else s += 5;
-  // 总时长 < 6 小时，分数封顶 60（5.5 小时拿 80 分太 generous）
-  if (h < 6) s = Math.min(s, 60);
-  return Math.min(100, s);
-}
-
 function renderSleep() {
   const rows = DATA.sleep || [];
   const sel = byDate(rows, selectedDate)[0] || rows[rows.length - 1];
   if (!sel) { $('sleepLatest').innerHTML = pending; return; }
-  const score = sleepScore(sel);
   $('sleepLatest').innerHTML =
     `<div class="faint">${sel.date} · ${sel.bedTime} 入睡 — ${sel.wakeTime} 起床</div>` +
-    `<div class="kv"><span class="k">睡眠评分</span><span class="v">${score} 分（粗略估算）</span></div>` +
     `<div class="kv"><span class="k">总时长</span><span class="v">${sel.hours} 小时</span></div>` +
     `<div class="kv"><span class="k">深睡</span><span class="v">${sel.deepHours} 小时</span></div>` +
     `<div class="kv"><span class="k">浅睡</span><span class="v">${sel.lightHours} 小时</span></div>` +
@@ -238,17 +219,20 @@ function renderFatLoss() {
   const curFat = fl.currentFatPct !== undefined ? fl.currentFatPct : (b ? b.fatPct : null);
   const tgtFat = fl.targetFatPct || 18;
   const progressPct = fl.todayProgressPct !== undefined ? fl.todayProgressPct : 0;
-  html += `<div class="kv"><span class="k">体脂率</span><span class="v">现在 ${curFat}% → 目标 ${tgtFat}%</span></div>`;
+  html += `<div class="kv"><span class="k">体脂率目标</span><span class="v">现在 ${curFat}% → 目标 ${tgtFat}%，${fl.estDaysRemaining || '20'} 天完成</span></div>`;
   html += `<div class="progress-bar"><div class="fill" style="width:${Math.min(100, Math.max(0, progressPct))}%"></div></div>`;
-  html += `<div class="faint">还要减约 ${fl.fatToLoseKg || '1.04'} kg 脂肪（约 ${fl.fatToLoseKcal || 8000} 千卡）；本周已缺 ${fl.weeklyDeficitSoFarKcal || 0} 千卡，完成约 ${progressPct}%；按每天缺 ${fl.dailyDeficitTargetKcal || 400}–500 千卡，约 ${fl.estDaysRemaining || '16–20'} 天完成。</div>`;
+  html += `<div class="faint">要减约 ${fl.fatToLoseKg || '1.04'} kg 脂肪（约 ${fl.fatToLoseKcal || 8000} 千卡）；本周已缺 ${fl.weeklyDeficitSoFarKcal || 0} 千卡，完成约 ${progressPct}%。</div>`;
 
   // --- 2. 今天吃了什么：按顿分开 ---
   html += `<h3>今天吃了什么（${t.date || selectedDate}）</h3>`;
   const meals = (dy && dy.meals) ? dy.meals : null;
   if (meals && meals.length) {
+    const totalKcal = meals.reduce((a, m) => a + (m.kcal || 0), 0);
+    const totalProtein = meals.reduce((a, m) => a + (m.proteinG || 0), 0);
     html += '<table><tr><th>这一顿</th><th>吃了什么</th><th class="num">热量</th><th class="num">蛋白</th></tr>' +
       meals.map(m =>
         `<tr><td>${m.name}</td><td>${m.desc}</td><td class="num">${m.kcal} 千卡</td><td class="num">${m.proteinG} 克</td></tr>`).join('') +
+      `<tr><td><b>合计</b></td><td></td><td class="num"><b>${totalKcal} 千卡</b></td><td class="num"><b>${totalProtein} 克</b></td></tr>` +
       '</table>';
   } else if (dy && dy.intakeKcal !== null && dy.intakeKcal !== undefined) {
     html += `<div class="kv"><span class="k">全天摄入</span><span class="v">约 ${dy.intakeKcal} 千卡、蛋白约 ${dy.proteinG || '—'} 克</span></div>`;
@@ -257,17 +241,35 @@ function renderFatLoss() {
     html += `<div class="pending">今天还没记吃的</div>`;
   }
 
-  // --- 3. 今天的任务：摄入、蛋白、缺口 ---
+  // --- 3. 每日目标与结果：目标、实际、差多少 ---
   const intake = dy ? dy.intakeKcal : null;
   const protein = dy ? dy.proteinG : null;
   const deficit = dy ? dy.surplusKcal : null;
-  html += `<h3>今天的任务</h3>`;
-  html += `<div class="kv"><span class="k">摄入</span><span class="v">${intake === null || intake === undefined ? '待记录' : '约 ' + intake + ' 千卡（只撸铁日控在 ' + (fl.singleDayIntakeKcal || '1600–1800') + ' 千卡内）'}</span></div>`;
-  html += `<div class="kv"><span class="k">蛋白</span><span class="v">${protein === null || protein === undefined ? '待记录' : '约 ' + protein + ' 克（目标 ' + (fl.dailyProteinTargetG || 120) + ' 克）'}</span></div>`;
-  html += `<div class="kv"><span class="k">今天缺口</span><span class="v">${deficit === null || deficit === undefined ? '待记录' : '已缺 ' + Math.abs(deficit) + ' 千卡（目标缺 ' + (fl.dailyDeficitTargetKcal || 400) + ' 千卡）'}</span></div>`;
-  if (fl.weeklyDeficitProgress) {
-    html += `<div class="kv"><span class="k">本周累计缺口</span><span class="v">${fl.weeklyDeficitProgress}</span></div>`;
-    html += `<div class="kv"><span class="k">每周缺口目标</span><span class="v">约 ${fl.weeklyDeficitTargetKcal || '2400–2800'} 千卡</span></div>`;
+  const intakeTarget = fl.singleDayIntakeKcal || '1600–1800';
+  const proteinTarget = fl.dailyProteinTargetG || 120;
+  const deficitTarget = fl.dailyDeficitTargetKcal || 400;
+  html += `<h3>每日目标与结果</h3>`;
+  if (intake === null || intake === undefined) {
+    html += `<div class="kv"><span class="k">热量</span><span class="v">待记录（目标控在 ${intakeTarget} 千卡内）</span></div>`;
+  } else {
+    const diffKcal = intake - 1600;
+    const diffTxt = diffKcal < 0 ? `比目标下限低 ${Math.abs(diffKcal)} 千卡，缺口更大` : (diffKcal <= 200 ? `在目标区间内` : `比目标上限高 ${diffKcal - 200} 千卡`);
+    html += `<div class="kv"><span class="k">热量</span><span class="v">目标 ${intakeTarget} 千卡，实际约 ${intake} 千卡（${diffTxt}）</span></div>`;
+  }
+  if (protein === null || protein === undefined) {
+    html += `<div class="kv"><span class="k">蛋白</span><span class="v">待记录（目标 ${proteinTarget} 克以上）</span></div>`;
+  } else {
+    const diffP = protein - proteinTarget;
+    const diffTxt = diffP >= 0 ? `比目标多 ${diffP} 克` : `比目标少 ${Math.abs(diffP)} 克`;
+    html += `<div class="kv"><span class="k">蛋白</span><span class="v">目标 ${proteinTarget} 克以上，实际约 ${protein} 克（${diffTxt}）</span></div>`;
+  }
+  if (deficit === null || deficit === undefined) {
+    html += `<div class="kv"><span class="k">缺口</span><span class="v">待记录（目标缺 ${deficitTarget} 千卡）</span></div>`;
+  } else {
+    const actualDef = Math.abs(deficit);
+    const diffD = actualDef - deficitTarget;
+    const diffTxt = diffD >= 0 ? `多缺 ${diffD} 千卡` : `少缺 ${Math.abs(diffD)} 千卡`;
+    html += `<div class="kv"><span class="k">缺口</span><span class="v">目标缺 ${deficitTarget} 千卡，实际缺 ${actualDef} 千卡（${diffTxt}）</span></div>`;
   }
 
   // --- 4. 今天运动了什么（只要大项，不要细节） ---
@@ -294,8 +296,8 @@ function renderFatLoss() {
   if (t.note) html += `<div class="faint" style="margin-top:8px">${t.note}</div>`;
   const toBuy = fl.toBuy || [];
   if (toBuy.length) {
-    html += `<div style="margin-top:10px"><div class="faint">待买：</div>` +
-      toBuy.map(x => `<div class="muted" style="font-size:13px">· ${x}</div>`).join('') + '</div>';
+    html += `<h3>待买</h3>` +
+      toBuy.map(x => `<div class="muted" style="font-size:13px">· ${x}</div>`).join('');
   }
   html += `<div class="faint" style="margin-top:8px">热量按周算总账（今天多、明天少可以）；蛋白按天算，不能攒，今天不够明天吃双倍也补不回来。数字都是估算，不是称重数。</div>`;
   if (fl.reportChannel) {
@@ -445,7 +447,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=10')
+  fetch('data.json?v=11')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;

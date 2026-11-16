@@ -139,7 +139,7 @@
         }
       ],
       "exercise": {
-        "type": "腿日",
+        "type": "练腿",
         "place": "广州店健身房",
         "kind": "力量训练",
         "kcal": 300,
@@ -418,6 +418,6 @@
     "dailyDeficitTargetKcal": 400,
     "todayDeficitKcal": 525,
     "todayProgressPct": 7,
-    "estDaysRemaining": "16–20"
+    "estDaysRemaining": "20"
   }
 }
