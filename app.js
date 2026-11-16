@@ -331,8 +331,11 @@ function renderDaily() {
     rows.push(['今天吃了多少', `约 ${fl.today.intakeSoFarKcal} 千卡、蛋白约 ${fl.today.proteinSoFarG} 克（详见减脂看板）`]);
   } else {
     rows.push(['摄入卡路里', dy ? kcal(dy.intakeKcal) : pending]);
-    // “晚饭还没吃”只对今天成立，过去的日子别贴。
-    rows.push(['能量盈余', dy ? kcal(dy.surplusKcal) : pending]);
+    // 摄入为空，盈余就待记录，别拿 0 去减（跟三餐表一样的判断，双保险）。
+    const surplusVal = (dy && dy.intakeKcal !== null && dy.intakeKcal !== undefined)
+      ? kcal(dy.surplusKcal)
+      : pending;
+    rows.push(['能量盈余', surplusVal]);
   }
   rows.push(['睡眠', sl ? `${sl.hours} 小时（深睡 ${sl.deepHours}、浅睡 ${sl.lightHours}、REM ${sl.remHours}）` : pending]);
   rows.push(['今天训练', tr.length ? tr.map(t => t.type).join('、') : pending]);
@@ -357,7 +360,11 @@ function renderTimeline() {
     const bits = [];
     if (tr.length) bits.push('训练：' + tr.map(t => t.type).join('、'));
     if (sl) bits.push('睡眠 ' + sl.hours + ' 小时（深睡 ' + sl.deepHours + '、浅睡 ' + sl.lightHours + '、REM ' + sl.remHours + '）');
-    if (dy && dy.totalKcal !== null) bits.push('总卡路里 ' + Math.round(dy.totalKcal) + ' kcal');
+    // “总卡路里”是手表的消耗，不是摄入，写清楚；半天的日子加个（半天）。
+    if (dy && dy.totalKcal !== null) {
+      const halfDay = dy.note && dy.note.indexOf('半天') !== -1 ? '（半天）' : '';
+      bits.push('消耗约 ' + Math.round(dy.totalKcal) + ' kcal（手表）' + halfDay);
+    }
     if (!bits.length) bits.push('待记录');
     return `<div class="timeline-item"><div class="d">${d}（${['周日', '周一', '周二', '周三', '周四', '周五', '周六'][new Date(d + 'T12:00:00').getDay()]}）</div><p>${bits.join('；')}</p></div>`;
   }).join('');
@@ -422,7 +429,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=6')
+  fetch('data.json?v=7')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;

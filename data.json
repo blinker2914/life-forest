@@ -68,7 +68,7 @@
       "intakeKcal": null,
       "restingHeartRate": null,
       "steps": null,
-      "surplusKcal": -2143.7,
+      "surplusKcal": null,
       "totalKcal": 2143.7
     },
     {
@@ -79,7 +79,7 @@
       "intakeKcal": null,
       "restingHeartRate": null,
       "steps": null,
-      "surplusKcal": -2025.6,
+      "surplusKcal": null,
       "totalKcal": 2025.6
     },
     {
@@ -91,7 +91,7 @@
       "note": "当天还没过完，是半天的数。",
       "restingHeartRate": null,
       "steps": null,
-      "surplusKcal": -1109.6,
+      "surplusKcal": null,
       "totalKcal": 1109.6
     },
     {
