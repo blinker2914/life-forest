@@ -192,14 +192,18 @@ function renderSleep() {
 function renderEnergy() {
   const rows = [...(DATA.daily || [])].sort((a, b) => b.date.localeCompare(a.date));
   const cell = (v, d = 0) => (v === null || v === undefined) ? '<span class="pending">待记录</span>' : Number(v).toFixed(d);
+  // 摄入为空，盈余就显示待记录，别拿 0 去减（11-11/11-12/11-13 三天就是这么错的）。
+  const surplusCell = (r) => (r.intakeKcal === null || r.intakeKcal === undefined)
+    ? '<span class="pending">待记录</span>'
+    : cell(r.surplusKcal);
   $('energyTable').innerHTML =
     '<table><tr><th>日期</th><th class="num">摄入</th><th class="num">消耗</th><th class="num">盈余（到现在为止）</th></tr>' +
     rows.map(r =>
       `<tr><td>${fmtDate(r.date)}</td><td class="num">${cell(r.intakeKcal)}</td>` +
-      `<td class="num">${cell(r.expenditureKcal)}</td><td class="num">${cell(r.surplusKcal)}</td></tr>`).join('') +
+      `<td class="num">${cell(r.expenditureKcal)}</td><td class="num">${surplusCell(r)}</td></tr>`).join('') +
     '</table>';
   $('energyNote').textContent =
-    '盈余是“到现在为止”的数：三顿还没吃完，摄入是到现在的数，消耗是全天估算。等三顿吃完，盈余才是全天缺口。11 月 13 日是半天的数。';
+    '盈余是“到现在为止”的数：三顿还没吃完，摄入是到现在的数，消耗是全天估算。等三顿吃完，盈余才是全天缺口。摄入没填的日子，盈余显示待记录，不拿 0 去算。11 月 13 日是半天的数。';
 }
 
 function renderFatLoss() {
@@ -221,10 +225,22 @@ function renderFatLoss() {
   html += `<div class="kv"><span class="k">今天（${t.date}）到现在</span><span class="v">已吃约 ${t.intakeSoFarKcal} 千卡、蛋白约 ${t.proteinSoFarG} 克</span></div>`;
   html += `<div class="kv"><span class="k">晚饭还剩</span><span class="v">约 ${t.dinnerRemainingKcal} 千卡、蛋白约 ${t.dinnerRemainingProteinG} 克</span></div>`;
   if (t.note) html += `<div class="faint" style="margin-top:4px">${t.note}</div>`;
-  if (dinner.first) {
+  // 晚饭合计是算出来的（已吃 + 这顿），不是写死的，下次已吃一改合计自动跟着变。
+  const eatenKcal = parseInt(t.intakeSoFarKcal, 10) || 0;
+  const eatenProtein = parseInt(t.proteinSoFarG, 10) || 0;
+  if (dinner.firstDesc && dinner.firstKcal !== undefined) {
+    const totalKcal = eatenKcal + dinner.firstKcal;
+    const totalProtein = eatenProtein + (dinner.firstProteinG || 0);
+    html += `<div class="note" style="margin-top:10px"><b>今晚晚饭首选：</b>${dinner.firstDesc}，约 ${dinner.firstKcal} 千卡、蛋白约 ${dinner.firstProteinG} 克，全天合计约 ${totalKcal} 千卡、蛋白约 ${totalProtein} 克，正好压在目标线上</div>`;
+  } else if (dinner.first) {
     html += `<div class="note" style="margin-top:10px"><b>今晚晚饭首选：</b>${dinner.first}</div>`;
   }
-  if (dinner.backup) {
+  if (dinner.backupDesc && dinner.backupKcalMin !== undefined) {
+    const totalMin = eatenKcal + dinner.backupKcalMin;
+    const totalMax = eatenKcal + (dinner.backupKcalMax || dinner.backupKcalMin);
+    const totalProtein = eatenProtein + (dinner.backupProteinG || 0);
+    html += `<div class="note" style="margin-top:8px"><b>备选：</b>${dinner.backupDesc}，约 ${dinner.backupKcalMin}–${dinner.backupKcalMax} 千卡、蛋白约 ${dinner.backupProteinG} 克，全天约 ${totalMin}–${totalMax} 千卡、蛋白约 ${totalProtein} 克，蛋白差一点，再加个蛋或多点牛肉就行</div>`;
+  } else if (dinner.backup) {
     html += `<div class="note" style="margin-top:8px"><b>备选：</b>${dinner.backup}</div>`;
   }
   if (toBuy.length) {
@@ -309,12 +325,14 @@ function renderDaily() {
   const tr = byDate(DATA.training, selectedDate).filter(r => r.source === '手动');
   const kcal = (v, d = 0) => (v === null || v === undefined) ? pending : Number(v).toFixed(d);
   const fl = DATA.fatLoss;
+  const isToday = fl && selectedDate === (fl.today && fl.today.date);
   const rows = [];
-  if (fl && selectedDate === (fl.today && fl.today.date)) {
+  if (isToday) {
     rows.push(['今天吃了多少', `约 ${fl.today.intakeSoFarKcal} 千卡、蛋白约 ${fl.today.proteinSoFarG} 克（详见减脂看板）`]);
   } else {
     rows.push(['摄入卡路里', dy ? kcal(dy.intakeKcal) : pending]);
-    rows.push(['能量盈余（到现在为止）', dy ? kcal(dy.surplusKcal) + '（晚饭还没吃，这不是全天缺口）' : pending]);
+    // “晚饭还没吃”只对今天成立，过去的日子别贴。
+    rows.push(['能量盈余', dy ? kcal(dy.surplusKcal) : pending]);
   }
   rows.push(['睡眠', sl ? `${sl.hours} 小时（深睡 ${sl.deepHours}、浅睡 ${sl.lightHours}、REM ${sl.remHours}）` : pending]);
   rows.push(['今天训练', tr.length ? tr.map(t => t.type).join('、') : pending]);
@@ -404,7 +422,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=5')
+  fetch('data.json?v=6')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;
