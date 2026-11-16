@@ -255,11 +255,13 @@ function renderFatLoss() {
     html += `<div class="kv"><span class="k">热量目标</span><span class="v">控在 ${intakeTarget} 千卡内</span></div>`;
     html += `<div class="kv"><span class="k">蛋白目标</span><span class="v">${proteinTarget} 克以上</span></div>`;
     const diffKcal = totalKcal - 1600;
-    const kcalStatus = diffKcal < 0 ? `负：比目标下限低 ${Math.abs(diffKcal)} 千卡，缺口更大` : (diffKcal <= 200 ? `正：在目标区间内` : `正：比目标上限高 ${diffKcal - 200} 千卡`);
+    const kcalNeg = diffKcal < 0;
+    const kcalStatus = kcalNeg ? `负：比目标下限低 ${Math.abs(diffKcal)} 千卡，缺口更大` : (diffKcal <= 200 ? `正：在目标区间内` : `正：比目标上限高 ${diffKcal - 200} 千卡`);
     const diffP = totalProtein - proteinTarget;
-    const proteinStatus = diffP >= 0 ? `正：比目标多 ${diffP} 克，达标` : `负：比目标少 ${Math.abs(diffP)} 克`;
-    html += `<div class="kv"><span class="k">目标情况（热量）</span><span class="v">${kcalStatus}</span></div>`;
-    html += `<div class="kv"><span class="k">目标情况（蛋白）</span><span class="v">${proteinStatus}</span></div>`;
+    const proteinNeg = diffP < 0;
+    const proteinStatus = proteinNeg ? `负：比目标少 ${Math.abs(diffP)} 克` : `正：比目标多 ${diffP} 克，达标`;
+    html += `<div class="kv"><span class="k">目标情况（热量）</span><span class="v ${kcalNeg ? 'neg' : 'pos'}">${kcalStatus}</span></div>`;
+    html += `<div class="kv"><span class="k">目标情况（蛋白）</span><span class="v ${proteinNeg ? 'neg' : 'pos'}">${proteinStatus}</span></div>`;
   } else {
     html += `<div class="pending">今天还没记吃的</div>`;
   }
@@ -295,7 +297,7 @@ function renderFatLoss() {
   // --- 6. 总体任务 / 任务进度：本周累计缺口、目标 ---
   html += `<h3>任务进度</h3>`;
   html += `<div class="kv"><span class="k">本周累计缺口</span><span class="v">${fl.weeklyDeficitSoFarKcal || 0} 千卡</span></div>`;
-  html += `<div class="kv"><span class="k">本周目标</span><span class="v">约 ${fl.weeklyDeficitTargetKcal || '2400–2800'} 千卡</span></div>`;
+  html += `<div class="kv"><span class="k">本周目标</span><span class="v">${fl.weeklyDeficitTargetKcal || '2400'} 千卡</span></div>`;
 
   // --- 7. 待买 ---
   const toBuy = fl.toBuy || [];
@@ -453,7 +455,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=12')
+  fetch('data.json?v=13')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;
