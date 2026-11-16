@@ -178,7 +178,8 @@ function renderSleep() {
     `<div class="kv"><span class="k">总时长</span><span class="v">${sel.hours} 小时</span></div>` +
     `<div class="kv"><span class="k">深睡</span><span class="v">${sel.deepHours} 小时</span></div>` +
     `<div class="kv"><span class="k">浅睡</span><span class="v">${sel.lightHours} 小时</span></div>` +
-    `<div class="kv"><span class="k">REM</span><span class="v">${sel.remHours} 小时</span></div>`;
+    `<div class="kv"><span class="k">REM</span><span class="v">${sel.remHours} 小时</span></div>` +
+    `<div class="faint" style="margin-top:6px">睡眠只到 11-12：手表同步断了（Gadgetbridge 没收到新手表数据），等手表恢复再更新。</div>`;
   drawStackedBars($('sleepChart'), rows.map(r => ({
     label: r.date, deep: r.deepHours, light: r.lightHours, rem: r.remHours,
   })), [
@@ -192,13 +193,13 @@ function renderEnergy() {
   const rows = [...(DATA.daily || [])].sort((a, b) => b.date.localeCompare(a.date));
   const cell = (v, d = 0) => (v === null || v === undefined) ? '<span class="pending">待记录</span>' : Number(v).toFixed(d);
   $('energyTable').innerHTML =
-    '<table><tr><th>日期</th><th class="num">摄入</th><th class="num">消耗</th><th class="num">盈余</th></tr>' +
+    '<table><tr><th>日期</th><th class="num">摄入</th><th class="num">消耗</th><th class="num">盈余（到现在为止）</th></tr>' +
     rows.map(r =>
       `<tr><td>${fmtDate(r.date)}</td><td class="num">${cell(r.intakeKcal)}</td>` +
-      `<td class="num">${cell(r.expenditureKcal, 1)}</td><td class="num">${cell(r.surplusKcal, 1)}</td></tr>`).join('') +
+      `<td class="num">${cell(r.expenditureKcal)}</td><td class="num">${cell(r.surplusKcal)}</td></tr>`).join('') +
     '</table>';
   $('energyNote').textContent =
-    '盈余为负不代表算错：三顿卡路里还没填，摄入是待记录，消耗是手表总卡路里。等三顿填了，盈余就正常了。11 月 13 日是半天的数。';
+    '盈余是“到现在为止”的数：三顿还没吃完，摄入是到现在的数，消耗是全天估算。等三顿吃完，盈余才是全天缺口。11 月 13 日是半天的数。';
 }
 
 function renderFatLoss() {
@@ -211,11 +212,13 @@ function renderFatLoss() {
   html += `<div class="kv"><span class="k">目标</span><span class="v">${fl.goal}</span></div>`;
   html += `<div class="kv"><span class="k">周期</span><span class="v">${fl.week}</span></div>`;
   html += `<div class="kv"><span class="k">每周缺口目标</span><span class="v">约 ${fl.weeklyDeficitTargetKcal} 千卡</span></div>`;
+  if (fl.weeklyDeficitProgress) {
+    html += `<div class="kv"><span class="k">本周缺口进度</span><span class="v">${fl.weeklyDeficitProgress}</span></div>`;
+  }
   html += `<div class="kv"><span class="k">每周蛋白目标</span><span class="v">${fl.weeklyProteinTargetG} 克（每天 ${fl.dailyProteinTargetG} 克）</span></div>`;
   html += `<div class="kv"><span class="k">只撸铁日摄入</span><span class="v">${fl.singleDayIntakeKcal} 千卡</span></div>`;
   html += `<div class="kv"><span class="k">两练日摄入</span><span class="v">${fl.twoADayIntakeKcal} 千卡（一周不超过 ${fl.twoADayMaxPerWeek} 次）</span></div>`;
-  html += `<div class="kv"><span class="k">今天（${t.date}）</span><span class="v">${t.dayType}，目标缺口约 ${t.targetDeficitKcal} 千卡</span></div>`;
-  html += `<div class="kv"><span class="k">今天到午饭后</span><span class="v">已吃约 ${t.intakeSoFarKcal} 千卡、蛋白约 ${t.proteinSoFarG} 克</span></div>`;
+  html += `<div class="kv"><span class="k">今天（${t.date}）到现在</span><span class="v">已吃约 ${t.intakeSoFarKcal} 千卡、蛋白约 ${t.proteinSoFarG} 克</span></div>`;
   html += `<div class="kv"><span class="k">晚饭还剩</span><span class="v">约 ${t.dinnerRemainingKcal} 千卡、蛋白约 ${t.dinnerRemainingProteinG} 克</span></div>`;
   if (t.note) html += `<div class="faint" style="margin-top:4px">${t.note}</div>`;
   if (dinner.first) {
@@ -229,22 +232,33 @@ function renderFatLoss() {
       toBuy.map(b => `<div class="muted" style="font-size:13px">· ${b}</div>`).join('') + '</div>';
   }
   html += `<div class="faint" style="margin-top:8px">热量按周算总账（今天多、明天少可以）；蛋白按天算，不能攒，今天不够明天吃双倍也补不回来。</div>`;
+  if (fl.reportChannel) {
+    html += `<div class="note" style="margin-top:8px">${fl.reportChannel}</div>`;
+  }
   $('fatLossBoard').innerHTML = html;
 }
 
 function renderTraining() {
   const rows = [...(DATA.training || [])].sort((a, b) => b.date.localeCompare(a.date) || 0);
-  $('trainingList').innerHTML = rows.map(r => {
-    const pill = r.source === '手表'
-      ? '<span class="pill watch">手表</span>'
-      : '<span class="pill manual">手动</span>';
-    const extra = r.source === '手表'
-      ? `<div class="faint">运动卡路里：${pendingSync} · 运动平均心率：${pendingSync}</div>`
-      : '';
-    const note = r.note ? `<p>备注：${r.note}</p>` : '';
-    return `<div class="train"><div class="t-head"><span class="t-date">${fmtDate(r.date)}</span>` +
-      `<span class="t-type">${r.type}</span>${pill}</div><p>${r.content}</p>${extra}${note}</div>`;
-  }).join('');
+  const manual = rows.filter(r => r.source !== '手表');
+  const latest = manual[0];
+  const older = manual.slice(1, 4);
+  let html = '';
+  if (latest) {
+    const pill = '<span class="pill manual">手动</span>';
+    const note = latest.note ? `<p>备注：${latest.note}</p>` : '';
+    html += `<div class="train"><div class="t-head"><span class="t-date">${fmtDate(latest.date)}</span>` +
+      `<span class="t-type">${latest.type}</span>${pill}</div><p>${latest.content}</p>${note}</div>`;
+  }
+  if (older.length) {
+    html += `<div class="faint" style="margin-top:6px">更早的训练（只留标题，详情在飞书训练记录表里）：</div>` +
+      older.map(r => `<div class="kv"><span class="k">${fmtDate(r.date)}</span><span class="v">${r.type}</span></div>`).join('');
+  }
+  const watchCount = rows.filter(r => r.source === '手表').length;
+  if (watchCount) {
+    html += `<div class="faint" style="margin-top:8px">手表自动记的运动 ${watchCount} 条（卡路里/心率待回填）。</div>`;
+  }
+  $('trainingList').innerHTML = html || pending;
 }
 
 function takenNamesFor(date) {
@@ -288,22 +302,28 @@ function renderSupplements() {
   $('suppCheckin').innerHTML = n === 0 ? '今天还没打卡（在飞书里勾）' : n + ' 条';
 }
 
-// 今日主面板：每天变化的数据放这里一眼看完；细节仍在下面各卡里。
+// 今日主面板：每天变化的数据放这里一眼看完；饮食数字以减脂看板为准，这里只留一句。
 function renderDaily() {
   const dy = byDate(DATA.daily, selectedDate)[0];
   const sl = byDate(DATA.sleep, selectedDate)[0];
   const tr = byDate(DATA.training, selectedDate).filter(r => r.source === '手动');
   const kcal = (v, d = 0) => (v === null || v === undefined) ? pending : Number(v).toFixed(d);
-  const rows = [
-    ['摄入卡路里', dy ? kcal(dy.intakeKcal) : pending],
-    ['消耗卡路里', dy ? kcal(dy.expenditureKcal, 1) : pending],
-    ['能量盈余', dy ? kcal(dy.surplusKcal, 1) : pending],
-    ['平均心率', dy && dy.avgHeartRate !== null && dy.avgHeartRate !== undefined ? dy.avgHeartRate + ' bpm' : pending],
-    ['静息心率', dy && dy.restingHeartRate !== null && dy.restingHeartRate !== undefined ? dy.restingHeartRate + ' bpm' : pendingSync],
-    ['步数', dy && dy.steps !== null && dy.steps !== undefined ? String(dy.steps) : pendingSync],
-    ['睡眠', sl ? `${sl.hours} 小时（深睡 ${sl.deepHours}、浅睡 ${sl.lightHours}、REM ${sl.remHours}）` : pending],
-    ['今天训练', tr.length ? tr.map(t => t.type).join('、') : pending],
-  ];
+  const fl = DATA.fatLoss;
+  const rows = [];
+  if (fl && selectedDate === (fl.today && fl.today.date)) {
+    rows.push(['今天吃了多少', `约 ${fl.today.intakeSoFarKcal} 千卡、蛋白约 ${fl.today.proteinSoFarG} 克（详见减脂看板）`]);
+  } else {
+    rows.push(['摄入卡路里', dy ? kcal(dy.intakeKcal) : pending]);
+    rows.push(['能量盈余（到现在为止）', dy ? kcal(dy.surplusKcal) + '（晚饭还没吃，这不是全天缺口）' : pending]);
+  }
+  rows.push(['睡眠', sl ? `${sl.hours} 小时（深睡 ${sl.deepHours}、浅睡 ${sl.lightHours}、REM ${sl.remHours}）` : pending]);
+  rows.push(['今天训练', tr.length ? tr.map(t => t.type).join('、') : pending]);
+  // 心率/步数：手表断联中，合在一行写，不单独占三行“待同步”。
+  const hrBits = [];
+  if (dy && dy.avgHeartRate !== null && dy.avgHeartRate !== undefined) hrBits.push('平均心率 ' + dy.avgHeartRate + ' bpm');
+  if (dy && dy.restingHeartRate !== null && dy.restingHeartRate !== undefined) hrBits.push('静息心率 ' + dy.restingHeartRate + ' bpm');
+  if (dy && dy.steps !== null && dy.steps !== undefined) hrBits.push('步数 ' + dy.steps);
+  rows.push(['心率 / 步数', hrBits.length ? hrBits.join('；') : '待同步（手表断联中，睡眠只到 11-12）']);
   let html = `<div class="faint">${selectedDate} · 用顶上日期箭头可以切到别的日子</div>` +
     rows.map(([k, v]) => `<div class="kv"><span class="k">${k}</span><span class="v">${v}</span></div>`).join('');
   if (tr.length) {
@@ -387,7 +407,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=3')
+  fetch('data.json?v=4')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;
