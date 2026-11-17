@@ -148,8 +148,8 @@
     },
     {
       "date": "2026-11-17",
-      "intakeKcal": 1114,
-      "proteinG": 81,
+      "intakeKcal": 804,
+      "proteinG": 68,
       "expenditureKcal": null,
       "surplusKcal": null,
       "totalKcal": null,
@@ -157,7 +157,7 @@
       "restingHeartRate": null,
       "steps": null,
       "activityKcal": null,
-      "note": "早餐约320千卡、蛋白约18克；练后加了一勺乳清蛋白粉（约74千卡、蛋白18克）；午餐白切鸡＋白菜＋米饭约720千卡、蛋白约45克。都是估算不是称重数。",
+      "note": "早餐约320千卡、蛋白约18克；练后加了一勺乳清蛋白粉（约74千卡、蛋白18克）；午餐白切鸡腿（去皮）＋白菜一半＋米饭半碗，约410千卡、蛋白约32克。都是估算不是称重数。",
       "meals": [
         {
           "name": "早餐",
@@ -173,9 +173,9 @@
         },
         {
           "name": "午餐",
-          "desc": "白切鸡半只（带姜蓉）＋白菜＋米饭一碗",
-          "kcal": 720,
-          "proteinG": 45
+          "desc": "白切鸡腿一个（去皮，带姜蓉）＋白菜一半＋米饭半碗",
+          "kcal": 410,
+          "proteinG": 32
         }
       ],
       "exercise": {
@@ -445,11 +445,11 @@
       "date": "2026-11-17",
       "dayType": "单练日（推日）",
       "targetDeficitKcal": 400,
-      "intakeSoFarKcal": "1114",
-      "proteinSoFarG": "81",
-      "dinnerRemainingKcal": "486–686",
-      "dinnerRemainingProteinG": 39,
-      "note": "早餐约320千卡、蛋白约18克；练后加了一勺乳清蛋白粉（约74千卡、蛋白18克）；午餐白切鸡＋白菜＋米饭约720千卡、蛋白约45克。都是估算不是称重数。"
+      "intakeSoFarKcal": "804",
+      "proteinSoFarG": "68",
+      "dinnerRemainingKcal": "796–996",
+      "dinnerRemainingProteinG": 52,
+      "note": "早餐约320千卡、蛋白约18克；练后加了一勺乳清蛋白粉（约74千卡、蛋白18克）；午餐白切鸡腿（去皮）＋白菜一半＋米饭半碗，约410千卡、蛋白约32克。都是估算不是称重数。"
     },
     "toBuy": [
       "合格酸奶几盒备着：蛋白 >8 克/100 克、碳水 <4 克/100 克、配料只有生牛乳加菌种（早上那杯蛋白 9.1 克过了，碳水 8.9 克、脂肪 12.3 克没过）"
