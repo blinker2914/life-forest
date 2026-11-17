@@ -150,13 +150,13 @@
       "date": "2026-11-17",
       "intakeKcal": 804,
       "proteinG": 68,
-      "expenditureKcal": null,
-      "surplusKcal": null,
+      "expenditureKcal": 2047,
+      "surplusKcal": -1243,
       "totalKcal": null,
       "avgHeartRate": null,
       "restingHeartRate": null,
       "steps": null,
-      "activityKcal": null,
+      "activityKcal": 300,
       "note": "早餐约320千卡、蛋白约18克；练后加了一勺乳清蛋白粉（约74千卡、蛋白18克）；午餐白切鸡腿（去皮）＋白菜一半＋米饭半碗，约410千卡、蛋白约32克。都是估算不是称重数。",
       "meals": [
         {
@@ -438,7 +438,7 @@
     "weeklyDeficitTargetKcal": "2400",
     "weeklyProteinTargetG": 840,
     "dailyProteinTargetG": 120,
-    "singleDayIntakeKcal": "1600–1800",
+    "singleDayIntakeKcal": "1600~1800",
     "twoADayIntakeKcal": "2200–2300",
     "twoADayMaxPerWeek": 2,
     "today": {
