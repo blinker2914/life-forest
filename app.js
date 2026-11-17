@@ -224,64 +224,45 @@ function renderFatLoss() {
   html += `<div class="progress-bar"><div class="fill" style="width:${Math.min(100, Math.max(0, progressPct))}%"></div></div>`;
   html += `<div class="faint">要减约 ${fl.fatToLoseKg || '1.04'} kg 脂肪（约 ${fl.fatToLoseKcal || 8000} 千卡）；本周已缺 ${fl.weeklyDeficitSoFarKcal || 0} 千卡，${fl.estDaysRemaining || '20'} 天完成。</div>`;
 
-  // --- 2. 今天吃了什么：5 顿表格 + 合计行 ---
+  // --- 2. 今天吃了什么：分顿表格 + 合计 + 与目标差 + 目标 ---
   html += `<h3>今天吃了什么（${t.date || selectedDate}）</h3>`;
   const meals = (dy && dy.meals) ? dy.meals : null;
+  const intakeTarget = fl.singleDayIntakeKcal || '1600–1800';
+  const proteinTarget = fl.dailyProteinTargetG || 120;
   let totalKcal = 0, totalProtein = 0;
+  // 与目标差：热量按 1600–1800 区间算，蛋白按 120 克算；负红正绿
+  const diffCells = (kcal, protein) => {
+    const dk = kcal - 1600, dp = protein - proteinTarget;
+    const kcalCell = dk < 0 ? `<span class="neg">−${Math.abs(dk)} 千卡</span>` : (dk <= 200 ? `<span class="pos">区间内</span>` : `<span class="pos">+${dk - 200} 千卡</span>`);
+    const pCell = dp < 0 ? `<span class="neg">−${Math.abs(dp)} 克</span>` : `<span class="pos">+${dp} 克</span>`;
+    return { kcalCell, pCell };
+  };
   if (meals && meals.length) {
     totalKcal = meals.reduce((a, m) => a + (m.kcal || 0), 0);
     totalProtein = meals.reduce((a, m) => a + (m.proteinG || 0), 0);
+    const d = diffCells(totalKcal, totalProtein);
     html += '<table><tr><th>这一顿</th><th>吃了什么</th><th class="num">热量</th><th class="num">蛋白</th></tr>' +
       meals.map(m =>
         `<tr><td>${m.name}</td><td>${m.desc}</td><td class="num">${m.kcal} 千卡</td><td class="num">${m.proteinG} 克</td></tr>`).join('') +
       `<tr><td><b>合计</b></td><td></td><td class="num"><b>${totalKcal} 千卡</b></td><td class="num"><b>${totalProtein} 克</b></td></tr>` +
+      `<tr><td>与目标差</td><td></td><td class="num">${d.kcalCell}</td><td class="num">${d.pCell}</td></tr>` +
+      `<tr><td><b>目标</b></td><td></td><td class="num">${intakeTarget} 千卡</td><td class="num">${proteinTarget} 克</td></tr>` +
       '</table>';
   } else if (dy && dy.intakeKcal !== null && dy.intakeKcal !== undefined) {
     totalKcal = dy.intakeKcal;
     totalProtein = dy.proteinG || 0;
+    const d = diffCells(totalKcal, totalProtein);
     html += `<div class="kv"><span class="k">全天摄入</span><span class="v">约 ${dy.intakeKcal} 千卡、蛋白约 ${dy.proteinG || '—'} 克</span></div>`;
     html += `<div class="faint">这天的分顿明细还没记，只留了总数。</div>`;
+    html += `<div class="kv"><span class="k">与目标差</span><span class="v">${d.kcalCell}、${d.pCell}</span></div>`;
+    html += `<div class="kv"><span class="k">目标</span><span class="v">${intakeTarget} 千卡、蛋白 ${proteinTarget} 克以上</span></div>`;
   } else {
     html += `<div class="pending">今天还没记吃的</div>`;
   }
 
-  // --- 3. 今天总计 + 目标 + 正/负 ---
-  const intakeTarget = fl.singleDayIntakeKcal || '1600–1800';
-  const proteinTarget = fl.dailyProteinTargetG || 120;
-  html += `<h3>今天总计与目标</h3>`;
-  if (totalKcal) {
-    html += `<div class="kv"><span class="k">今天总千卡</span><span class="v">约 ${totalKcal} 千卡</span></div>`;
-    html += `<div class="kv"><span class="k">今天总蛋白</span><span class="v">约 ${totalProtein} 克</span></div>`;
-    html += `<div class="kv"><span class="k">热量目标</span><span class="v">控在 ${intakeTarget} 千卡内</span></div>`;
-    html += `<div class="kv"><span class="k">蛋白目标</span><span class="v">${proteinTarget} 克以上</span></div>`;
-    const diffKcal = totalKcal - 1600;
-    const kcalNeg = diffKcal < 0;
-    const kcalStatus = kcalNeg ? `负：比目标下限低 ${Math.abs(diffKcal)} 千卡，缺口更大` : (diffKcal <= 200 ? `正：在目标区间内` : `正：比目标上限高 ${diffKcal - 200} 千卡`);
-    const diffP = totalProtein - proteinTarget;
-    const proteinNeg = diffP < 0;
-    const proteinStatus = proteinNeg ? `负：比目标少 ${Math.abs(diffP)} 克` : `正：比目标多 ${diffP} 克，达标`;
-    html += `<div class="kv"><span class="k">目标情况（热量）</span><span class="v ${kcalNeg ? 'neg' : 'pos'}">${kcalStatus}</span></div>`;
-    html += `<div class="kv"><span class="k">目标情况（蛋白）</span><span class="v ${proteinNeg ? 'neg' : 'pos'}">${proteinStatus}</span></div>`;
-  } else {
-    html += `<div class="pending">今天还没记吃的</div>`;
-  }
-
-  // --- 4. 今天运动：练腿，消耗多少 ---
-  html += `<h3>今天运动</h3>`;
-  const ex = dy && dy.exercise ? dy.exercise : null;
-  if (ex) {
-    html += `<div class="kv"><span class="k">${ex.type}</span><span class="v">${ex.place} · ${ex.kind} · 约 ${ex.durationMin} 分钟 · 消耗约 ${ex.kcal} 千卡</span></div>`;
-  } else {
-    const tr = byDate(DATA.training, selectedDate).filter(r => r.source === '手动');
-    if (tr.length) {
-      html += `<div class="kv"><span class="k">${tr.map(x => x.type).join('、')}</span><span class="v">详情在下面的运动细节里</span></div>`;
-    } else {
-      html += `<div class="pending">今天还没记运动</div>`;
-    }
-  }
-
-  // --- 5. 消耗账：基础代谢、日常活动、运动、总消耗、热量缺口 ---
+  // --- 3. 消耗账：基础代谢、日常活动、运动、总消耗、热量缺口 ---
   html += `<h3>消耗账</h3>`;
+  const ex = dy && dy.exercise ? dy.exercise : null;
   const bmr = b ? b.bmrKcal : null;
   const expend = dy ? dy.expenditureKcal : null;
   const deficit = dy ? dy.surplusKcal : null;
@@ -290,16 +271,23 @@ function renderFatLoss() {
     ? Math.round(expend - bmr - exKcal) : null;
   html += `<div class="kv"><span class="k">基础代谢</span><span class="v">${bmr === null || bmr === undefined ? '待记录' : bmr + ' 千卡'}</span></div>`;
   html += `<div class="kv"><span class="k">日常活动</span><span class="v">${dailyActivity === null ? '待记录' : '约 ' + dailyActivity + ' 千卡'}</span></div>`;
-  html += `<div class="kv"><span class="k">运动消耗</span><span class="v">${ex ? '约 ' + ex.kcal + ' 千卡（' + ex.type + '）' : '待记录'}</span></div>`;
+  let exLabel;
+  if (ex) {
+    exLabel = `约 ${ex.kcal} 千卡（${ex.type} · 约 ${ex.durationMin} 分钟）`;
+  } else {
+    const tr = byDate(DATA.training, selectedDate).filter(r => r.source === '手动');
+    exLabel = tr.length ? `${tr.map(x => x.type).join('、')}（详情在下面的运动细节里）` : '待记录';
+  }
+  html += `<div class="kv"><span class="k">运动</span><span class="v">${exLabel}</span></div>`;
   html += `<div class="kv"><span class="k">总消耗</span><span class="v">${expend === null || expend === undefined ? '待记录' : '约 ' + expend + ' 千卡'}</span></div>`;
   html += `<div class="kv"><span class="k">热量缺口</span><span class="v">${deficit === null || deficit === undefined ? '待记录' : '已缺 ' + Math.abs(deficit) + ' 千卡'}</span></div>`;
 
-  // --- 6. 总体任务 / 任务进度：本周累计缺口、目标 ---
+  // --- 4. 总体任务 / 任务进度：本周累计缺口、目标 ---
   html += `<h3>任务进度</h3>`;
   html += `<div class="kv"><span class="k">本周累计缺口</span><span class="v">${fl.weeklyDeficitSoFarKcal || 0} 千卡</span></div>`;
   html += `<div class="kv"><span class="k">本周目标</span><span class="v">${fl.weeklyDeficitTargetKcal || '2400'} 千卡</span></div>`;
 
-  // --- 7. 待买 ---
+  // --- 5. 待买 ---
   const toBuy = fl.toBuy || [];
   if (toBuy.length) {
     html += `<h3>待买</h3>` +
@@ -455,7 +443,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=17')
+  fetch('data.json?v=18')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;
