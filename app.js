@@ -293,10 +293,10 @@ function renderFatLoss() {
   const intakeTarget = fl.singleDayIntakeKcal || '1600–1800';
   const proteinTarget = fl.dailyProteinTargetG || 120;
   let totalKcal = 0, totalProtein = 0;
-  // 与目标差：热量按 1600–1800 区间算，蛋白按 120 克算；负红正绿
+  // 与目标差：热量按 1800 千卡以内算（少了是好事，绿；超了红），蛋白按 120 克算；负红正绿
   const diffCells = (kcal, protein) => {
-    const dk = kcal - 1600, dp = protein - proteinTarget;
-    const kcalCell = dk < 0 ? `<span class="neg">−${Math.abs(dk)} 千卡</span>` : (dk <= 200 ? `<span class="pos">区间内</span>` : `<span class="pos">+${dk - 200} 千卡</span>`);
+    const dk = kcal - 1800, dp = protein - proteinTarget;
+    const kcalCell = dk <= 0 ? `<span class="pos">−${Math.abs(dk)} 千卡</span>` : `<span class="neg">+${dk} 千卡</span>`;
     const pCell = dp < 0 ? `<span class="neg">−${Math.abs(dp)} 克</span>` : `<span class="pos">+${dp} 克</span>`;
     return { kcalCell, pCell };
   };
@@ -651,7 +651,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=29')
+  fetch('data.json?v=30')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;

@@ -307,7 +307,7 @@
     "weeklyDeficitTargetKcal": "2400",
     "weeklyProteinTargetG": 840,
     "dailyProteinTargetG": 120,
-    "singleDayIntakeKcal": "1600~1800",
+    "singleDayIntakeKcal": "1800",
     "twoADayIntakeKcal": "2200–2300",
     "twoADayMaxPerWeek": 2,
     "today": {
