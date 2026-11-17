@@ -234,13 +234,23 @@ function renderSleep() {
     `<div class="kv"><span class="k">浅睡</span><span class="v">${sel.lightHours} 小时</span></div>` +
     `<div class="kv"><span class="k">REM</span><span class="v">${sel.remHours} 小时</span></div>` +
     `<div class="faint" style="margin-top:6px">睡眠只到 11-12：手表同步断了（Gadgetbridge 没收到新手表数据），等手表恢复再更新。</div>`;
-  drawStackedBars($('sleepChart'), rows.map(r => ({
-    label: r.date, deep: r.deepHours, light: r.lightHours, rem: r.remHours,
-  })), [
+  drawStackedBars($('sleepChart'), weekDates().map(ds => {
+    const s = byDate(rows, ds)[0];
+    if (!s) return { label: ds, deep: 0, light: 0, rem: 0, missing: true };
+    return { label: ds, deep: s.deepHours, light: s.lightHours, rem: s.remHours };
+  }), [
     { key: 'deep', color: '#5b8dd9' },
     { key: 'light', color: '#8fd6a8' },
     { key: 'rem', color: '#c9a7e8' },
   ]);
+  // 周视图数字表：本周 7 天，每天睡几小时（深/浅/REM），没数据的日子待记录。
+  $('sleepWeekTable').innerHTML =
+    '<h3>本周</h3><table><tr><th>日期</th><th class="num">总时长</th><th class="num">深睡</th><th class="num">浅睡</th><th class="num">REM</th></tr>' +
+    weekDates().map(ds => {
+      const s = byDate(rows, ds)[0];
+      if (!s) return `<tr><td>${weekDayLabel(ds)}</td><td class="num" colspan="4">${pending}</td></tr>`;
+      return `<tr><td>${weekDayLabel(ds)}</td><td class="num">${s.hours}h</td><td class="num">${s.deepHours}h</td><td class="num">${s.lightHours}h</td><td class="num">${s.remHours}h</td></tr>`;
+    }).join('') + '</table>';
 }
 
 function renderEnergy() {
@@ -462,6 +472,54 @@ function weekDates() {
   return out;
 }
 
+// 各面板周视图共用的小帮手。
+function weekDayLabel(ds) {
+  const wd = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+  return wd[new Date(ds + 'T12:00:00').getDay()] + ' ' + fmtDate(ds);
+}
+// 补剂周视图的口子：飞书每日补剂打卡表目前没有记录，显示待同步，不编数。
+// 以后 data.json 的 daily 里有了 suppCheckedCount 字段，这里自动显示“已打 x / 13”。
+function suppCell(dy) {
+  if (dy && dy.suppCheckedCount !== null && dy.suppCheckedCount !== undefined) {
+    return '已打 ' + dy.suppCheckedCount + ' / 13';
+  }
+  return '<span class="pending">待同步</span>';
+}
+
+function renderSuppWeek() {
+  $('suppWeek').innerHTML =
+    '<h3>本周</h3><table><tr><th>日期</th><th>打卡</th></tr>' +
+    weekDates().map(ds => {
+      const dy = byDate(DATA.daily, ds)[0];
+      return `<tr><td>${weekDayLabel(ds)}</td><td>${suppCell(dy)}</td></tr>`;
+    }).join('') + '</table>';
+}
+
+function renderBodyWeek() {
+  // 身体指标偶尔才测一次：本周 7 天，有测量的日子显示数，没测的日子待记录，不编数。
+  const cell = (v, unit) => (v === null || v === undefined)
+    ? '<span class="pending">待记录</span>' : v + unit;
+  $('bodyWeek').innerHTML =
+    '<h3>本周</h3><table><tr><th>日期</th><th class="num">体重</th><th class="num">体脂</th><th class="num">肌肉</th></tr>' +
+    weekDates().map(ds => {
+      const m = (DATA.bodyMetrics || []).filter(x => x.date === ds)[0];
+      if (!m) return `<tr><td>${weekDayLabel(ds)}</td><td class="num" colspan="3">${pending}</td></tr>`;
+      return `<tr><td>${weekDayLabel(ds)}</td><td class="num">${cell(m.weightKg, ' kg')}</td><td class="num">${cell(m.fatPct, '%')}</td><td class="num">${cell(m.muscleKg, ' kg')}</td></tr>`;
+    }).join('') + '</table>';
+}
+
+function renderTrainingWeek() {
+  // 每天做了什么运动、消耗多少卡（daily[].exercise）；有记录但没运动写“无”，没记录写待记录。
+  $('trainingWeek').innerHTML =
+    '<h3>本周</h3><table><tr><th>日期</th><th>运动</th><th class="num">消耗</th></tr>' +
+    weekDates().map(ds => {
+      const dy = byDate(DATA.daily, ds)[0];
+      if (!dy) return `<tr><td>${weekDayLabel(ds)}</td><td colspan="2">${pending}</td></tr>`;
+      if (!dy.exercise) return `<tr><td>${weekDayLabel(ds)}</td><td>无</td><td class="num">—</td></tr>`;
+      return `<tr><td>${weekDayLabel(ds)}</td><td>${dy.exercise.type}</td><td class="num">${dy.exercise.kcal} 千卡</td></tr>`;
+    }).join('') + '</table>';
+}
+
 function renderWeeklyReview() {
   const week = weekDates();
   const wd = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
@@ -582,6 +640,9 @@ function render() {
   renderEnergy();
   renderTraining();
   renderSupplements();
+  renderSuppWeek();
+  renderBodyWeek();
+  renderTrainingWeek();
   renderTimeline();
   renderWeeklyReview();
   renderReview();
@@ -590,7 +651,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=27')
+  fetch('data.json?v=28')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;
