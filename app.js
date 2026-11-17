@@ -1,4 +1,4 @@
-// 健康小石子 · 纯前端渲染
+// 对抗时间引力 · 纯前端渲染
 // 数据全部来自同目录的 data.json（飞书「生命森林」多维表格的真实记录）。
 // 没有数据的日子显示「待记录」，静息心率和步数显示「待同步」，不编数、不写 0。
 
@@ -432,7 +432,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=19')
+  fetch('data.json?v=20')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;
