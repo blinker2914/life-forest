@@ -287,18 +287,7 @@ function renderFatLoss() {
   html += `<div class="kv"><span class="k">本周累计缺口</span><span class="v">${fl.weeklyDeficitSoFarKcal || 0} 千卡</span></div>`;
   html += `<div class="kv"><span class="k">本周目标</span><span class="v">${fl.weeklyDeficitTargetKcal || '2400'} 千卡</span></div>`;
 
-  // --- 5. 待买 ---
-  const toBuy = fl.toBuy || [];
-  if (toBuy.length) {
-    html += `<h3>待买</h3>` +
-      toBuy.map(x => `<div class="muted" style="font-size:13px">· ${x}</div>`).join('');
-  }
-
-  if (t.note) html += `<div class="faint" style="margin-top:8px">${t.note}</div>`;
   html += `<div class="faint" style="margin-top:8px">热量按周算总账（今天多、明天少可以）；蛋白按天算，不能攒，今天不够明天吃双倍也补不回来。数字都是估算，不是称重数。</div>`;
-  if (fl.reportChannel) {
-    html += `<div class="note" style="margin-top:8px">${fl.reportChannel}</div>`;
-  }
   $('fatLossBoard').innerHTML = html;
 }
 
@@ -443,7 +432,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=18')
+  fetch('data.json?v=19')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;

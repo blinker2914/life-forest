@@ -448,15 +448,10 @@
       "intakeSoFarKcal": "804",
       "proteinSoFarG": "68",
       "dinnerRemainingKcal": "796–996",
-      "dinnerRemainingProteinG": 52,
-      "note": "早餐约320千卡、蛋白约18克；练后加了一勺乳清蛋白粉（约74千卡、蛋白18克）；午餐白切鸡腿（去皮）＋白菜一半＋米饭半碗，约410千卡、蛋白约32克。都是估算不是称重数。"
+      "dinnerRemainingProteinG": 52
     },
-    "toBuy": [
-      "合格酸奶几盒备着：蛋白 >8 克/100 克、碳水 <4 克/100 克、配料只有生牛乳加菌种（早上那杯蛋白 9.1 克过了，碳水 8.9 克、脂肪 12.3 克没过）"
-    ],
     "weeklyDeficitSoFarKcal": 525,
     "weeklyDeficitProgress": "已缺 525 / 目标 2400 千卡",
-    "reportChannel": "每顿吃完在旁聊报我一句，我估算记数，板子同步更新。",
     "currentFatPct": 19.6,
     "targetFatPct": 18,
     "fatToLoseKg": 1.04,
