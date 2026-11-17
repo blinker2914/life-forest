@@ -219,6 +219,23 @@
     </section>
 
     <section class="card wide">
+      <h2>📅 每周回顾 <span class="tag" id="weeklyTag"></span></h2>
+      <div id="weeklySummary"></div>
+      <canvas id="weekDeficitChart" height="180"></canvas>
+      <div class="legend">
+        <span><i style="background:#8fd6a8"></i>已缺</span>
+        <span><i style="background:#e88a7a"></i>已超</span>
+      </div>
+      <div id="weeklyTable"></div>
+      <canvas id="weekSleepChart" height="180"></canvas>
+      <div class="legend">
+        <span><i style="background:#5b8dd9"></i>深睡</span>
+        <span><i style="background:#8fd6a8"></i>浅睡</span>
+        <span><i style="background:#c9a7e8"></i>REM</span>
+      </div>
+    </section>
+
+    <section class="card wide">
       <h2>近 30 天复盘</h2>
       <div id="review"></div>
     </section>
@@ -231,6 +248,6 @@
 
   <footer id="footer"></footer>
 </div>
-<script src="app.js?v=28"></script>
+<script src="app.js?v=29"></script>
 </body>
 </html>

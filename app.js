@@ -102,6 +102,18 @@ function drawStackedBars(canvas, rows, keys) {
   rows.forEach((r, i) => {
     const cx = padL + (iw * (i + 0.5)) / rows.length;
     const total = keys.reduce((a, k) => a + (r[k.key] || 0), 0);
+    if (r.missing) {
+      // 没数据的日子：虚线框占位，顶上写待记录，不画 0.0h（0 小时和没记是两回事）。
+      ctx.strokeStyle = '#1f4d36';
+      ctx.setLineDash([4, 4]);
+      ctx.lineWidth = 1;
+      ctx.strokeRect(cx - bw / 2, padT + ih - 24, bw, 24);
+      ctx.setLineDash([]);
+      ctx.fillStyle = '#7fa08d';
+      ctx.fillText('待记录', cx - 16, padT - 4);
+      ctx.fillText(fmtDate(r.label), cx - 16, h - 8);
+      return;
+    }
     let y = padT + ih;
     keys.forEach((k) => {
       const v = r[k.key] || 0;
@@ -116,6 +128,47 @@ function drawStackedBars(canvas, rows, keys) {
     });
     ctx.fillStyle = '#e8f2ea';
     ctx.fillText(total.toFixed(1) + 'h', cx - 10, padT - 4);
+    ctx.fillStyle = '#7fa08d';
+    ctx.fillText(fmtDate(r.label), cx - 16, h - 8);
+  });
+}
+
+function drawDeficitBars(canvas, rows) {
+  // 每日缺口条形图：rows [{label, deficit}]，deficit>0 已缺（绿，向上）、
+  // deficit<0 已超（红，向下）、null 待记录。零线在中间。
+  const { ctx, w, h } = setupCanvas(canvas);
+  const padL = 10, padR = 10, padT = 24, padB = 26;
+  const iw = w - padL - padR, ih = h - padT - padB;
+  const maxAbs = Math.max(...rows.map(r => Math.abs(r.deficit || 0)), 400);
+  const zeroY = padT + ih / 2;
+  const bw = Math.min(64, iw / rows.length * 0.55);
+  ctx.font = '11px sans-serif';
+  ctx.strokeStyle = '#1f4d36';
+  ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(padL, zeroY); ctx.lineTo(w - padR, zeroY); ctx.stroke();
+  rows.forEach((r, i) => {
+    const cx = padL + (iw * (i + 0.5)) / rows.length;
+    if (r.deficit === null || r.deficit === undefined) {
+      ctx.fillStyle = '#7fa08d';
+      ctx.fillText('待记录', cx - 16, zeroY - 6);
+      ctx.fillText(fmtDate(r.label), cx - 16, h - 8);
+      return;
+    }
+    const bh = (Math.abs(r.deficit) / maxAbs) * (ih / 2);
+    if (r.deficit > 0) {
+      ctx.fillStyle = '#8fd6a8';
+      ctx.fillRect(cx - bw / 2, zeroY - bh, bw, bh);
+      ctx.fillStyle = '#e8f2ea';
+      ctx.fillText('+' + r.deficit, cx - 14, zeroY - bh - 6);
+    } else if (r.deficit < 0) {
+      ctx.fillStyle = '#e88a7a';
+      ctx.fillRect(cx - bw / 2, zeroY, bw, bh);
+      ctx.fillStyle = '#e8f2ea';
+      ctx.fillText(String(r.deficit), cx - 14, zeroY + bh + 12);
+    } else {
+      ctx.fillStyle = '#e8f2ea';
+      ctx.fillText('0', cx - 4, zeroY - 6);
+    }
     ctx.fillStyle = '#7fa08d';
     ctx.fillText(fmtDate(r.label), cx - 16, h - 8);
   });
@@ -385,6 +438,100 @@ function renderTimeline() {
   }).join('');
 }
 
+// ---------- 每周回顾：周一到周日，一天一行，图表＋数字 ----------
+// 本周 = 最新一条数据所在的那一周（周一到周日）。没数据的格子显示待记录，不编数。
+function mondayOf(dateStr) {
+  const d = new Date(dateStr + 'T12:00:00');
+  const diff = (d.getDay() + 6) % 7; // 距周一的天数
+  d.setDate(d.getDate() - diff);
+  return d;
+}
+function fmtISO(d) {
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+function weekDates() {
+  const dates = allDates();
+  const latest = dates[dates.length - 1];
+  const mon = mondayOf(latest);
+  const out = [];
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(mon);
+    d.setDate(mon.getDate() + i);
+    out.push(fmtISO(d));
+  }
+  return out;
+}
+
+function renderWeeklyReview() {
+  const week = weekDates();
+  const wd = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+  const dayLabel = (ds) => wd[new Date(ds + 'T12:00:00').getDay()] + ' ' + fmtDate(ds);
+  const rows = week.map(ds => {
+    const dy = byDate(DATA.daily, ds)[0];
+    const sl = byDate(DATA.sleep, ds)[0];
+    // 缺口 = 消耗 − 摄入 = −surplusKcal；正数是已缺（越大越好），负数是已超。
+    const deficit = (dy && dy.surplusKcal !== null && dy.surplusKcal !== undefined)
+      ? -dy.surplusKcal : null;
+    return { date: ds, dy, sl, deficit };
+  });
+
+  $('weeklyTag').textContent = fmtDate(week[0]) + '–' + fmtDate(week[6]);
+  const fl = DATA.fatLoss || {};
+  const defSoFar = rows.reduce((a, r) => a + (r.deficit || 0), 0);
+  const protSoFar = rows.reduce((a, r) => a + ((r.dy && r.dy.proteinG) || 0), 0);
+  $('weeklySummary').innerHTML =
+    `<div style="font-size:15px;margin:2px 0 8px">本周已缺 <b class="pos">${defSoFar}</b> / ${fl.weeklyDeficitTargetKcal || '2400'} 千卡 · 蛋白 <b>${protSoFar}</b> / ${fl.weeklyProteinTargetG || 840} 克</div>`;
+
+  drawDeficitBars($('weekDeficitChart'), rows.map(r => ({ label: r.date, deficit: r.deficit })));
+
+  const cellNum = (v) => (v === null || v === undefined)
+    ? '<span class="pending">待记录</span>' : v;
+  const cellDeficit = (d) => {
+    if (d === null || d === undefined) return '<span class="pending">待记录</span>';
+    if (d > 0) return `<span class="pos">+${d}</span>`;
+    if (d < 0) return `<span class="neg">${d}</span>`;
+    return '0';
+  };
+  const cellExercise = (dy) => {
+    if (!dy) return '<span class="pending">待记录</span>';
+    if (dy.exercise) return `${dy.exercise.type} ${dy.exercise.kcal}`;
+    return '无';
+  };
+  const cellSleep = (sl) => {
+    if (!sl) return '<span class="pending">待记录</span>';
+    return `${sl.hours}h <span class="faint">深${sl.deepHours} 浅${sl.lightHours} REM${sl.remHours}</span>`;
+  };
+  // 补剂打卡：飞书每日补剂打卡表目前没有记录，显示待同步，不编数。
+  // 以后 data.json 的 daily 里有了 suppCheckedCount 字段，这里会自动显示“已打 x / 13”。
+  const cellSupp = (dy) => {
+    if (dy && dy.suppCheckedCount !== null && dy.suppCheckedCount !== undefined) {
+      return dy.suppCheckedCount + ' / 13';
+    }
+    return '<span class="pending">待同步</span>';
+  };
+  $('weeklyTable').innerHTML =
+    '<table><tr><th>日期</th><th class="num">摄入</th><th class="num">蛋白</th><th class="num">缺口</th><th>运动</th><th class="num">睡眠</th><th>补剂</th></tr>' +
+    rows.map(r =>
+      `<tr><td>${dayLabel(r.date)}</td>` +
+      `<td class="num">${cellNum(r.dy ? r.dy.intakeKcal : null)}</td>` +
+      `<td class="num">${cellNum(r.dy ? r.dy.proteinG : null)}</td>` +
+      `<td class="num">${cellDeficit(r.deficit)}</td>` +
+      `<td>${cellExercise(r.dy)}</td>` +
+      `<td class="num">${cellSleep(r.sl)}</td>` +
+      `<td>${cellSupp(r.dy)}</td></tr>`).join('') +
+    '</table>';
+
+  drawStackedBars($('weekSleepChart'), week.map(ds => {
+    const sl = byDate(DATA.sleep, ds)[0];
+    if (!sl) return { label: ds, deep: 0, light: 0, rem: 0, missing: true };
+    return { label: ds, deep: sl.deepHours, light: sl.lightHours, rem: sl.remHours };
+  }), [
+    { key: 'deep', color: '#5b8dd9' },
+    { key: 'light', color: '#8fd6a8' },
+    { key: 'rem', color: '#c9a7e8' },
+  ]);
+}
+
 function renderReview() {
   const w = (DATA.weekly || [])[0];
   if (!w) { $('review').innerHTML = pending; return; }
@@ -436,13 +583,14 @@ function render() {
   renderTraining();
   renderSupplements();
   renderTimeline();
+  renderWeeklyReview();
   renderReview();
   renderCheckup();
   renderFooter();
 }
 
 function init() {
-  fetch('data.json?v=24')
+  fetch('data.json?v=25')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;
@@ -460,7 +608,7 @@ function init() {
         const i = dates.indexOf(selectedDate);
         if (i < dates.length - 1) { selectedDate = dates[i + 1]; render(); }
       });
-      window.addEventListener('resize', () => { renderBody(); renderSleep(); });
+      window.addEventListener('resize', () => { renderBody(); renderSleep(); renderWeeklyReview(); });
     })
     .catch(() => { $('loadError').style.display = ''; });
 }

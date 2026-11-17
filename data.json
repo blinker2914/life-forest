@@ -148,16 +148,16 @@
     },
     {
       "date": "2026-11-17",
-      "intakeKcal": 861,
-      "proteinG": 78,
+      "intakeKcal": 1241,
+      "proteinG": 120,
       "expenditureKcal": 2047,
-      "surplusKcal": -1186,
+      "surplusKcal": -806,
       "totalKcal": null,
       "avgHeartRate": null,
       "restingHeartRate": 59,
       "steps": null,
       "activityKcal": 300,
-      "note": "早餐约320千卡、蛋白约18克；练后加了一勺乳清蛋白粉（约74千卡、蛋白18克）；午餐白切鸡腿（去皮）＋白菜一半＋米饭半碗，约410千卡、蛋白约32克；下午加餐 One's Member 希腊酸奶1杯（约57千卡、蛋白10克）＋一点点代糖。都是估算不是称重数。",
+      "note": "早餐约320千卡、蛋白约18克；练后加了一勺乳清蛋白粉（约74千卡、蛋白18克）；午餐白切鸡腿（去皮）＋白菜一半＋米饭半碗，约410千卡、蛋白约32克；下午加餐 One's Member 希腊酸奶1杯（约57千卡、蛋白10克）＋一点点代糖；晚餐牛肉粿条（牛肉约200g＋粉半碗＋青菜＋蘸料，约380千卡、蛋白约42克）。都是估算不是称重数。",
       "meals": [
         {
           "name": "早餐",
@@ -182,6 +182,12 @@
           "desc": "One's Member 希腊酸奶1杯100g＋一点点代糖",
           "kcal": 57,
           "proteinG": 10
+        },
+        {
+          "name": "晚餐",
+          "desc": "牛肉粿条（牛肉约200g＋粉半碗＋青菜＋蘸料）",
+          "kcal": 380,
+          "proteinG": 42
         }
       ],
       "exercise": {
@@ -469,20 +475,20 @@
       "date": "2026-11-17",
       "dayType": "单练日（推日）",
       "targetDeficitKcal": 400,
-      "intakeSoFarKcal": "861",
-      "proteinSoFarG": 78,
-      "dinnerRemainingKcal": "739–939",
-      "dinnerRemainingProteinG": 42
+      "intakeSoFarKcal": "1241",
+      "proteinSoFarG": 120,
+      "dinnerRemainingKcal": "0",
+      "dinnerRemainingProteinG": 0
     },
-    "weeklyDeficitSoFarKcal": 525,
-    "weeklyDeficitProgress": "已缺 525 / 目标 2400 千卡",
+    "weeklyDeficitSoFarKcal": 1331,
+    "weeklyDeficitProgress": "已缺 1331 / 目标 2400 千卡",
     "currentFatPct": 19.6,
     "targetFatPct": 18,
     "fatToLoseKg": 1.04,
     "fatToLoseKcal": 8000,
     "dailyDeficitTargetKcal": 400,
-    "todayDeficitKcal": 525,
-    "todayProgressPct": 7,
-    "estDaysRemaining": "20"
+    "todayDeficitKcal": 1331,
+    "todayProgressPct": 17,
+    "estDaysRemaining": "17"
   }
 }
