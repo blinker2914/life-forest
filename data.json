@@ -148,16 +148,16 @@
     },
     {
       "date": "2026-11-17",
-      "intakeKcal": 804,
-      "proteinG": 68,
+      "intakeKcal": 861,
+      "proteinG": 78,
       "expenditureKcal": 2047,
-      "surplusKcal": -1243,
+      "surplusKcal": -1186,
       "totalKcal": null,
       "avgHeartRate": null,
       "restingHeartRate": 59,
       "steps": null,
       "activityKcal": 300,
-      "note": "早餐约320千卡、蛋白约18克；练后加了一勺乳清蛋白粉（约74千卡、蛋白18克）；午餐白切鸡腿（去皮）＋白菜一半＋米饭半碗，约410千卡、蛋白约32克。都是估算不是称重数。",
+      "note": "早餐约320千卡、蛋白约18克；练后加了一勺乳清蛋白粉（约74千卡、蛋白18克）；午餐白切鸡腿（去皮）＋白菜一半＋米饭半碗，约410千卡、蛋白约32克；下午加餐 One's Member 希腊酸奶1杯（约57千卡、蛋白10克）＋一点点代糖。都是估算不是称重数。",
       "meals": [
         {
           "name": "早餐",
@@ -176,6 +176,12 @@
           "desc": "白切鸡腿一个（去皮，带姜蓉）＋白菜一半＋米饭半碗",
           "kcal": 410,
           "proteinG": 32
+        },
+        {
+          "name": "下午加餐",
+          "desc": "One's Member 希腊酸奶1杯100g＋一点点代糖",
+          "kcal": 57,
+          "proteinG": 10
         }
       ],
       "exercise": {
@@ -463,10 +469,10 @@
       "date": "2026-11-17",
       "dayType": "单练日（推日）",
       "targetDeficitKcal": 400,
-      "intakeSoFarKcal": "804",
-      "proteinSoFarG": "68",
-      "dinnerRemainingKcal": "796–996",
-      "dinnerRemainingProteinG": 52
+      "intakeSoFarKcal": "861",
+      "proteinSoFarG": 78,
+      "dinnerRemainingKcal": "739–939",
+      "dinnerRemainingProteinG": 42
     },
     "weeklyDeficitSoFarKcal": 525,
     "weeklyDeficitProgress": "已缺 525 / 目标 2400 千卡",
