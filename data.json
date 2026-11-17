@@ -148,22 +148,22 @@
     },
     {
       "date": "2026-11-17",
-      "intakeKcal": 1241,
+      "intakeKcal": 1311,
       "proteinG": 120,
       "expenditureKcal": 2047,
-      "surplusKcal": -806,
+      "surplusKcal": -736,
       "totalKcal": null,
       "avgHeartRate": null,
       "restingHeartRate": 59,
       "steps": null,
       "activityKcal": 300,
-      "note": "早餐约320千卡、蛋白约18克；练后加了一勺乳清蛋白粉（约74千卡、蛋白18克）；午餐白切鸡腿（去皮）＋白菜一半＋米饭半碗，约410千卡、蛋白约32克；下午加餐 One's Member 希腊酸奶1杯（约57千卡、蛋白10克）＋一点点代糖；晚餐牛肉粿条（牛肉约200g＋粉半碗＋青菜＋蘸料，约380千卡、蛋白约42克）。都是估算不是称重数。",
+      "note": "早餐约290千卡、蛋白约16克（牛奶是200ml一盒，不是250ml）；练后加了一勺乳清蛋白粉（约74千卡、蛋白18克）；午餐白切鸡腿（去皮）＋白菜一半＋米饭半碗，约410千卡、蛋白约32克；下午加餐 One's Member 希腊酸奶1杯（约57千卡、蛋白10克）＋一点点代糖；晚餐牛肉粿条，粉整碗都吃完了（牛肉约200g＋粉整碗＋青菜＋蘸料，约480千卡、蛋白约44克）。都是估算不是称重数。",
       "meals": [
         {
           "name": "早餐",
-          "desc": "鸡蛋1个＋牛奶1盒（250ml）＋玉米四分之一根＋烤面包片1片",
-          "kcal": 320,
-          "proteinG": 18
+          "desc": "鸡蛋1个＋牛奶200ml＋玉米四分之一根＋烤面包片1片",
+          "kcal": 290,
+          "proteinG": 16
         },
         {
           "name": "练后加餐",
@@ -185,9 +185,9 @@
         },
         {
           "name": "晚餐",
-          "desc": "牛肉粿条（牛肉约200g＋粉半碗＋青菜＋蘸料）",
-          "kcal": 380,
-          "proteinG": 42
+          "desc": "牛肉粿条（牛肉约200g＋粉整碗＋青菜＋蘸料）",
+          "kcal": 480,
+          "proteinG": 44
         }
       ],
       "exercise": {
@@ -475,20 +475,20 @@
       "date": "2026-11-17",
       "dayType": "单练日（推日）",
       "targetDeficitKcal": 400,
-      "intakeSoFarKcal": "1241",
+      "intakeSoFarKcal": "1311",
       "proteinSoFarG": 120,
       "dinnerRemainingKcal": "0",
       "dinnerRemainingProteinG": 0
     },
-    "weeklyDeficitSoFarKcal": 1331,
-    "weeklyDeficitProgress": "已缺 1331 / 目标 2400 千卡",
+    "weeklyDeficitSoFarKcal": 1261,
+    "weeklyDeficitProgress": "已缺 1261 / 目标 2400 千卡",
     "currentFatPct": 19.6,
     "targetFatPct": 18,
     "fatToLoseKg": 1.04,
     "fatToLoseKcal": 8000,
     "dailyDeficitTargetKcal": 400,
-    "todayDeficitKcal": 1331,
-    "todayProgressPct": 17,
+    "todayDeficitKcal": 1261,
+    "todayProgressPct": 16,
     "estDaysRemaining": "17"
   }
 }

@@ -590,7 +590,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=25')
+  fetch('data.json?v=26')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;
