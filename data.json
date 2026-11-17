@@ -241,6 +241,24 @@
       "lightHours": 1.8,
       "remHours": 1.9,
       "wakeTime": "06:26"
+    },
+    {
+      "bedTime": "23:43",
+      "date": "2026-11-16",
+      "deepHours": 3.3,
+      "hours": 7.2,
+      "lightHours": 1.9,
+      "remHours": 2.0,
+      "wakeTime": "06:52"
+    },
+    {
+      "bedTime": "22:59",
+      "date": "2026-11-17",
+      "deepHours": 4.4,
+      "hours": 8.1,
+      "lightHours": 2.3,
+      "remHours": 1.5,
+      "wakeTime": "07:06"
     }
   ],
   "supplementCheckins": [],
