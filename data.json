@@ -88,7 +88,8 @@
         "kind": "力量训练",
         "kcal": 300,
         "durationMin": 72
-      }
+      },
+      "suppCheckedCount": 11
     },
     {
       "date": "2026-11-17",
@@ -140,7 +141,8 @@
         "kind": "力量训练",
         "kcal": 250,
         "durationMin": 54
-      }
+      },
+      "suppCheckedCount": 12
     },
     {
       "date": "2026-11-18",
@@ -180,7 +182,8 @@
         "kind": "瑜伽",
         "kcal": 304,
         "durationMin": 75
-      }
+      },
+      "suppCheckedCount": 11
     }
   ],
   "meta": {
