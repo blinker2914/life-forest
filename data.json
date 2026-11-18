@@ -47,7 +47,7 @@
       "totalKcal": 2100,
       "avgHeartRate": null,
       "restingHeartRate": 51,
-      "steps": null,
+      "steps": 6482,
       "activityKcal": null,
       "note": "全天：约 1575 千卡、蛋白约 128 克，缺口约 525 千卡（今天目标 400）。都是估算不是称重数。",
       "meals": [
@@ -98,8 +98,8 @@
       "surplusKcal": -951,
       "totalKcal": null,
       "avgHeartRate": null,
-      "restingHeartRate": 59,
-      "steps": null,
+      "restingHeartRate": 52,
+      "steps": 9895,
       "activityKcal": 515,
       "note": "早餐约290千卡、蛋白约16克（牛奶是200ml一盒，不是250ml）；练后加了一勺乳清蛋白粉（约74千卡、蛋白18克）；午餐白切鸡腿（去皮）＋白菜一半＋米饭半碗，约410千卡、蛋白约32克；下午加餐 One's Member 希腊酸奶1杯（约57千卡、蛋白10克）＋一点点代糖；晚餐牛肉粿条，粉整碗都吃完了（牛肉约200g＋粉整碗＋青菜＋蘸料，约480千卡、蛋白约44克）。都是估算不是称重数。",
       "meals": [
@@ -151,7 +151,7 @@
       "totalKcal": null,
       "avgHeartRate": null,
       "restingHeartRate": null,
-      "steps": null,
+      "steps": 50,
       "activityKcal": null,
       "note": "早餐约257千卡、蛋白约15克（牛奶200ml一盒、鸡蛋1个、面包半片、玉米四分之一根）。都是估算不是称重数。",
       "meals": [
@@ -172,16 +172,17 @@
     "notes": [
       "手动记录优先于手表。",
       "没有数据的日子显示待记录，不编数。",
-      "静息心率和步数在真实同步里还没进来，显示待同步，不写 0。",
+      "静息心率和步数已从手表自动同步（Intervals.icu，11-16 起）；没有数据的日子显示待记录，不写 0。",
       "减脂第 1 周（11/16–11/22）：目标体脂 19.6% → 18%，每周缺口 2400 千卡，蛋白每天 120 克、每周 840 克。",
-      "睡眠只到 11-12：手表同步断了，等手表恢复再更新。"
+      "睡眠已到 11-18（手表自动同步）；11-13 至 11-15 的睡眠没有回填数据，保持空着，不编数。"
     ],
     "owner": "老杨",
     "source": "飞书多维表格「生命森林」",
     "sourceUrl": "https://my.feishu.cn/base/EqNYbA8PPaTzMPsYHjxck0WqnRc",
     "title": "对抗时间引力",
     "updatedAt": "2026-11-18",
-    "weighInRule": "1 到 2 周在同一台体脂秤上称一次"
+    "weighInRule": "1 到 2 周在同一台体脂秤上称一次",
+    "lastWatchSync": "2026-11-18"
   },
   "sleep": [
     {
@@ -201,6 +202,15 @@
       "lightHours": 2.3,
       "remHours": 1.5,
       "wakeTime": "07:06"
+    },
+    {
+      "bedTime": null,
+      "date": "2026-11-18",
+      "deepHours": null,
+      "hours": 7.37,
+      "lightHours": null,
+      "remHours": null,
+      "wakeTime": null
     }
   ],
   "supplementCheckins": [],
@@ -298,6 +308,13 @@
       "source": "手动",
       "content": "广州店。斜推24×12、29×12、29×12、24×12；分动平推每边10kg：12、10、8；夹胸20×12×3；哑铃肩推7.5×12、10×12；绳索下压（重架）10×12、10×8、10×10。共16组（含1组热身）180次3432kg·次。",
       "note": "斜推29kg工作档；夹胸20kg已稳；左肩第三组因耸肩发紧；左前臂无不适。"
+    },
+    {
+      "date": "2026-11-17",
+      "type": "健走",
+      "source": "手表",
+      "content": "［手表］Evening 健走，约17分钟、1.27公里、平均心率84、热量43卡",
+      "note": ""
     }
   ],
   "weekly": [],

@@ -10,6 +10,8 @@ const fmtDate = (d) => d ? d.slice(5).replace('-', '月') + '日' : '—';
 const num = (v, digits) => (v === null || v === undefined) ? '待记录' : Number(v).toFixed(digits);
 const pending = '<span class="pending">待记录</span>';
 const pendingSync = '<span class="pending">待同步</span>';
+// 有数就显示数 + 单位，没数就显示待记录（不显示 null、不编数）。
+const hnum = (v, suffix) => (v === null || v === undefined) ? pending : v + suffix;
 
 function allDates() {
   const s = new Set();
@@ -227,17 +229,23 @@ function renderSleep() {
   const rows = DATA.sleep || [];
   const sel = byDate(rows, selectedDate)[0] || rows[rows.length - 1];
   if (!sel) { $('sleepLatest').innerHTML = pending; return; }
+  const dy = byDate(DATA.daily, selectedDate)[0];
+  const bedWake = (sel.bedTime && sel.wakeTime)
+    ? `${sel.date} · ${sel.bedTime} 入睡 — ${sel.wakeTime} 起床`
+    : `${sel.date} · 入睡 / 起床时间待记录`;
   $('sleepLatest').innerHTML =
-    `<div class="faint">${sel.date} · ${sel.bedTime} 入睡 — ${sel.wakeTime} 起床</div>` +
+    `<div class="faint">${bedWake}</div>` +
     `<div class="kv"><span class="k">总时长</span><span class="v">${sel.hours} 小时</span></div>` +
-    `<div class="kv"><span class="k">深睡</span><span class="v">${sel.deepHours} 小时</span></div>` +
-    `<div class="kv"><span class="k">浅睡</span><span class="v">${sel.lightHours} 小时</span></div>` +
-    `<div class="kv"><span class="k">REM</span><span class="v">${sel.remHours} 小时</span></div>` +
-    `<div class="faint" style="margin-top:6px">睡眠只到 11-12：手表同步断了（Gadgetbridge 没收到新手表数据），等手表恢复再更新。</div>`;
+    `<div class="kv"><span class="k">深睡</span><span class="v">${hnum(sel.deepHours, ' 小时')}</span></div>` +
+    `<div class="kv"><span class="k">浅睡</span><span class="v">${hnum(sel.lightHours, ' 小时')}</span></div>` +
+    `<div class="kv"><span class="k">REM</span><span class="v">${hnum(sel.remHours, ' 小时')}</span></div>` +
+    `<div class="kv"><span class="k">静息心率</span><span class="v">${(dy && dy.restingHeartRate !== null && dy.restingHeartRate !== undefined) ? dy.restingHeartRate + ' 次/分' : pendingSync}</span></div>` +
+    `<div class="kv"><span class="k">步数</span><span class="v">${(dy && dy.steps !== null && dy.steps !== undefined) ? dy.steps + ' 步' : pendingSync}</span></div>` +
+    `<div class="faint" style="margin-top:6px">睡眠时长来自手表自动同步（Intervals.icu）；深浅 / REM 接口里没有，之前按华为运动健康截图手填。</div>`;
   drawStackedBars($('sleepChart'), weekDates().map(ds => {
     const s = byDate(rows, ds)[0];
     if (!s) return { label: ds, deep: 0, light: 0, rem: 0, missing: true };
-    return { label: ds, deep: s.deepHours, light: s.lightHours, rem: s.remHours };
+    return { label: ds, deep: s.deepHours || 0, light: s.lightHours || 0, rem: s.remHours || 0 };
   }), [
     { key: 'deep', color: '#5b8dd9' },
     { key: 'light', color: '#8fd6a8' },
@@ -249,7 +257,7 @@ function renderSleep() {
     weekDates().map(ds => {
       const s = byDate(rows, ds)[0];
       if (!s) return `<tr><td>${weekDayLabel(ds)}</td><td class="num" colspan="4">${pending}</td></tr>`;
-      return `<tr><td>${weekDayLabel(ds)}</td><td class="num">${s.hours}h</td><td class="num">${s.deepHours}h</td><td class="num">${s.lightHours}h</td><td class="num">${s.remHours}h</td></tr>`;
+      return `<tr><td>${weekDayLabel(ds)}</td><td class="num">${s.hours}h</td><td class="num">${hnum(s.deepHours, 'h')}</td><td class="num">${hnum(s.lightHours, 'h')}</td><td class="num">${hnum(s.remHours, 'h')}</td></tr>`;
     }).join('') + '</table>';
 }
 
@@ -382,7 +390,7 @@ function renderTraining() {
   }
   const watchCount = rows.filter(r => r.source === '手表').length;
   if (watchCount) {
-    html += `<div class="faint" style="margin-top:8px">手表自动记的运动 ${watchCount} 条（卡路里/心率待回填）。</div>`;
+    html += `<div class="faint" style="margin-top:8px">手表自动记的运动 ${watchCount} 条（详情在飞书训练记录表里）。</div>`;
   }
   $('trainingList').innerHTML = html || pending;
 }
@@ -436,7 +444,13 @@ function renderTimeline() {
     const dy = byDate(DATA.daily, d)[0];
     const bits = [];
     if (tr.length) bits.push('训练：' + tr.map(t => t.type).join('、'));
-    if (sl) bits.push('睡眠 ' + sl.hours + ' 小时（深睡 ' + sl.deepHours + '、浅睡 ' + sl.lightHours + '、REM ' + sl.remHours + '）');
+    if (sl) {
+      let sleepBit = '睡眠 ' + sl.hours + ' 小时';
+      if (sl.deepHours !== null && sl.deepHours !== undefined) {
+        sleepBit += '（深睡 ' + sl.deepHours + '、浅睡 ' + sl.lightHours + '、REM ' + sl.remHours + '）';
+      }
+      bits.push(sleepBit);
+    }
     // “总卡路里”是手表的消耗，不是摄入，写清楚；半天的日子加个（半天）。
     if (dy && dy.totalKcal !== null) {
       const halfDay = dy.note && dy.note.indexOf('半天') !== -1 ? '（半天）' : '';
@@ -557,6 +571,7 @@ function renderWeeklyReview() {
   };
   const cellSleep = (sl) => {
     if (!sl) return '<span class="pending">待记录</span>';
+    if (sl.deepHours === null || sl.deepHours === undefined) return `${sl.hours}h`;
     return `${sl.hours}h <span class="faint">深${sl.deepHours} 浅${sl.lightHours} REM${sl.remHours}</span>`;
   };
   // 补剂打卡：飞书每日补剂打卡表目前没有记录，显示待同步，不编数。
@@ -582,7 +597,7 @@ function renderWeeklyReview() {
   drawStackedBars($('weekSleepChart'), week.map(ds => {
     const sl = byDate(DATA.sleep, ds)[0];
     if (!sl) return { label: ds, deep: 0, light: 0, rem: 0, missing: true };
-    return { label: ds, deep: sl.deepHours, light: sl.lightHours, rem: sl.remHours };
+    return { label: ds, deep: sl.deepHours || 0, light: sl.lightHours || 0, rem: sl.remHours || 0 };
   }), [
     { key: 'deep', color: '#5b8dd9' },
     { key: 'light', color: '#8fd6a8' },
@@ -617,6 +632,7 @@ function renderFooter() {
   $('footer').innerHTML =
     '数据来源：' + meta.source + '（<span>' + meta.sourceUrl + '</span>）<br>' +
     '数据更新于 ' + meta.updatedAt + '。' +
+    (meta.lastWatchSync ? '<br>手表上次成功同步到 ' + fmtDate(meta.lastWatchSync) + '。' : '') +
     (meta.notes || []).map(n => '<br>· ' + n).join('') +
     '<br>本页不存任何密钥，也不向任何地方发数据；要更新数据，替换同目录的 data.json 即可。';
 }
