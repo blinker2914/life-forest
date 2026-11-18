@@ -144,8 +144,8 @@
     },
     {
       "date": "2026-11-18",
-      "intakeKcal": 807,
-      "proteinG": 69,
+      "intakeKcal": 967,
+      "proteinG": 78,
       "expenditureKcal": null,
       "surplusKcal": null,
       "totalKcal": null,
@@ -166,6 +166,12 @@
           "desc": "绿茶烤鸡半只（有点辣）＋炒青菜一大盘（过油还是挺油）",
           "kcal": 550,
           "proteinG": 54
+        },
+        {
+          "name": "下午加餐",
+          "desc": "拿铁1杯（中杯全脂奶估算）",
+          "kcal": 160,
+          "proteinG": 9
         }
       ],
       "exercise": {
@@ -350,10 +356,10 @@
       "date": "2026-11-18",
       "dayType": "轻动日（体检前一天，瑜伽为主）",
       "targetDeficitKcal": 400,
-      "intakeSoFarKcal": "807",
-      "proteinSoFarG": 69,
-      "dinnerRemainingKcal": "993",
-      "dinnerRemainingProteinG": 51
+      "intakeSoFarKcal": "967",
+      "proteinSoFarG": 78,
+      "dinnerRemainingKcal": "833",
+      "dinnerRemainingProteinG": 42
     },
     "weeklyDeficitSoFarKcal": 1476,
     "weeklyDeficitProgress": "已缺 1476 / 目标 2400 千卡",
