@@ -376,9 +376,11 @@
     "targetFatPct": 18,
     "fatToLoseKg": 1.04,
     "fatToLoseKcal": 8000,
-    "dailyDeficitTargetKcal": 400,
+    "dailyDeficitTargetKcal": 350,
     "todayDeficitKcal": 1763,
     "todayProgressPct": 22,
-    "estDaysRemaining": "16"
+    "estDaysRemaining": "18",
+    "totalDays": 21,
+    "targetDate": "2026-12-06"
   }
 }

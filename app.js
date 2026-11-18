@@ -299,7 +299,7 @@ function renderFatLoss() {
   html += `<div class="kv"><span class="k">体脂率目标</span><span class="v">现在 ${curFat}% → 目标 ${tgtFat}%</span></div>`;
   html += `<div style="font-size:28px;font-weight:800;color:#8fd6a8;margin:6px 0 2px">已完成 ${progressPct}%</div>`;
   html += `<div class="progress-bar"><div class="fill" style="width:${Math.min(100, Math.max(0, progressPct))}%"></div></div>`;
-  html += `<div class="faint">要减约 ${fl.fatToLoseKg || '1.04'} kg 脂肪（约 ${fl.fatToLoseKcal || 8000} 千卡）；本周已缺 ${fl.weeklyDeficitSoFarKcal || 0} 千卡，${fl.estDaysRemaining || '20'} 天完成。</div>`;
+  html += `<div class="faint">要减约 ${fl.fatToLoseKg || '1.04'} kg 脂肪（约 ${fl.fatToLoseKcal || 8000} 千卡）；共 ${fl.totalDays || 21} 天，${fl.targetDate ? fl.targetDate.slice(5).replace('-', '月') + '日' : ''}完成；已缺 ${fl.weeklyDeficitSoFarKcal || 0} 千卡，还剩 ${fl.estDaysRemaining || '18'} 天，每天约 ${fl.dailyDeficitTargetKcal || 350} 千卡。</div>`;
 
   // --- 2. 今天吃了什么：分顿表格 + 合计 + 与目标差 + 目标 ---
   html += `<h3>今天吃了什么（${t.date || selectedDate}）</h3>`;
@@ -672,7 +672,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=39')
+  fetch('data.json?v=40')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;
