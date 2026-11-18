@@ -318,9 +318,22 @@ function renderFatLoss() {
     totalKcal = meals.reduce((a, m) => a + (m.kcal || 0), 0);
     totalProtein = meals.reduce((a, m) => a + (m.proteinG || 0), 0);
     const d = diffCells(totalKcal, totalProtein);
+    // 固定四行：早、午、晚、其他（加餐/零食都归到其他里），没吃的那行空着。
+    const byName = {};
+    meals.forEach(m => {
+      const key = (m.name === '早餐' || m.name === '午餐' || m.name === '晚餐') ? m.name : '其他';
+      byName[key] = byName[key] || { kcal: 0, proteinG: 0, desc: [] };
+      byName[key].kcal += m.kcal || 0;
+      byName[key].proteinG += m.proteinG || 0;
+      byName[key].desc.push(m.desc);
+    });
+    const fixedRows = ['早餐', '午餐', '晚餐', '其他'].map(name => {
+      const r = byName[name];
+      if (!r) return `<tr><td>${name}</td><td></td><td class="num"></td><td class="num"></td></tr>`;
+      return `<tr><td>${name}</td><td>${r.desc.join('；')}</td><td class="num">${r.kcal} 千卡</td><td class="num">${r.proteinG} 克</td></tr>`;
+    }).join('');
     html += '<table><tr><th>这一顿</th><th>吃了什么</th><th class="num">热量</th><th class="num">蛋白</th></tr>' +
-      meals.map(m =>
-        `<tr><td>${m.name}</td><td>${m.desc}</td><td class="num">${m.kcal} 千卡</td><td class="num">${m.proteinG} 克</td></tr>`).join('') +
+      fixedRows +
       `<tr><td><b>合计</b></td><td></td><td class="num"><b>${totalKcal} 千卡</b></td><td class="num"><b>${totalProtein} 克</b></td></tr>` +
       `<tr><td>与目标差</td><td></td><td class="num">${d.kcalCell}</td><td class="num">${d.pCell}</td></tr>` +
       `<tr><td><b>目标</b></td><td></td><td class="num">${intakeTarget} 千卡以内</td><td class="num">${proteinTarget} 克以上</td></tr>` +
@@ -659,7 +672,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=38')
+  fetch('data.json?v=39')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;
