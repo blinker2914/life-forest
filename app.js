@@ -240,7 +240,7 @@ function renderSleep() {
     `<div class="kv"><span class="k">浅睡</span><span class="v">${hnum(sel.lightHours, ' 小时')}</span></div>` +
     `<div class="kv"><span class="k">REM</span><span class="v">${hnum(sel.remHours, ' 小时')}</span></div>` +
     `<div class="kv"><span class="k">静息心率</span><span class="v">${(dy && dy.restingHeartRate !== null && dy.restingHeartRate !== undefined) ? dy.restingHeartRate + ' 次/分' : pendingSync}</span></div>` +
-    `<div class="kv"><span class="k">步数</span><span class="v">${(dy && dy.steps !== null && dy.steps !== undefined) ? dy.steps + ' 步' : pendingSync}</span></div>` +
+    `<div class="kv"><span class="k">步数</span><span class="v">待更新</span></div>` +
     `<div class="faint" style="margin-top:6px">睡眠时长来自手表自动同步（Intervals.icu）；深浅 / REM 接口里没有，之前按华为运动健康截图手填。</div>`;
   drawStackedBars($('sleepChart'), weekDates().map(ds => {
     const s = byDate(rows, ds)[0];
@@ -281,8 +281,7 @@ function renderEnergy() {
       `<td class="num">${cell(r.expenditureKcal)}</td><td class="num">${surplusCell(r)}</td></tr>`).join('') +
     `<tr><td><b>合计</b></td><td class="num"><b>${totIn} 千卡</b></td><td class="num"><b>${totOut} 千卡</b></td><td class="num"><b>${totSurCell}</b></td></tr>` +
     '</table>';
-  $('energyNote').textContent =
-    '盈余是“到现在为止”的数：今天的 5 顿还没吃完，摄入是到现在的数，消耗是全天估算。等 5 顿吃完，盈余才是全天缺口。摄入没填的日子，盈余显示待记录，不拿 0 去算。11 月 13 日是半天的数。';
+  $('energyNote').textContent = '';
 }
 
 function renderFatLoss() {
@@ -516,19 +515,6 @@ function renderSuppWeek() {
     }).join('') + '</table>';
 }
 
-function renderBodyWeek() {
-  // 身体指标偶尔才测一次：本周 7 天，有测量的日子显示数，没测的日子待记录，不编数。
-  const cell = (v, unit) => (v === null || v === undefined)
-    ? '<span class="pending">待记录</span>' : v + unit;
-  $('bodyWeek').innerHTML =
-    '<h3>本周</h3><table><tr><th>日期</th><th class="num">体重</th><th class="num">体脂</th><th class="num">肌肉</th></tr>' +
-    weekDates().map(ds => {
-      const m = (DATA.bodyMetrics || []).filter(x => x.date === ds)[0];
-      if (!m) return `<tr><td>${weekDayLabel(ds)}</td><td class="num" colspan="3">${pending}</td></tr>`;
-      return `<tr><td>${weekDayLabel(ds)}</td><td class="num">${cell(m.weightKg, ' kg')}</td><td class="num">${cell(m.fatPct, '%')}</td><td class="num">${cell(m.muscleKg, ' kg')}</td></tr>`;
-    }).join('') + '</table>';
-}
-
 function renderTrainingWeek() {
   // 每天做了什么运动、消耗多少卡（daily[].exercise）；有记录但没运动写“无”，没记录写待记录。
   $('trainingWeek').innerHTML =
@@ -664,7 +650,6 @@ function render() {
   renderTraining();
   renderSupplements();
   renderSuppWeek();
-  renderBodyWeek();
   renderTrainingWeek();
   renderTimeline();
   renderWeeklyReview();
@@ -674,7 +659,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=37')
+  fetch('data.json?v=38')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;
