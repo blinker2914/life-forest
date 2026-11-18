@@ -146,16 +146,16 @@
     },
     {
       "date": "2026-11-18",
-      "intakeKcal": 967,
-      "proteinG": 78,
-      "expenditureKcal": null,
-      "surplusKcal": null,
+      "intakeKcal": 1597,
+      "proteinG": 128,
+      "expenditureKcal": 2101,
+      "surplusKcal": -504,
       "totalKcal": null,
       "avgHeartRate": null,
       "restingHeartRate": null,
       "steps": 50,
-      "activityKcal": null,
-      "note": "早餐约257千卡、蛋白约15克（牛奶200ml一盒、鸡蛋1个、面包半片、玉米四分之一根）。午餐绿茶烤鸡半只＋炒青菜一大盘，约550千卡、蛋白约54克。瑜伽75分钟，约304千卡（手表），感觉舒服。都是估算不是称重数。",
+      "activityKcal": 300,
+      "note": "早餐约257千卡、蛋白约15克（牛奶200ml一盒、鸡蛋1个、面包半片、玉米四分之一根）。午餐绿茶烤鸡半只＋炒青菜一大盘，约550千卡、蛋白约54克。下午拿铁1杯，约160千卡、蛋白约9克。晚餐在外吃：烧鹅去皮约6块＋炒青菜半盘＋虾蒸蛋半碗，没吃米饭，约630千卡、蛋白约50克。瑜伽75分钟，约304千卡（手表），感觉舒服。都是估算不是称重数。消耗为估算（基础代谢1497＋日常活动约300＋瑜伽304），等手表今日数字再校正。",
       "meals": [
         {
           "name": "早餐",
@@ -174,6 +174,12 @@
           "desc": "拿铁1杯（中杯全脂奶估算）",
           "kcal": 160,
           "proteinG": 9
+        },
+        {
+          "name": "晚餐",
+          "desc": "在外吃：烧鹅去皮约6块＋炒青菜半盘＋虾蒸蛋半碗，没吃米饭",
+          "kcal": 630,
+          "proteinG": 50
         }
       ],
       "exercise": {
@@ -359,20 +365,20 @@
       "date": "2026-11-18",
       "dayType": "轻动日（体检前一天，瑜伽为主）",
       "targetDeficitKcal": 400,
-      "intakeSoFarKcal": "967",
-      "proteinSoFarG": 78,
-      "dinnerRemainingKcal": "833",
-      "dinnerRemainingProteinG": 42
+      "intakeSoFarKcal": "1597",
+      "proteinSoFarG": 128,
+      "dinnerRemainingKcal": "0",
+      "dinnerRemainingProteinG": 0
     },
-    "weeklyDeficitSoFarKcal": 1476,
+    "weeklyDeficitSoFarKcal": 1980,
     "weeklyDeficitProgress": "已缺 1476 / 目标 2400 千卡",
     "currentFatPct": 19.6,
     "targetFatPct": 18,
     "fatToLoseKg": 1.04,
     "fatToLoseKcal": 8000,
     "dailyDeficitTargetKcal": 400,
-    "todayDeficitKcal": 1476,
-    "todayProgressPct": 18,
-    "estDaysRemaining": "17"
+    "todayDeficitKcal": 1980,
+    "todayProgressPct": 25,
+    "estDaysRemaining": "15"
   }
 }
