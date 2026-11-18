@@ -186,7 +186,7 @@ function renderHeader() {
     // 头上只放现在多少、目标多少，不放“距目标多少个点”。
     stats.push(['体脂率目标', b.fatPct + '% → ' + (fl.targetFatPct || meta.fatTargetPct) + '%', '']);
     stats.push(['体重', b.weightKg ? b.weightKg + ' kg' : '待记录', '']);
-    stats.push(['下次称重', fmtDate(meta.nextWeighIn), meta.weighInRule || '']);
+    stats.push(['下次称重', fmtDate(meta.nextWeighIn), '']);
   }
   $('headStats').innerHTML = stats.map(([k, v, s]) =>
     `<div class="hstat"><div class="k">${k}</div><div class="v">${v} <small>${s}</small></div></div>`).join('');
@@ -209,7 +209,7 @@ function renderBody() {
     `<div class="faint">${b.date} · ${b.note || ''}</div>` +
     rows.map(([k, v]) => `<div class="kv"><span class="k">${k}</span><span class="v">${v}</span></div>`).join('');
   $('weighInNote').textContent =
-    '称重节奏：' + (DATA.meta.weighInRule || '') + '，下次约 ' + fmtDate(DATA.meta.nextWeighIn) + '。';
+    '下次称重：' + fmtDate(DATA.meta.nextWeighIn) + '。';
   $('bodyCheckupNote').textContent =
     '体检项目（2026-11-19 体检后）将加进本区。';
 
@@ -268,11 +268,18 @@ function renderEnergy() {
   const surplusCell = (r) => (r.intakeKcal === null || r.intakeKcal === undefined)
     ? '<span class="pending">待记录</span>'
     : cell(r.surplusKcal);
+  // 合计：只算摄入和消耗都有的日子，盈余总数 = 摄入合计 − 消耗合计（负数就是累计缺口）。
+  const valid = rows.filter(r => r.intakeKcal !== null && r.intakeKcal !== undefined && r.expenditureKcal !== null && r.expenditureKcal !== undefined);
+  const totIn = valid.reduce((a, r) => a + (r.intakeKcal || 0), 0);
+  const totOut = valid.reduce((a, r) => a + (r.expenditureKcal || 0), 0);
+  const totSur = totIn - totOut;
+  const totSurCell = totSur <= 0 ? '已缺 ' + Math.abs(totSur) + ' 千卡' : '已超 ' + totSur + ' 千卡';
   $('energyTable').innerHTML =
     '<table><tr><th>日期</th><th class="num">摄入</th><th class="num">消耗</th><th class="num">盈余（到现在为止）</th></tr>' +
     rows.map(r =>
       `<tr><td>${fmtDate(r.date)}</td><td class="num">${cell(r.intakeKcal)}</td>` +
       `<td class="num">${cell(r.expenditureKcal)}</td><td class="num">${surplusCell(r)}</td></tr>`).join('') +
+    `<tr><td><b>合计</b></td><td class="num"><b>${totIn} 千卡</b></td><td class="num"><b>${totOut} 千卡</b></td><td class="num"><b>${totSurCell}</b></td></tr>` +
     '</table>';
   $('energyNote').textContent =
     '盈余是“到现在为止”的数：今天的 5 顿还没吃完，摄入是到现在的数，消耗是全天估算。等 5 顿吃完，盈余才是全天缺口。摄入没填的日子，盈余显示待记录，不拿 0 去算。11 月 13 日是半天的数。';
@@ -356,7 +363,7 @@ function renderFatLoss() {
     exLabel = `约 ${ex.kcal} 千卡（${ex.type} · 约 ${ex.durationMin} 分钟）`;
   } else {
     const tr = byDate(DATA.training, selectedDate).filter(r => r.source === '手动');
-    exLabel = tr.length ? `${tr.map(x => x.type).join('、')}（详情在下面的运动细节里）` : '待记录';
+    exLabel = tr.length ? `${tr.map(x => x.type).join('、')}（详情在下面的运动综合里）` : '待记录';
   }
   html += `<div class="kv"><span class="k">运动</span><span class="v">${exLabel}</span></div>`;
   html += `<div class="kv"><span class="k">总消耗</span><span class="v">${expend === null || expend === undefined ? '待记录' : '约 ' + expend + ' 千卡'}</span></div>`;
@@ -667,7 +674,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=36')
+  fetch('data.json?v=37')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;
