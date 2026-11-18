@@ -39,132 +39,161 @@
   "checkup": [],
   "daily": [
     {
-      "date": "2026-11-16",
-      "intakeKcal": 1575,
-      "proteinG": 128,
-      "expenditureKcal": 2100,
-      "surplusKcal": -525,
-      "totalKcal": 2100,
-      "avgHeartRate": null,
-      "restingHeartRate": 51,
-      "steps": null,
       "activityKcal": null,
-      "note": "全天：约 1575 千卡、蛋白约 128 克，缺口约 525 千卡（今天目标 400）。都是估算不是称重数。",
+      "avgHeartRate": null,
+      "date": "2026-11-16",
+      "exercise": {
+        "durationMin": 72,
+        "kcal": 300,
+        "kind": "力量训练",
+        "place": "广州店健身房",
+        "type": "练腿"
+      },
+      "expenditureKcal": 2100,
+      "intakeKcal": 1575,
       "meals": [
         {
-          "name": "早餐",
           "desc": "豆浆 1 杯＋鸡蛋 1 个＋香蕉 1 根",
           "kcal": 275,
+          "name": "早餐",
           "proteinG": 14
         },
         {
-          "name": "练后加餐",
           "desc": "关东煮（鱼豆腐 2 块＋魔芋丝＋白萝卜）＋水煮蛋 1 个",
           "kcal": 160,
+          "name": "练后加餐",
           "proteinG": 12
         },
         {
-          "name": "午餐",
           "desc": "牛肉粿条（牛肉约 200 克，面不到一半，汤基本没喝）",
           "kcal": 355,
+          "name": "午餐",
           "proteinG": 42
         },
         {
-          "name": "下午加餐",
           "desc": "红丝绒蛋糕一小块＋柚子 4–5 瓣",
           "kcal": 135,
+          "name": "下午加餐",
           "proteinG": 2
         },
         {
-          "name": "晚餐",
           "desc": "清汤麻辣烫（莲藕、青菜、金针菇、鹌鹑蛋 2 个、少许粉）＋卤菜（卤牛肉约 150 克＋卤下水约 80 克）",
           "kcal": 650,
+          "name": "晚餐",
           "proteinG": 58
         }
       ],
-      "exercise": {
-        "type": "练腿",
-        "place": "广州店健身房",
-        "kind": "力量训练",
-        "kcal": 300,
-        "durationMin": 72
-      }
+      "note": "全天：约 1575 千卡、蛋白约 128 克，缺口约 525 千卡（今天目标 400）。都是估算不是称重数。",
+      "proteinG": 128,
+      "restingHeartRate": 51,
+      "steps": null,
+      "surplusKcal": -525,
+      "totalKcal": 2100
     },
     {
-      "date": "2026-11-17",
-      "intakeKcal": 1311,
-      "proteinG": 120,
-      "expenditureKcal": 2262,
-      "surplusKcal": -951,
-      "totalKcal": null,
+      "activityKcal": 765,
       "avgHeartRate": null,
-      "restingHeartRate": 59,
-      "steps": null,
-      "activityKcal": 515,
-      "note": "早餐约290千卡、蛋白约16克（牛奶是200ml一盒，不是250ml）；练后加了一勺乳清蛋白粉（约74千卡、蛋白18克）；午餐白切鸡腿（去皮）＋白菜一半＋米饭半碗，约410千卡、蛋白约32克；下午加餐 One's Member 希腊酸奶1杯（约57千卡、蛋白10克）＋一点点代糖；晚餐牛肉粿条，粉整碗都吃完了（牛肉约200g＋粉整碗＋青菜＋蘸料，约480千卡、蛋白约44克）。都是估算不是称重数。",
+      "date": "2026-11-17",
+      "exercise": {
+        "durationMin": 54,
+        "kcal": 250,
+        "kind": "力量训练",
+        "place": "广州店健身房",
+        "type": "推日"
+      },
+      "expenditureKcal": 2262,
+      "intakeKcal": 1311,
       "meals": [
         {
-          "name": "早餐",
           "desc": "鸡蛋1个＋牛奶200ml＋玉米四分之一根＋烤面包片1片",
           "kcal": 290,
+          "name": "早餐",
           "proteinG": 16
         },
         {
-          "name": "练后加餐",
           "desc": "乳清蛋白粉 1 勺（约 20g）",
           "kcal": 74,
+          "name": "练后加餐",
           "proteinG": 18
         },
         {
-          "name": "午餐",
           "desc": "白切鸡腿一个（去皮，带姜蓉）＋白菜一半＋米饭半碗",
           "kcal": 410,
+          "name": "午餐",
           "proteinG": 32
         },
         {
-          "name": "下午加餐",
           "desc": "One's Member 希腊酸奶1杯100g＋一点点代糖",
           "kcal": 57,
+          "name": "下午加餐",
           "proteinG": 10
         },
         {
-          "name": "晚餐",
           "desc": "牛肉粿条（牛肉约200g＋粉整碗＋青菜＋蘸料）",
           "kcal": 480,
+          "name": "晚餐",
           "proteinG": 44
         }
       ],
-      "exercise": {
-        "type": "推日",
-        "place": "广州店健身房",
-        "kind": "力量训练",
-        "kcal": 250,
-        "durationMin": 54
-      }
+      "note": "早餐约290千卡、蛋白约16克（牛奶是200ml一盒，不是250ml）；练后加了一勺乳清蛋白粉（约74千卡、蛋白18克）；午餐白切鸡腿（去皮）＋白菜一半＋米饭半碗，约410千卡、蛋白约32克；下午加餐 One's Member 希腊酸奶1杯（约57千卡、蛋白10克）＋一点点代糖；晚餐牛肉粿条，粉整碗都吃完了（牛肉约200g＋粉整碗＋青菜＋蘸料，约480千卡、蛋白约44克）。都是估算不是称重数。",
+      "proteinG": 120,
+      "restingHeartRate": 59,
+      "steps": null,
+      "surplusKcal": -951,
+      "totalKcal": null
     },
     {
-      "date": "2026-11-18",
-      "intakeKcal": 257,
-      "proteinG": 15,
-      "expenditureKcal": null,
-      "surplusKcal": null,
-      "totalKcal": null,
-      "avgHeartRate": null,
-      "restingHeartRate": null,
-      "steps": null,
       "activityKcal": null,
-      "note": "早餐约257千卡、蛋白约15克（牛奶200ml一盒、鸡蛋1个、面包半片、玉米四分之一根）。都是估算不是称重数。",
+      "avgHeartRate": null,
+      "date": "2026-11-18",
+      "exercise": null,
+      "expenditureKcal": null,
+      "intakeKcal": 257,
       "meals": [
         {
-          "name": "早餐",
           "desc": "牛奶200ml一盒＋鸡蛋1个＋面包半片＋玉米四分之一根",
           "kcal": 257,
+          "name": "早餐",
           "proteinG": 15
         }
       ],
-      "exercise": null
+      "note": "早餐约257千卡、蛋白约15克（牛奶200ml一盒、鸡蛋1个、面包半片、玉米四分之一根）。都是估算不是称重数。",
+      "proteinG": 15,
+      "restingHeartRate": null,
+      "steps": null,
+      "surplusKcal": null,
+      "totalKcal": null
     }
   ],
+  "fatLoss": {
+    "currentFatPct": 19.6,
+    "dailyDeficitTargetKcal": 400,
+    "dailyProteinTargetG": 120,
+    "estDaysRemaining": "17",
+    "fatToLoseKcal": 8000,
+    "fatToLoseKg": 1.04,
+    "goal": "体脂 19.6% → 18%，先到 18% 再商量 16% 的事",
+    "singleDayIntakeKcal": "1800",
+    "targetFatPct": 18,
+    "today": {
+      "date": "2026-11-18",
+      "dayType": "轻动日（体检前一天，瑜伽为主）",
+      "dinnerRemainingKcal": "1343~1543",
+      "dinnerRemainingProteinG": 105,
+      "intakeSoFarKcal": "257",
+      "proteinSoFarG": 15,
+      "targetDeficitKcal": 400
+    },
+    "todayDeficitKcal": 1476,
+    "todayProgressPct": 18,
+    "twoADayIntakeKcal": "2200–2300",
+    "twoADayMaxPerWeek": 2,
+    "week": "第 1 周（11/16–11/22）",
+    "weeklyDeficitProgress": "已缺 1476 / 目标 2400 千卡",
+    "weeklyDeficitSoFarKcal": 1476,
+    "weeklyDeficitTargetKcal": "2400",
+    "weeklyProteinTargetG": 840
+  },
   "meta": {
     "fatGapPoints": 1.6,
     "fatTargetPct": 18,
@@ -286,48 +315,19 @@
   ],
   "training": [
     {
-      "date": "2026-11-16",
-      "type": "腿日",
-      "source": "手动",
       "content": "广州店，早上 08:01–09:13，15 组、178 次。哈克蹲（45°）60×12、70×12、80×10（3 组，第 4 组因左膝刺停掉；45° 首用，股四头集中；80×10 那组脚尖外开多了，左膝盖头轻微刺了一下）；俯卧腘绳弯举 20×12×4（挡板第二格正好）；臀推机 40×12×4（第 2 组视频 8/10）；髋内收 24×12、29×12（工作组 29）；髋外展 25×12×2。拉伸：下犬式、鸽子式、矛式、蝴蝶式、坐姿分腿前屈，各 30 秒。",
-      "note": "左膝：哈克蹲脚尖外开别超 30°，膝盖顺着脚尖走，刺再出现就停。45° 哈克蹲工作组未定，下次从 80 起步找。广州店内夹工作组 29、外展 25。前臂：按压不疼了（11/16 确认），旋转到最大幅度才疼；拉日可回（下拉、划船、面拉），弯举再等等，硬拉仍别碰。"
+      "date": "2026-11-16",
+      "note": "左膝：哈克蹲脚尖外开别超 30°，膝盖顺着脚尖走，刺再出现就停。45° 哈克蹲工作组未定，下次从 80 起步找。广州店内夹工作组 29、外展 25。前臂：按压不疼了（11/16 确认），旋转到最大幅度才疼；拉日可回（下拉、划船、面拉），弯举再等等，硬拉仍别碰。",
+      "source": "手动",
+      "type": "腿日"
     },
     {
-      "date": "2026-11-17",
-      "type": "推日",
-      "source": "手动",
       "content": "广州店。斜推24×12、29×12、29×12、24×12；分动平推每边10kg：12、10、8；夹胸20×12×3；哑铃肩推7.5×12、10×12；绳索下压（重架）10×12、10×8、10×10。共16组（含1组热身）180次3432kg·次。",
-      "note": "斜推29kg工作档；夹胸20kg已稳；左肩第三组因耸肩发紧；左前臂无不适。"
+      "date": "2026-11-17",
+      "note": "斜推29kg工作档；夹胸20kg已稳；左肩第三组因耸肩发紧；左前臂无不适。",
+      "source": "手动",
+      "type": "推日"
     }
   ],
-  "weekly": [],
-  "fatLoss": {
-    "week": "第 1 周（11/16–11/22）",
-    "goal": "体脂 19.6% → 18%，先到 18% 再商量 16% 的事",
-    "weeklyDeficitTargetKcal": "2400",
-    "weeklyProteinTargetG": 840,
-    "dailyProteinTargetG": 120,
-    "singleDayIntakeKcal": "1800",
-    "twoADayIntakeKcal": "2200–2300",
-    "twoADayMaxPerWeek": 2,
-    "today": {
-      "date": "2026-11-18",
-      "dayType": "轻动日（体检前一天，瑜伽为主）",
-      "targetDeficitKcal": 400,
-      "intakeSoFarKcal": "257",
-      "proteinSoFarG": 15,
-      "dinnerRemainingKcal": "1343~1543",
-      "dinnerRemainingProteinG": 105
-    },
-    "weeklyDeficitSoFarKcal": 1476,
-    "weeklyDeficitProgress": "已缺 1476 / 目标 2400 千卡",
-    "currentFatPct": 19.6,
-    "targetFatPct": 18,
-    "fatToLoseKg": 1.04,
-    "fatToLoseKcal": 8000,
-    "dailyDeficitTargetKcal": 400,
-    "todayDeficitKcal": 1476,
-    "todayProgressPct": 18,
-    "estDaysRemaining": "17"
-  }
+  "weekly": []
 }
