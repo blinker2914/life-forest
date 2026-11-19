@@ -190,6 +190,24 @@
       "suppCheckedCount": 11,
       "surplusKcal": -287,
       "totalKcal": null
+    },
+    {
+      "activityKcal": null,
+      "date": "2026-11-19",
+      "expenditureKcal": null,
+      "meals": [
+        {
+          "desc": "吐司1片+鸡蛋1个+红薯1个+豆浆1杯",
+          "kcal": 305,
+          "name": "早餐",
+          "proteinG": 14
+        }
+      ],
+      "proteinG": 14,
+      "intakeKcal": 305,
+      "suppCheckedCount": null,
+      "surplusKcal": null,
+      "steps": null
     }
   ],
   "fatLoss": {
@@ -204,13 +222,12 @@
     "targetDate": "2026-12-06",
     "targetFatPct": 18,
     "today": {
-      "date": "2026-11-18",
-      "dayType": "轻动日（体检前一天，瑜伽为主）",
-      "dinnerRemainingKcal": "0",
-      "dinnerRemainingProteinG": 0,
-      "intakeSoFarKcal": "1597",
-      "proteinSoFarG": 128,
-      "targetDeficitKcal": 400
+      "date": "2026-11-19",
+      "dayType": "体检日",
+      "dinnerRemainingKcal": 1495,
+      "dinnerRemainingProteinG": 106,
+      "intakeSoFarKcal": 305,
+      "proteinSoFarG": 14
     },
     "todayDeficitKcal": 1763,
     "todayProgressPct": 22,
