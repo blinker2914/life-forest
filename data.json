@@ -185,8 +185,8 @@
       ],
       "note": "早餐约257千卡、蛋白约15克（牛奶200ml一盒、鸡蛋1个、面包半片、玉米四分之一根）。午餐绿茶烤鸡半只＋炒青菜一大盘，约550千卡、蛋白约54克。下午拿铁1杯，约160千卡、蛋白约9克。晚餐在外吃：烧鹅去皮约6块＋炒青菜半盘＋虾蒸蛋半碗，没吃米饭，约630千卡、蛋白约50克。瑜伽75分钟，约304千卡（手表），感觉舒服。手表今日活动卡路里387（已含瑜伽304），总消耗1884，缺口287。都是估算不是称重数。",
       "proteinG": 128,
-      "restingHeartRate": null,
-      "steps": 161,
+      "restingHeartRate": 55,
+      "steps": 6438,
       "suppCheckedCount": 11,
       "surplusKcal": -287,
       "totalKcal": null
@@ -213,7 +213,7 @@
       "intakeKcal": 379,
       "suppCheckedCount": null,
       "surplusKcal": null,
-      "steps": null
+      "steps": 1510
     }
   ],
   "fatLoss": {
@@ -289,6 +289,15 @@
       "date": "2026-11-18",
       "deepHours": null,
       "hours": 7.37,
+      "lightHours": null,
+      "remHours": null,
+      "wakeTime": null
+    },
+    {
+      "bedTime": null,
+      "date": "2026-11-19",
+      "deepHours": null,
+      "hours": 5.62,
       "lightHours": null,
       "remHours": null,
       "wakeTime": null
