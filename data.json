@@ -209,16 +209,16 @@
           "proteinG": 88
         },
         {
-          "desc": "清汤麻辣烫：青菜、菌菇、莲藕、番茄、鹌鹑蛋4颗、卤牛肉",
-          "kcal": 370,
+          "desc": "清汤麻辣烫：青菜、菌菇、莲藕、番茄、鹌鹑蛋4颗、卤牛肉、鸡心、猪肺",
+          "kcal": 535,
           "name": "晚餐",
-          "proteinG": 37
+          "proteinG": 57
         }
       ],
-      "proteinG": 139,
-      "intakeKcal": 1350,
+      "proteinG": 159,
+      "intakeKcal": 1515,
       "suppCheckedCount": null,
-      "surplusKcal": -547,
+      "surplusKcal": -382,
       "steps": 1510,
       "exercise": {
         "durationMin": 43,
@@ -244,17 +244,17 @@
       "dayType": "体检日",
       "dinnerRemainingKcal": 0,
       "dinnerRemainingProteinG": 0,
-      "intakeSoFarKcal": 1350,
-      "proteinSoFarG": 139
+      "intakeSoFarKcal": 1515,
+      "proteinSoFarG": 159
     },
-    "todayDeficitKcal": 2310,
-    "todayProgressPct": 29,
+    "todayDeficitKcal": 2145,
+    "todayProgressPct": 27,
     "totalDays": 21,
     "twoADayIntakeKcal": "2200–2300",
     "twoADayMaxPerWeek": 2,
     "week": "第 1 周（11/16–11/22）",
     "weeklyDeficitProgress": "已缺 1476 / 目标 2400 千卡",
-    "weeklyDeficitSoFarKcal": 2310,
+    "weeklyDeficitSoFarKcal": 2145,
     "weeklyDeficitTargetKcal": "2400",
     "weeklyProteinTargetG": 840
   },
