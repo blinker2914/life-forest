@@ -226,6 +226,23 @@
         "kind": "拉日",
         "type": "拉日"
       }
+    },
+    {
+      "activityKcal": null,
+      "date": "2026-11-20",
+      "expenditureKcal": null,
+      "intakeKcal": 255,
+      "meals": [
+        {
+          "desc": "鸡蛋1个+牛奶200ml+面包1片",
+          "kcal": 255,
+          "name": "早餐",
+          "proteinG": 14
+        }
+      ],
+      "proteinG": 14,
+      "steps": null,
+      "surplusKcal": null
     }
   ],
   "fatLoss": {
@@ -240,12 +257,12 @@
     "targetDate": "2026-12-06",
     "targetFatPct": 18,
     "today": {
-      "date": "2026-11-19",
-      "dayType": "体检日",
-      "dinnerRemainingKcal": 0,
-      "dinnerRemainingProteinG": 0,
-      "intakeSoFarKcal": 1470,
-      "proteinSoFarG": 146
+      "date": "2026-11-20",
+      "dayType": "香港出差",
+      "dinnerRemainingKcal": 1545,
+      "dinnerRemainingProteinG": 106,
+      "intakeSoFarKcal": 255,
+      "proteinSoFarG": 14
     },
     "todayDeficitKcal": 2190,
     "todayProgressPct": 27,
