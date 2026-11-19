@@ -201,10 +201,16 @@
           "kcal": 305,
           "name": "早餐",
           "proteinG": 14
+        },
+        {
+          "desc": "乳清1勺（约20g）",
+          "kcal": 74,
+          "name": "其他",
+          "proteinG": 18
         }
       ],
-      "proteinG": 14,
-      "intakeKcal": 305,
+      "proteinG": 32,
+      "intakeKcal": 379,
       "suppCheckedCount": null,
       "surplusKcal": null,
       "steps": null
@@ -224,10 +230,10 @@
     "today": {
       "date": "2026-11-19",
       "dayType": "体检日",
-      "dinnerRemainingKcal": 1495,
-      "dinnerRemainingProteinG": 106,
-      "intakeSoFarKcal": 305,
-      "proteinSoFarG": 14
+      "dinnerRemainingKcal": 1421,
+      "dinnerRemainingProteinG": 88,
+      "intakeSoFarKcal": 379,
+      "proteinSoFarG": 32
     },
     "todayDeficitKcal": 1763,
     "todayProgressPct": 22,
