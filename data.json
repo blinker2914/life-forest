@@ -192,9 +192,9 @@
       "totalKcal": null
     },
     {
-      "activityKcal": null,
+      "activityKcal": 150,
       "date": "2026-11-19",
-      "expenditureKcal": null,
+      "expenditureKcal": 1897,
       "meals": [
         {
           "desc": "吐司1片+鸡蛋1个+红薯1个+豆浆1杯",
@@ -203,17 +203,29 @@
           "proteinG": 14
         },
         {
-          "desc": "乳清1勺（约20g）；练后加餐：乳清1勺、鸡蛋1个、One's Member希腊酸奶100g、枸杞叶少许、猪肝少许、鱼皮饺2块",
-          "kcal": 435,
+          "desc": "乳清1勺（约20g）；练后加餐：乳清1勺、鸡蛋1个、One's Member希腊酸奶100g、枸杞叶少许、猪肝少许、鱼皮饺2块；下午加餐：柚子半个、烤面包1片、鸡蛋1个、One's Member希腊酸奶100g",
+          "kcal": 675,
           "name": "其他",
-          "proteinG": 69
+          "proteinG": 88
+        },
+        {
+          "desc": "清汤麻辣烫：青菜、菌菇、莲藕、番茄、鹌鹑蛋4颗、卤牛肉",
+          "kcal": 370,
+          "name": "晚餐",
+          "proteinG": 37
         }
       ],
-      "proteinG": 83,
-      "intakeKcal": 740,
+      "proteinG": 139,
+      "intakeKcal": 1350,
       "suppCheckedCount": null,
-      "surplusKcal": null,
-      "steps": 1510
+      "surplusKcal": -547,
+      "steps": 1510,
+      "exercise": {
+        "durationMin": 43,
+        "kcal": 250,
+        "kind": "拉日",
+        "type": "拉日"
+      }
     }
   ],
   "fatLoss": {
@@ -230,19 +242,19 @@
     "today": {
       "date": "2026-11-19",
       "dayType": "体检日",
-      "dinnerRemainingKcal": 1060,
-      "dinnerRemainingProteinG": 37,
-      "intakeSoFarKcal": 740,
-      "proteinSoFarG": 83
+      "dinnerRemainingKcal": 0,
+      "dinnerRemainingProteinG": 0,
+      "intakeSoFarKcal": 1350,
+      "proteinSoFarG": 139
     },
-    "todayDeficitKcal": 1763,
-    "todayProgressPct": 22,
+    "todayDeficitKcal": 2310,
+    "todayProgressPct": 29,
     "totalDays": 21,
     "twoADayIntakeKcal": "2200–2300",
     "twoADayMaxPerWeek": 2,
     "week": "第 1 周（11/16–11/22）",
     "weeklyDeficitProgress": "已缺 1476 / 目标 2400 千卡",
-    "weeklyDeficitSoFarKcal": 1763,
+    "weeklyDeficitSoFarKcal": 2310,
     "weeklyDeficitTargetKcal": "2400",
     "weeklyProteinTargetG": 840
   },
@@ -412,6 +424,14 @@
       "note": "轻动，不碰大重量。",
       "source": "手动",
       "type": "瑜伽"
+    },
+    {
+      "date": "2026-11-19",
+      "durationMin": 43,
+      "kcal": 250,
+      "kind": "拉日",
+      "note": "广州店，13组。坐姿划船24×12、29×12、29×12、24×12；下拉15×12、20×12、20×10；坐姿面拉20×12×3；二头弯举7.5×12、7.5×8、7.5×8。前臂恢复良好。",
+      "type": "拉日"
     }
   ],
   "weekly": []
