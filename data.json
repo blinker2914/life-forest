@@ -203,14 +203,14 @@
           "proteinG": 14
         },
         {
-          "desc": "乳清1勺（约20g）",
-          "kcal": 74,
+          "desc": "乳清1勺（约20g）；练后加餐：乳清1勺、鸡蛋1个、One's Member希腊酸奶100g、枸杞叶少许、猪肝少许、鱼皮饺2块",
+          "kcal": 435,
           "name": "其他",
-          "proteinG": 18
+          "proteinG": 69
         }
       ],
-      "proteinG": 32,
-      "intakeKcal": 379,
+      "proteinG": 83,
+      "intakeKcal": 740,
       "suppCheckedCount": null,
       "surplusKcal": null,
       "steps": 1510
@@ -230,10 +230,10 @@
     "today": {
       "date": "2026-11-19",
       "dayType": "体检日",
-      "dinnerRemainingKcal": 1421,
-      "dinnerRemainingProteinG": 88,
-      "intakeSoFarKcal": 379,
-      "proteinSoFarG": 32
+      "dinnerRemainingKcal": 1060,
+      "dinnerRemainingProteinG": 37,
+      "intakeSoFarKcal": 740,
+      "proteinSoFarG": 83
     },
     "todayDeficitKcal": 1763,
     "todayProgressPct": 22,
