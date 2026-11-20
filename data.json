@@ -231,7 +231,7 @@
       "activityKcal": 258,
       "date": "2026-11-20",
       "expenditureKcal": 2105,
-      "intakeKcal": 1630,
+      "intakeKcal": 1710,
       "meals": [
         {
           "desc": "鸡蛋1个+牛奶200ml+面包1片",
@@ -253,14 +253,14 @@
         },
         {
           "desc": "烧烤：生蚝2只、大虾1只、牛肉串3串、西葫芦、韭菜、西兰花、菠萝、青菜、酸萝卜、烤花生3-4颗（无鱿鱼）",
-          "kcal": 595,
+          "kcal": 675,
           "name": "晚餐",
-          "proteinG": 58
+          "proteinG": 60
         }
       ],
-      "proteinG": 111,
+      "proteinG": 113,
       "steps": null,
-      "surplusKcal": -475,
+      "surplusKcal": -395,
       "exerciseKcal": 350,
       "exerciseType": "腿日+波比跳100"
     }
@@ -281,17 +281,17 @@
       "dayType": "香港出差",
       "dinnerRemainingKcal": 0,
       "dinnerRemainingProteinG": 0,
-      "intakeSoFarKcal": 1630,
-      "proteinSoFarG": 111
+      "intakeSoFarKcal": 1710,
+      "proteinSoFarG": 113
     },
-    "todayDeficitKcal": 2665,
-    "todayProgressPct": 33,
+    "todayDeficitKcal": 2585,
+    "todayProgressPct": 32,
     "totalDays": 21,
     "twoADayIntakeKcal": "2200–2300",
     "twoADayMaxPerWeek": 2,
     "week": "第 1 周（11/16–11/22）",
     "weeklyDeficitProgress": "已缺 2190 / 目标 2400 千卡",
-    "weeklyDeficitSoFarKcal": 2665,
+    "weeklyDeficitSoFarKcal": 2585,
     "weeklyDeficitTargetKcal": "2400",
     "weeklyProteinTargetG": 840
   },
