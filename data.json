@@ -230,7 +230,7 @@
     {
       "activityKcal": 258,
       "date": "2026-11-20",
-      "expenditureKcal": 2005,
+      "expenditureKcal": 2105,
       "intakeKcal": 1035,
       "meals": [
         {
@@ -254,9 +254,9 @@
       ],
       "proteinG": 53,
       "steps": null,
-      "surplusKcal": -970,
-      "exerciseKcal": 250,
-      "exerciseType": "腿日"
+      "surplusKcal": -1070,
+      "exerciseKcal": 350,
+      "exerciseType": "腿日+波比跳100"
     }
   ],
   "fatLoss": {
