@@ -228,9 +228,9 @@
       }
     },
     {
-      "activityKcal": null,
+      "activityKcal": 258,
       "date": "2026-11-20",
-      "expenditureKcal": null,
+      "expenditureKcal": 1755,
       "intakeKcal": 885,
       "meals": [
         {
@@ -248,14 +248,14 @@
       ],
       "proteinG": 45,
       "steps": null,
-      "surplusKcal": null
+      "surplusKcal": -870
     }
   ],
   "fatLoss": {
     "currentFatPct": 19.6,
     "dailyDeficitTargetKcal": 350,
     "dailyProteinTargetG": 120,
-    "estDaysRemaining": "18",
+    "estDaysRemaining": 16,
     "fatToLoseKcal": 8000,
     "fatToLoseKg": 1.04,
     "goal": "体脂 19.6% → 18%，先到 18% 再商量 16% 的事",
@@ -276,7 +276,7 @@
     "twoADayIntakeKcal": "2200–2300",
     "twoADayMaxPerWeek": 2,
     "week": "第 1 周（11/16–11/22）",
-    "weeklyDeficitProgress": "已缺 1476 / 目标 2400 千卡",
+    "weeklyDeficitProgress": "已缺 2190 / 目标 2400 千卡",
     "weeklyDeficitSoFarKcal": 2190,
     "weeklyDeficitTargetKcal": "2400",
     "weeklyProteinTargetG": 840
