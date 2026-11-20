@@ -230,7 +230,7 @@
     {
       "activityKcal": 765,
       "date": "2026-11-20",
-      "expenditureKcal": 2512,
+      "expenditureKcal": 2422,
       "intakeKcal": 1710,
       "meals": [
         {
@@ -260,9 +260,9 @@
       ],
       "proteinG": 113,
       "steps": 17000,
-      "surplusKcal": -802,
-      "exerciseKcal": 250,
-      "exerciseType": "腿日（波比跳已计入手表）"
+      "surplusKcal": -712,
+      "exerciseKcal": 160,
+      "exerciseType": "腿日（手表已算约90卡，手动补160）"
     }
   ],
   "fatLoss": {
@@ -284,14 +284,14 @@
       "intakeSoFarKcal": 1710,
       "proteinSoFarG": 113
     },
-    "todayDeficitKcal": 2992,
-    "todayProgressPct": 37,
+    "todayDeficitKcal": 2902,
+    "todayProgressPct": 36,
     "totalDays": 21,
     "twoADayIntakeKcal": "2200–2300",
     "twoADayMaxPerWeek": 2,
     "week": "第 1 周（11/16–11/22）",
     "weeklyDeficitProgress": "已缺 2190 / 目标 2400 千卡",
-    "weeklyDeficitSoFarKcal": 2992,
+    "weeklyDeficitSoFarKcal": 2902,
     "weeklyDeficitTargetKcal": "2400",
     "weeklyProteinTargetG": 840
   },
@@ -349,6 +349,15 @@
       "hours": 5.62,
       "lightHours": null,
       "remHours": null,
+      "wakeTime": null
+    },
+    {
+      "date": "2026-11-20",
+      "hours": 6.42,
+      "deepHours": null,
+      "lightHours": null,
+      "remHours": null,
+      "bedTime": null,
       "wakeTime": null
     }
   ],
