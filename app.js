@@ -455,31 +455,6 @@ function renderSupplements() {
   $('suppCheckin').innerHTML = n === 0 ? '今天还没打卡（在飞书里勾）' : n + ' 条';
 }
 
-function renderTimeline() {
-  const dates = allDates().slice().reverse();
-  $('timeline').innerHTML = dates.map(d => {
-    const tr = byDate(DATA.training, d).filter(r => r.source === '手动');
-    const sl = byDate(DATA.sleep, d)[0];
-    const dy = byDate(DATA.daily, d)[0];
-    const bits = [];
-    if (tr.length) bits.push('训练：' + tr.map(t => t.type).join('、'));
-    if (sl) {
-      let sleepBit = '睡眠 ' + sl.hours + ' 小时';
-      if (sl.deepHours !== null && sl.deepHours !== undefined) {
-        sleepBit += '（深睡 ' + sl.deepHours + '、浅睡 ' + sl.lightHours + '、REM ' + sl.remHours + '）';
-      }
-      bits.push(sleepBit);
-    }
-    // “总卡路里”是手表的消耗，不是摄入，写清楚；半天的日子加个（半天）。
-    if (dy && dy.totalKcal !== null) {
-      const halfDay = dy.note && dy.note.indexOf('半天') !== -1 ? '（半天）' : '';
-      const srcTag = (dy.activityKcal !== null && dy.activityKcal !== undefined) ? '（手表）' : '（估算）';
-      bits.push('消耗约 ' + Math.round(dy.totalKcal) + ' kcal' + srcTag + halfDay);
-    }
-    if (!bits.length) bits.push('待记录');
-    return `<div class="timeline-item"><div class="d">${d}（${['周日', '周一', '周二', '周三', '周四', '周五', '周六'][new Date(d + 'T12:00:00').getDay()]}）</div><p>${bits.join('；')}</p></div>`;
-  }).join('');
-}
 
 // ---------- 每周回顾：周一到周日，一天一行，图表＋数字 ----------
 // 本周 = 最新一条数据所在的那一周（周一到周日）。没数据的格子显示待记录，不编数。
@@ -664,7 +639,6 @@ function render() {
   renderSupplements();
   renderSuppWeek();
   renderTrainingWeek();
-  renderTimeline();
   renderWeeklyReview();
   renderReview();
   renderCheckup();
@@ -672,7 +646,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=63')
+  fetch('data.json?v=64')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;
