@@ -231,16 +231,22 @@
       "activityKcal": null,
       "date": "2026-11-20",
       "expenditureKcal": null,
-      "intakeKcal": 255,
+      "intakeKcal": 825,
       "meals": [
         {
           "desc": "鸡蛋1个+牛奶200ml+面包1片",
           "kcal": 255,
           "name": "早餐",
           "proteinG": 14
+        },
+        {
+          "desc": "香港牛腩面：牛腩约150g+面约200g+汤",
+          "kcal": 570,
+          "name": "午餐",
+          "proteinG": 32
         }
       ],
-      "proteinG": 14,
+      "proteinG": 46,
       "steps": null,
       "surplusKcal": null
     }
@@ -259,10 +265,10 @@
     "today": {
       "date": "2026-11-20",
       "dayType": "香港出差",
-      "dinnerRemainingKcal": 1545,
-      "dinnerRemainingProteinG": 106,
-      "intakeSoFarKcal": 255,
-      "proteinSoFarG": 14
+      "dinnerRemainingKcal": 975,
+      "dinnerRemainingProteinG": 74,
+      "intakeSoFarKcal": 825,
+      "proteinSoFarG": 46
     },
     "todayDeficitKcal": 2190,
     "todayProgressPct": 27,
