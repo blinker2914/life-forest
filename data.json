@@ -303,7 +303,7 @@
       ],
       "expenditureKcal": 1985,
       "surplusKcal": -185,
-      "activityKcal": 390,
+      "activityKcal": 238,
       "exerciseKcal": 250,
       "exerciseType": "推日",
       "steps": 8900,
@@ -312,7 +312,9 @@
         "kcal": 250,
         "type": "推日",
         "durationMin": 65
-      }
+      },
+      "watchActivityTotalKcal": 390,
+      "watchTrainingKcal": 152
     }
   ],
   "fatLoss": {

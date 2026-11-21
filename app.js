@@ -649,7 +649,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=75')
+  fetch('data.json?v=76')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;
