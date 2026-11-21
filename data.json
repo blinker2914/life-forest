@@ -268,8 +268,8 @@
     },
     {
       "date": "2026-11-21",
-      "intakeKcal": 1755,
-      "proteinG": 116,
+      "intakeKcal": 1800,
+      "proteinG": 117,
       "meals": [
         {
           "name": "早餐",
@@ -288,6 +288,12 @@
           "desc": "滑蛋牛肉（吃一半，牛肉约100g+鸡蛋2个）+ 猪颈肉5粒 + 玉米团子半块 + 鸡翅1只 + 青菜",
           "kcal": 680,
           "proteinG": 53
+        },
+        {
+          "name": "其他",
+          "desc": "小柚子半个",
+          "kcal": 45,
+          "proteinG": 1
         }
       ],
       "expenditureKcal": null,
