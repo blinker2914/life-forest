@@ -296,12 +296,12 @@
           "proteinG": 1
         }
       ],
-      "expenditureKcal": null,
-      "surplusKcal": null,
-      "activityKcal": null,
+      "expenditureKcal": 2047,
+      "surplusKcal": -247,
+      "activityKcal": 390,
       "exerciseKcal": 250,
       "exerciseType": "推日",
-      "steps": null,
+      "steps": 8900,
       "suppCheckedCount": null
     }
   ],
@@ -323,14 +323,14 @@
       "dinnerRemainingKcal": 0,
       "dinnerRemainingProteinG": 3
     },
-    "todayDeficitKcal": 2902,
-    "todayProgressPct": 36,
+    "todayDeficitKcal": 3149,
+    "todayProgressPct": 39,
     "totalDays": 21,
     "twoADayIntakeKcal": "2200–2300",
     "twoADayMaxPerWeek": 2,
     "week": "第 1 周（11/16–11/22）",
-    "weeklyDeficitProgress": "已缺 2902 / 目标 8000 千卡（21天总目标）",
-    "weeklyDeficitSoFarKcal": 2902,
+    "weeklyDeficitProgress": "已缺 3149 / 目标 8000 千卡（21天总目标）",
+    "weeklyDeficitSoFarKcal": 3149,
     "weeklyDeficitTargetKcal": "2400",
     "weeklyProteinTargetG": 840,
     "startDate": "2026-11-16",
