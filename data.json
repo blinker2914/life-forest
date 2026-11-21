@@ -268,14 +268,20 @@
     },
     {
       "date": "2026-11-21",
-      "intakeKcal": 175,
-      "proteinG": 11,
+      "intakeKcal": 1125,
+      "proteinG": 81,
       "meals": [
         {
           "name": "早餐",
           "desc": "鸡蛋1个+玉米1/4根+蒸南瓜几片+牛奶100ml",
           "kcal": 175,
           "proteinG": 11
+        },
+        {
+          "name": "午餐",
+          "desc": "羊肉煲（砂锅，羊肉约300g）+ 西洋菜/生菜 + 腐竹 + 丸子",
+          "kcal": 950,
+          "proteinG": 70
         }
       ],
       "expenditureKcal": null,
