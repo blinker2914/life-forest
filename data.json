@@ -264,7 +264,12 @@
       "surplusKcal": -712,
       "exerciseKcal": 160,
       "exerciseType": "腿日（手表已算约90卡，手动补160）",
-      "suppCheckedCount": 0
+      "suppCheckedCount": 0,
+      "exercise": {
+        "kcal": 160,
+        "type": "腿日（手表已算约90卡，手动补160）",
+        "durationMin": 60
+      }
     },
     {
       "date": "2026-11-21",
@@ -302,7 +307,12 @@
       "exerciseKcal": 250,
       "exerciseType": "推日",
       "steps": 8900,
-      "suppCheckedCount": null
+      "suppCheckedCount": null,
+      "exercise": {
+        "kcal": 250,
+        "type": "推日",
+        "durationMin": 65
+      }
     }
   ],
   "fatLoss": {
