@@ -265,6 +265,26 @@
       "exerciseKcal": 160,
       "exerciseType": "腿日（手表已算约90卡，手动补160）",
       "suppCheckedCount": 0
+    },
+    {
+      "date": "2026-11-21",
+      "intakeKcal": 175,
+      "proteinG": 11,
+      "meals": [
+        {
+          "name": "早餐",
+          "desc": "鸡蛋1个+玉米1/4根+蒸南瓜几片+牛奶100ml",
+          "kcal": 175,
+          "proteinG": 11
+        }
+      ],
+      "expenditureKcal": null,
+      "surplusKcal": null,
+      "activityKcal": null,
+      "exerciseKcal": null,
+      "exerciseType": null,
+      "steps": null,
+      "suppCheckedCount": null
     }
   ],
   "fatLoss": {
@@ -279,12 +299,11 @@
     "targetDate": "2026-12-06",
     "targetFatPct": 18,
     "today": {
-      "date": "2026-11-20",
-      "dayType": "香港出差",
-      "dinnerRemainingKcal": 0,
-      "dinnerRemainingProteinG": 0,
-      "intakeSoFarKcal": 1710,
-      "proteinSoFarG": 113
+      "date": "2026-11-21",
+      "intakeSoFarKcal": 175,
+      "proteinSoFarG": 11,
+      "dinnerRemainingKcal": 1625,
+      "dinnerRemainingProteinG": 109
     },
     "todayDeficitKcal": 2902,
     "todayProgressPct": 36,
