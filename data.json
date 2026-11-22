@@ -307,7 +307,8 @@
       "activityKcal": 238,
       "exerciseKcal": 250,
       "exerciseType": "推日",
-      "steps": 8900,
+      "restingHeartRate": 54,
+      "steps": 9011,
       "suppCheckedCount": null,
       "exercise": {
         "kcal": 250,
@@ -408,6 +409,15 @@
     {
       "date": "2026-11-20",
       "hours": 6.42,
+      "deepHours": null,
+      "lightHours": null,
+      "remHours": null,
+      "bedTime": null,
+      "wakeTime": null
+    },
+    {
+      "date": "2026-11-22",
+      "hours": 5.95,
       "deepHours": null,
       "lightHours": null,
       "remHours": null,
