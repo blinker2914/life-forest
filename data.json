@@ -260,7 +260,8 @@
         }
       ],
       "proteinG": 113,
-      "steps": 17000,
+      "restingHeartRate": 53,
+      "steps": 17472,
       "surplusKcal": -712,
       "exerciseKcal": 160,
       "exerciseType": "腿日（手表已算约90卡，手动补160）",
