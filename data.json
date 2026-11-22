@@ -317,13 +317,55 @@
       },
       "watchActivityTotalKcal": 390,
       "watchTrainingKcal": 152
+    },
+    {
+      "date": "2026-11-22",
+      "intakeKcal": 2162,
+      "proteinG": 133,
+      "expenditureKcal": 2269,
+      "exerciseKcal": 622,
+      "exercise": {
+        "kcal": 622,
+        "type": "拉日+战绳",
+        "durationMin": 105
+      },
+      "surplusKcal": -107,
+      "steps": 0,
+      "restingHR": 0,
+      "sleepHours": 5.95,
+      "meals": [
+        {
+          "label": "早",
+          "kcal": 195,
+          "proteinG": 10,
+          "items": "芝士肠仔面包1片+牛奶200ml"
+        },
+        {
+          "label": "午",
+          "kcal": 775,
+          "proteinG": 68,
+          "items": "Gaga牛肉拌饭+鸡胸肉"
+        },
+        {
+          "label": "晚",
+          "kcal": 1100,
+          "proteinG": 55,
+          "items": "烧烤60串+脑花"
+        },
+        {
+          "label": "其他",
+          "kcal": 92,
+          "proteinG": 0,
+          "items": "东鹏电解质2/3瓶"
+        }
+      ]
     }
   ],
   "fatLoss": {
     "currentFatPct": 19.6,
     "dailyDeficitTargetKcal": 350,
     "dailyProteinTargetG": 120,
-    "estDaysRemaining": 15,
+    "estDaysRemaining": 14,
     "fatToLoseKcal": 8000,
     "fatToLoseKg": 1.04,
     "goal": "体脂 19.6% → 18%，先到 18% 再商量 16% 的事",
@@ -337,18 +379,18 @@
       "dinnerRemainingKcal": 0,
       "dinnerRemainingProteinG": 3
     },
-    "todayDeficitKcal": 2967,
-    "todayProgressPct": 37,
+    "todayDeficitKcal": 3074,
+    "todayProgressPct": 38,
     "totalDays": 21,
     "twoADayIntakeKcal": "2200–2300",
     "twoADayMaxPerWeek": 2,
     "week": "第 1 周（11/16–11/22）",
-    "weeklyDeficitProgress": "已缺 2967 / 目标 8000 千卡（21天总目标）",
-    "weeklyDeficitSoFarKcal": 2967,
+    "weeklyDeficitProgress": "已缺 3074 / 目标 8000 千卡（21天总目标）",
+    "weeklyDeficitSoFarKcal": 3074,
     "weeklyDeficitTargetKcal": "2400",
     "weeklyProteinTargetG": 840,
     "startDate": "2026-11-16",
-    "currentDay": 6
+    "currentDay": 7
   },
   "meta": {
     "fatGapPoints": 1.6,
