@@ -97,11 +97,9 @@
       "avgHeartRate": null,
       "date": "2026-11-17",
       "exercise": {
-        "durationMin": 54,
-        "kcal": 250,
-        "kind": "力量训练",
-        "place": "广州店健身房",
-        "type": "推日"
+        "kcal": 160,
+        "type": "推日",
+        "durationMin": 60
       },
       "expenditureKcal": 2262,
       "intakeKcal": 1311,
@@ -143,18 +141,17 @@
       "steps": 9895,
       "suppCheckedCount": 12,
       "surplusKcal": -951,
-      "totalKcal": null
+      "totalKcal": null,
+      "exerciseKcal": 160
     },
     {
       "activityKcal": 83,
       "avgHeartRate": null,
       "date": "2026-11-18",
       "exercise": {
-        "durationMin": 75,
-        "kcal": 304,
-        "kind": "瑜伽",
-        "place": "",
-        "type": "瑜伽"
+        "kcal": 300,
+        "type": "瑜伽",
+        "durationMin": 75
       },
       "expenditureKcal": 1884,
       "intakeKcal": 1597,
@@ -190,7 +187,8 @@
       "steps": 6438,
       "suppCheckedCount": 11,
       "surplusKcal": -287,
-      "totalKcal": null
+      "totalKcal": null,
+      "exerciseKcal": 300
     },
     {
       "activityKcal": 150,
