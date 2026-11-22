@@ -49,7 +49,7 @@
         "place": "广州店健身房",
         "type": "练腿"
       },
-      "expenditureKcal": 2010,
+      "expenditureKcal": 2130,
       "intakeKcal": 1575,
       "meals": [
         {
@@ -88,9 +88,9 @@
       "restingHeartRate": 51,
       "steps": 6482,
       "suppCheckedCount": 11,
-      "surplusKcal": -435,
+      "surplusKcal": -555,
       "totalKcal": 2100,
-      "exerciseKcal": 160
+      "exerciseKcal": 280
     },
     {
       "activityKcal": 515,
@@ -233,7 +233,7 @@
     {
       "activityKcal": 765,
       "date": "2026-11-20",
-      "expenditureKcal": 2422,
+      "expenditureKcal": 2452,
       "intakeKcal": 1710,
       "meals": [
         {
@@ -264,8 +264,8 @@
       "proteinG": 113,
       "restingHeartRate": 53,
       "steps": 17472,
-      "surplusKcal": -712,
-      "exerciseKcal": 160,
+      "surplusKcal": -742,
+      "exerciseKcal": 280,
       "exerciseType": "腿日（手表已算约90卡，手动补160）",
       "suppCheckedCount": 0,
       "exercise": {
@@ -304,10 +304,10 @@
           "proteinG": 1
         }
       ],
-      "expenditureKcal": 1985,
-      "surplusKcal": -185,
+      "expenditureKcal": 1895,
+      "surplusKcal": -95,
       "activityKcal": 238,
-      "exerciseKcal": 250,
+      "exerciseKcal": 160,
       "exerciseType": "推日",
       "restingHeartRate": 54,
       "steps": 9011,
@@ -339,14 +339,14 @@
       "dinnerRemainingKcal": 0,
       "dinnerRemainingProteinG": 3
     },
-    "todayDeficitKcal": 2907,
-    "todayProgressPct": 36,
+    "todayDeficitKcal": 2967,
+    "todayProgressPct": 37,
     "totalDays": 21,
     "twoADayIntakeKcal": "2200–2300",
     "twoADayMaxPerWeek": 2,
     "week": "第 1 周（11/16–11/22）",
-    "weeklyDeficitProgress": "已缺 2907 / 目标 8000 千卡（21天总目标）",
-    "weeklyDeficitSoFarKcal": 2907,
+    "weeklyDeficitProgress": "已缺 2967 / 目标 8000 千卡（21天总目标）",
+    "weeklyDeficitSoFarKcal": 2967,
     "weeklyDeficitTargetKcal": "2400",
     "weeklyProteinTargetG": 840,
     "startDate": "2026-11-16",
