@@ -299,7 +299,7 @@ function renderFatLoss() {
   html += `<div class="kv"><span class="k">体脂率目标</span><span class="v">现在 ${curFat}% → 目标 ${tgtFat}%</span></div>`;
   html += `<div style="font-size:28px;font-weight:800;color:#8fd6a8;margin:6px 0 2px">已完成 ${progressPct}%</div>`;
   html += `<div class="progress-bar"><div class="fill" style="width:${Math.min(100, Math.max(0, progressPct))}%"></div></div>`;
-  html += `<div class="faint">要减约 ${fl.fatToLoseKg || '1.04'} kg 脂肪（约 ${fl.fatToLoseKcal || 8000} 千卡）；${fl.startDate ? fl.startDate.slice(5).replace('-', '月') + '日' : ''}开始，共 ${fl.totalDays || 21} 天，${fl.targetDate ? fl.targetDate.slice(5).replace('-', '月') + '日' : ''}完成；已缺 ${fl.weeklyDeficitSoFarKcal || 0} 千卡，还剩 ${fl.estDaysRemaining || '18'} 天，每天约 ${fl.dailyDeficitTargetKcal || 350} 千卡。</div>`;
+  html += `<div class="faint">要减约 ${fl.fatToLoseKg || '1.04'} kg 脂肪（约 ${fl.fatToLoseKcal || 8000} 千卡）；${fl.startDate ? fl.startDate.slice(5).replace('-', '月') + '日' : ''}开始，共 ${fl.totalDays || 21} 天，${fl.targetDate ? fl.targetDate.slice(5).replace('-', '月') + '日' : ''}完成；已缺 ${fl.totalDeficitSoFarKcal || 0} 千卡，还剩 ${fl.estDaysRemaining || '18'} 天，每天约 ${fl.dailyDeficitTargetKcal || 350} 千卡。</div>`;
 
   // --- 2. 今天吃了什么：分顿表格 + 合计 + 与目标差 + 目标 ---
   html += `<h3>今天吃了什么（${t.date || selectedDate}）</h3>`;
@@ -394,7 +394,7 @@ function renderFatLoss() {
   html += `<div class="kv"><span class="k">本周目标</span><span class="v">${fl.weeklyDeficitTargetKcal || '2400'} 千卡</span></div>`;
   html += `<div class="kv"><span class="k">本周蛋白</span><span class="v">${weekProtein} / ${fl.weeklyProteinTargetG || 840} 克</span></div>`;
   html += `<div class="kv"><span class="k">本周训练</span><span class="v">${weekTraining} 次</span></div>`;
-  html += `<div class="kv"><span class="k">累计缺口（21天）</span><span class="v">${fl.weeklyDeficitSoFarKcal || 0} / ${fl.fatToLoseKcal || 8000} 千卡</span></div>`;
+  html += `<div class="kv"><span class="k">累计缺口（21天）</span><span class="v">${fl.totalDeficitSoFarKcal || 0} / ${fl.fatToLoseKcal || 8000} 千卡</span></div>`;
 
   html += `<div class="faint" style="margin-top:8px">热量按周算总账（今天多、明天少可以）；蛋白按天算，不能攒，今天不够明天吃双倍也补不回来。数字都是估算，不是称重数。</div>`;
   $('fatLossBoard').innerHTML = html;
@@ -596,7 +596,8 @@ function renderWeeklyReview() {
 }
 
 function renderReview() {
-  const w = (DATA.weekly || [])[0];
+  const weeks = DATA.weekly || [];
+  const w = weeks[weeks.length - 1];
   if (!w) { $('review').innerHTML = pending; return; }
   const fmtW = (v) => (v === null || v === undefined) ? '待记录' : v;
   let html = `<div class="kv"><span class="k">周期</span><span class="v">${w.week}</span></div>`;
@@ -673,7 +674,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=82')
+  fetch('data.json?v=83')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;

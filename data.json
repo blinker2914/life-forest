@@ -374,10 +374,10 @@
     "targetFatPct": 18,
     "today": {
       "date": "2026-11-23",
-      "intakeSoFarKcal": 768,
-      "proteinSoFarG": 53,
-      "dinnerRemainingKcal": 1032,
-      "dinnerRemainingProteinG": 67
+      "intakeSoFarKcal": 853,
+      "proteinSoFarG": 56,
+      "dinnerRemainingKcal": 947,
+      "dinnerRemainingProteinG": 64
     },
     "todayDeficitKcal": 3074,
     "todayProgressPct": 38,
@@ -386,11 +386,11 @@
     "twoADayMaxPerWeek": 2,
     "week": "第 2 周（11/23–11/29）",
     "weeklyDeficitProgress": "已缺 3074 / 目标 8000 千卡（21天总目标）",
-    "weeklyDeficitSoFarKcal": 3074,
+    "totalDeficitSoFarKcal": 3074,
     "weeklyDeficitTargetKcal": "2400",
     "weeklyProteinTargetG": 840,
     "currentWeekDeficitSoFarKcal": 0,
-    "currentWeekProteinSoFarG": 53,
+    "currentWeekProteinSoFarG": 56,
     "currentWeekTrainingCount": 0,
     "startDate": "2026-11-16",
     "currentDay": 8
