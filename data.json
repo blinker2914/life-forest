@@ -369,7 +369,6 @@
       "exerciseKcal": 477,
       "surplusKcal": -162,
       "steps": 8380,
-      "restingHr": 53,
       "meals": {
         "breakfast": {
           "kcal": 265,
@@ -387,7 +386,8 @@
           "kcal": 247,
           "proteinG": 14
         }
-      }
+      },
+      "restingHeartRate": 53
     }
   ],
   "fatLoss": {

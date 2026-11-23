@@ -239,7 +239,7 @@ function renderSleep() {
     `<div class="kv"><span class="k">深睡</span><span class="v">${hnum(sel.deepHours, ' 小时')}</span></div>` +
     `<div class="kv"><span class="k">浅睡</span><span class="v">${hnum(sel.lightHours, ' 小时')}</span></div>` +
     `<div class="kv"><span class="k">REM</span><span class="v">${hnum(sel.remHours, ' 小时')}</span></div>` +
-    `<div class="kv"><span class="k">静息心率</span><span class="v">${(dy && dy.restingHeartRate !== null && dy.restingHeartRate !== undefined) ? dy.restingHeartRate + ' 次/分' : pendingSync}</span></div>` +
+    `<div class="kv"><span class="k">静息心率</span><span class="v">${(dy && (dy.restingHeartRate ?? dy.restingHr) !== null && (dy.restingHeartRate ?? dy.restingHr) !== undefined) ? (dy.restingHeartRate ?? dy.restingHr) + ' 次/分' : pendingSync}</span></div>` +
     `<div class="kv"><span class="k">步数</span><span class="v">待更新</span></div>` +
     `<div class="faint" style="margin-top:6px">睡眠时长来自手表自动同步（Intervals.icu）；深浅 / REM 接口里没有，之前按华为运动健康截图手填。</div>`;
   drawStackedBars($('sleepChart'), weekDates().map(ds => {
@@ -677,7 +677,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=86')
+  fetch('data.json?v=87')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;
