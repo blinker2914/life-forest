@@ -287,7 +287,6 @@ function renderEnergy() {
 function renderFatLoss() {
   const fl = DATA.fatLoss;
   if (!fl) { $('fatLossBoard').innerHTML = pending; return; }
-  const t = fl.today || {};
   const dy = byDate(DATA.daily, selectedDate)[0];
   const b = latestBody();
   let html = '';
@@ -302,7 +301,8 @@ function renderFatLoss() {
   html += `<div class="faint">要减约 ${fl.fatToLoseKg || '1.04'} kg 脂肪（约 ${fl.fatToLoseKcal || 8000} 千卡）；${fl.startDate ? fl.startDate.slice(5).replace('-', '月') + '日' : ''}开始，共 ${fl.totalDays || 21} 天，${fl.targetDate ? fl.targetDate.slice(5).replace('-', '月') + '日' : ''}完成；已缺 ${fl.totalDeficitSoFarKcal || 0} 千卡，还剩 ${fl.estDaysRemaining || '18'} 天，每天约 ${fl.dailyDeficitTargetKcal || 350} 千卡。</div>`;
 
   // --- 2. 今天吃了什么：分顿表格 + 合计 + 与目标差 + 目标 ---
-  html += `<h3>今天吃了什么（${t.date || selectedDate}）</h3>`;
+  // 用 selectedDate 而不用 fatLoss.today.date，因为 today 字段是手动更新的、会过期（比如周六看板子时 today 还是周一的日期）。
+  html += `<h3>今天吃了什么（${selectedDate}）</h3>`;
   const meals = (dy && dy.meals) ? dy.meals : null;
   const intakeTarget = fl.singleDayIntakeKcal || '1600–1800';
   const proteinTarget = fl.dailyProteinTargetG || 120;
@@ -674,7 +674,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=83')
+  fetch('data.json?v=84')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;
