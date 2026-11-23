@@ -387,8 +387,14 @@ function renderFatLoss() {
 
   // --- 4. 总体任务 / 任务进度：本周累计缺口、目标 ---
   html += `<h3>任务进度</h3>`;
-  html += `<div class="kv"><span class="k">本周累计缺口</span><span class="v">${fl.weeklyDeficitSoFarKcal || 0} 千卡</span></div>`;
+  const weekDeficit = fl.currentWeekDeficitSoFarKcal !== undefined ? fl.currentWeekDeficitSoFarKcal : 0;
+  const weekProtein = fl.currentWeekProteinSoFarG !== undefined ? fl.currentWeekProteinSoFarG : 0;
+  const weekTraining = fl.currentWeekTrainingCount !== undefined ? fl.currentWeekTrainingCount : 0;
+  html += `<div class="kv"><span class="k">本周累计缺口</span><span class="v">${weekDeficit} 千卡</span></div>`;
   html += `<div class="kv"><span class="k">本周目标</span><span class="v">${fl.weeklyDeficitTargetKcal || '2400'} 千卡</span></div>`;
+  html += `<div class="kv"><span class="k">本周蛋白</span><span class="v">${weekProtein} / ${fl.weeklyProteinTargetG || 840} 克</span></div>`;
+  html += `<div class="kv"><span class="k">本周训练</span><span class="v">${weekTraining} 次</span></div>`;
+  html += `<div class="kv"><span class="k">累计缺口（21天）</span><span class="v">${fl.weeklyDeficitSoFarKcal || 0} / ${fl.fatToLoseKcal || 8000} 千卡</span></div>`;
 
   html += `<div class="faint" style="margin-top:8px">热量按周算总账（今天多、明天少可以）；蛋白按天算，不能攒，今天不够明天吃双倍也补不回来。数字都是估算，不是称重数。</div>`;
   $('fatLossBoard').innerHTML = html;
@@ -592,12 +598,30 @@ function renderWeeklyReview() {
 function renderReview() {
   const w = (DATA.weekly || [])[0];
   if (!w) { $('review').innerHTML = pending; return; }
-  $('review').innerHTML =
-    `<div class="kv"><span class="k">周期</span><span class="v">${w.week}</span></div>` +
-    `<div class="kv"><span class="k">体重</span><span class="v">${w.weightStartKg} → ${w.weightEndKg} kg</span></div>` +
+  const fmtW = (v) => (v === null || v === undefined) ? '待记录' : v;
+  let html = `<div class="kv"><span class="k">周期</span><span class="v">${w.week}</span></div>`;
+  if (w.deficitKcal !== undefined) {
+    const defOver = w.deficitKcal - (w.deficitTargetKcal || 2400);
+    const defCell = defOver >= 0 ? `<span class="pos">+${defOver} 千卡</span>` : `<span class="neg">${defOver} 千卡</span>`;
+    html += `<div class="kv"><span class="k">缺口</span><span class="v">${w.deficitKcal} / ${w.deficitTargetKcal || 2400} 千卡（${defCell}）</span></div>`;
+  }
+  if (w.proteinG !== undefined) {
+    const protOver = w.proteinG - (w.proteinTargetG || 840);
+    const protCell = protOver >= 0 ? `<span class="pos">+${protOver} 克</span>` : `<span class="neg">${protOver} 克</span>`;
+    html += `<div class="kv"><span class="k">蛋白</span><span class="v">${w.proteinG} / ${w.proteinTargetG || 840} 克（日均 ${w.proteinAvgG || '—'} 克，${protCell}）</span></div>`;
+  }
+  if (w.trainingCount !== undefined) {
+    html += `<div class="kv"><span class="k">训练</span><span class="v">${w.trainingCount} 次</span></div>`;
+    if (w.trainingBreakdown) html += `<div class="kv"><span class="k">训练明细</span><span class="v">${w.trainingBreakdown}</span></div>`;
+  }
+  if (w.avgSleepHours !== undefined) {
+    html += `<div class="kv"><span class="k">平均睡眠</span><span class="v">${w.avgSleepHours} 小时</span></div>`;
+  }
+  html += `<div class="kv"><span class="k">体重</span><span class="v">${fmtW(w.weightStartKg)} → ${fmtW(w.weightEndKg)} kg</span></div>` +
     `<div class="kv"><span class="k">体脂</span><span class="v">${w.fatStartPct}% → ${w.fatEndPct}%</span></div>` +
     `<div class="kv"><span class="k">肌肉</span><span class="v">${w.muscleStartKg} → ${w.muscleEndKg} kg</span></div>` +
     `<p class="muted" style="margin-top:10px">${w.summary}</p>`;
+  $('review').innerHTML = html;
 }
 
 function renderCheckup() {
@@ -649,7 +673,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=81')
+  fetch('data.json?v=82')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;

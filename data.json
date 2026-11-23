@@ -389,6 +389,9 @@
     "weeklyDeficitSoFarKcal": 3074,
     "weeklyDeficitTargetKcal": "2400",
     "weeklyProteinTargetG": 840,
+    "currentWeekDeficitSoFarKcal": 0,
+    "currentWeekProteinSoFarG": 53,
+    "currentWeekTrainingCount": 0,
     "startDate": "2026-11-16",
     "currentDay": 8
   },
@@ -624,6 +627,15 @@
   "weekly": [
     {
       "week": "第 1 周（11/16–11/22）",
+      "daysCompleted": 7,
+      "deficitKcal": 3074,
+      "deficitTargetKcal": 2400,
+      "proteinG": 885,
+      "proteinTargetG": 840,
+      "proteinAvgG": 126,
+      "trainingCount": 7,
+      "trainingBreakdown": "腿日 2 次、推日 2 次、拉日 1 次、瑜伽 1 次、战绳课 1 次",
+      "avgSleepHours": 6.8,
       "weightStartKg": null,
       "weightEndKg": null,
       "fatStartPct": 19.6,
