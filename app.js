@@ -386,10 +386,13 @@ function renderFatLoss() {
   html += `<div class="kv"><span class="k">热量缺口</span><span class="v">${deficitCell}</span></div>`;
 
   // --- 4. 总体任务 / 任务进度：本周累计缺口、目标 ---
+  // 本周数从 daily / training 里按本周日期现算，不用手动字段，收一天就自动累进一天。
   html += `<h3>任务进度</h3>`;
-  const weekDeficit = fl.currentWeekDeficitSoFarKcal !== undefined ? fl.currentWeekDeficitSoFarKcal : 0;
-  const weekProtein = fl.currentWeekProteinSoFarG !== undefined ? fl.currentWeekProteinSoFarG : 0;
-  const weekTraining = fl.currentWeekTrainingCount !== undefined ? fl.currentWeekTrainingCount : 0;
+  const weekDays = weekDates();
+  const weekDaily = (DATA.daily || []).filter(r => weekDays.includes(r.date));
+  const weekDeficit = weekDaily.reduce((a, r) => a + (-(r.surplusKcal || 0)), 0);
+  const weekProtein = weekDaily.reduce((a, r) => a + (r.proteinG || 0), 0);
+  const weekTraining = (DATA.training || []).filter(r => weekDays.includes(r.date) && r.source === '手动').length;
   html += `<div class="kv"><span class="k">本周累计缺口</span><span class="v">${weekDeficit} 千卡</span></div>`;
   html += `<div class="kv"><span class="k">本周目标</span><span class="v">${fl.weeklyDeficitTargetKcal || '2400'} 千卡</span></div>`;
   html += `<div class="kv"><span class="k">本周蛋白</span><span class="v">${weekProtein} / ${fl.weeklyProteinTargetG || 840} 克</span></div>`;
@@ -674,7 +677,7 @@ function render() {
 }
 
 function init() {
-  fetch('data.json?v=84')
+  fetch('data.json?v=85')
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(d => {
       DATA = d;

@@ -389,9 +389,6 @@
     "totalDeficitSoFarKcal": 3074,
     "weeklyDeficitTargetKcal": "2400",
     "weeklyProteinTargetG": 840,
-    "currentWeekDeficitSoFarKcal": 0,
-    "currentWeekProteinSoFarG": 56,
-    "currentWeekTrainingCount": 0,
     "startDate": "2026-11-16",
     "currentDay": 8
   },
