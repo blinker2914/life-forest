@@ -365,7 +365,7 @@
     "currentFatPct": 19.6,
     "dailyDeficitTargetKcal": 350,
     "dailyProteinTargetG": 120,
-    "estDaysRemaining": 14,
+    "estDaysRemaining": 13,
     "fatToLoseKcal": 8000,
     "fatToLoseKg": 1.04,
     "goal": "体脂 19.6% → 18%，先到 18% 再商量 16% 的事",
@@ -373,24 +373,24 @@
     "targetDate": "2026-12-06",
     "targetFatPct": 18,
     "today": {
-      "date": "2026-11-21",
-      "intakeSoFarKcal": 1800,
-      "proteinSoFarG": 117,
-      "dinnerRemainingKcal": 0,
-      "dinnerRemainingProteinG": 3
+      "date": "2026-11-23",
+      "intakeSoFarKcal": 768,
+      "proteinSoFarG": 53,
+      "dinnerRemainingKcal": 1032,
+      "dinnerRemainingProteinG": 67
     },
     "todayDeficitKcal": 3074,
     "todayProgressPct": 38,
     "totalDays": 21,
     "twoADayIntakeKcal": "2200–2300",
     "twoADayMaxPerWeek": 2,
-    "week": "第 1 周（11/16–11/22）",
+    "week": "第 2 周（11/23–11/29）",
     "weeklyDeficitProgress": "已缺 3074 / 目标 8000 千卡（21天总目标）",
     "weeklyDeficitSoFarKcal": 3074,
     "weeklyDeficitTargetKcal": "2400",
     "weeklyProteinTargetG": 840,
     "startDate": "2026-11-16",
-    "currentDay": 7
+    "currentDay": 8
   },
   "meta": {
     "fatGapPoints": 1.6,
@@ -401,7 +401,8 @@
       "手动记录优先于手表。",
       "没有数据的日子显示待记录，不编数。",
       "静息心率和步数已从手表自动同步（Intervals.icu，11-16 起）；没有数据的日子显示待记录，不写 0。",
-      "减脂第 1 周（11/16–11/22）：目标体脂 19.6% → 18%，每周缺口 2400 千卡，蛋白每天 120 克、每周 840 克。",
+      "减脂第 1 周（11/16–11/22）已完成：累计缺口 3074 千卡（目标 2400，超额 674），蛋白 885 克（日均 126 克，达标），训练 7 次全勤。",
+      "减脂第 2 周（11/23–11/29）：目标体脂 19.6% → 18%，每周缺口 2400 千卡，蛋白每天 120 克、每周 840 克。",
       "睡眠已到 11-18（手表自动同步）；11-13 至 11-15 的睡眠没有回填数据，保持空着，不编数。"
     ],
     "owner": "老杨",
@@ -620,5 +621,16 @@
       "content": "[手表] Morning 重量训练、约39分钟、热量112卡"
     }
   ],
-  "weekly": []
+  "weekly": [
+    {
+      "week": "第 1 周（11/16–11/22）",
+      "weightStartKg": null,
+      "weightEndKg": null,
+      "fatStartPct": 19.6,
+      "fatEndPct": 19.6,
+      "muscleStartKg": 48.8,
+      "muscleEndKg": 48.8,
+      "summary": "第 1 周完成 7 天，累计缺口 3074 千卡（目标 2400，超额 674 千卡，日均缺口 439 千卡），完成总目标 8000 千卡的 38%。蛋白共 885 克，日均 126 克，7 天全部达标（最低 113 克，最高 146 克）。训练 7 次全勤：腿日 2 次、推日 2 次、拉日 1 次、瑜伽 1 次、战绳课 1 次，重量全部保住（哈克 85、臀推 60、斜推 30 均破纪录）。睡眠平均 6.8 小时，11-19 仅 5.62 小时偏短。体重未称（下次 11-27），体脂、肌肉待 11-27 称重验证。"
+    }
+  ]
 }
