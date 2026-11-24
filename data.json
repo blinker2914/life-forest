@@ -389,13 +389,44 @@
       },
       "restingHeartRate": 53,
       "suppCheckedCount": 11
+    },
+    {
+      "date": "2026-11-24",
+      "intakeKcal": 820,
+      "proteinG": 66,
+      "bmrKcal": 1497,
+      "activityKcal": null,
+      "exerciseKcal": 439,
+      "surplusKcal": null,
+      "steps": null,
+      "meals": {
+        "breakfast": {
+          "kcal": 820,
+          "proteinG": 66
+        },
+        "lunch": {
+          "kcal": 0,
+          "proteinG": 0
+        },
+        "dinner": {
+          "kcal": 0,
+          "proteinG": 0
+        },
+        "other": {
+          "kcal": 0,
+          "proteinG": 0
+        }
+      },
+      "restingHeartRate": null,
+      "suppCheckedCount": null,
+      "note": "早午饭合并，午饭不吃"
     }
   ],
   "fatLoss": {
     "currentFatPct": 19.6,
     "dailyDeficitTargetKcal": 350,
     "dailyProteinTargetG": 120,
-    "estDaysRemaining": 13,
+    "estDaysRemaining": 12,
     "fatToLoseKcal": 8000,
     "fatToLoseKg": 1.04,
     "goal": "体脂 19.6% → 18%，先到 18% 再商量 16% 的事",
@@ -420,7 +451,7 @@
     "weeklyDeficitTargetKcal": "2400",
     "weeklyProteinTargetG": 840,
     "startDate": "2026-11-16",
-    "currentDay": 8
+    "currentDay": 9
   },
   "meta": {
     "fatGapPoints": 1.6,
@@ -656,6 +687,13 @@
       "source": "手动",
       "content": "网球 17:00-18:00，手表 477 千卡（手表显示 577，多出 100 为忘关状态虚计，已扣除）",
       "note": "左前臂无不适，反手正常"
+    },
+    {
+      "date": "2026-11-24",
+      "type": "网球",
+      "source": "手动",
+      "content": "网球 08:30-09:30，手表 439 千卡",
+      "note": ""
     }
   ],
   "weekly": [
