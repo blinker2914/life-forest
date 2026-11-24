@@ -1,723 +1,1553 @@
 {
-  "bodyMetrics": [
+ "plan": {
+  "start": "2026-11-16",
+  "length": 21,
+  "deficitTarget": 8000,
+  "proteinTarget": 120
+ },
+ "latestDate": "2026-11-24",
+ "defaultDate": "2026-11-24",
+ "records": [
+  {
+   "date": "2026-11-16",
+   "closed": true,
+   "basal": 1497,
+   "activity": 385,
+   "exercise": 280,
+   "intake": 1575,
+   "protein": 128,
+   "deficit": 587,
+   "meals": [
     {
-      "date": "2026-10-16",
-      "fatPct": 22.4,
-      "muscleKg": null,
-      "note": "基线（Fitdays 体测）",
-      "weightKg": null
+     "name": "早餐",
+     "kcal": 275,
+     "protein": 14,
+     "food": "豆浆 1 杯＋鸡蛋 1 个＋香蕉 1 根"
     },
     {
-      "date": "2026-11-05",
-      "fatPct": 19.4,
-      "muscleKg": 48.7,
-      "note": "体成分锚点（Fitdays 体测）",
-      "weightKg": 64.85
+     "name": "练后加餐",
+     "kcal": 160,
+     "protein": 12,
+     "food": "关东煮（鱼豆腐 2 块＋魔芋丝＋白萝卜）＋水煮蛋 1 个"
     },
     {
-      "asmi": 8.1,
-      "bmi": 23,
-      "bmrKcal": 1497,
-      "bodyAge": 45,
-      "boneMassKg": 3.5,
-      "date": "2026-11-13",
-      "fatFreeMassKg": 52.3,
-      "fatMassKg": 12.7,
-      "fatPct": 19.6,
-      "muscleKg": 48.8,
-      "note": "Fitdays；对比 2026-11-05：体重 +0.15kg，体脂率 +0.2%，脂肪量 +0.1kg，肌肉量 +0.1kg，骨骼肌持平。",
-      "proteinPct": 16.1,
-      "score": 76,
-      "skeletalMuscleKg": 29.3,
-      "subcutaneousFatPct": 14.0,
-      "visceralFat": 4,
-      "waistHipRatio": 0.87,
-      "waterPct": 58.9,
-      "weightKg": 65.0
+     "name": "午餐",
+     "kcal": 355,
+     "protein": 42,
+     "food": "牛肉粿条（牛肉约 200 克，面不到一半，汤基本没喝）"
+    },
+    {
+     "name": "下午加餐",
+     "kcal": 135,
+     "protein": 2,
+     "food": "红丝绒蛋糕一小块＋柚子 4–5 瓣"
+    },
+    {
+     "name": "晚餐",
+     "kcal": 650,
+     "protein": 58,
+     "food": "清汤麻辣烫（莲藕、青菜、金针菇、鹌鹑蛋 2 个、少许粉）＋卤菜（卤牛肉约 150 克＋卤下水约 80 克）"
     }
-  ],
-  "checkup": [],
-  "daily": [
+   ],
+   "training": [
     {
-      "activityKcal": 385,
-      "avgHeartRate": null,
-      "date": "2026-11-16",
-      "exercise": {
-        "durationMin": 72,
-        "kcal": 300,
-        "kind": "力量训练",
-        "place": "广州店健身房",
-        "type": "练腿"
+     "name": "腿日",
+     "summary": "广州店，早上 08:01–09:13，15 组、178 次",
+     "sets": [
+      {
+       "name": "哈克蹲",
+       "weights": [
+        60.0,
+        70.0,
+        80.0
+       ],
+       "reps": [
+        12,
+        12,
+        10
+       ]
       },
-      "expenditureKcal": 2130,
-      "intakeKcal": 1575,
-      "meals": [
-        {
-          "desc": "豆浆 1 杯＋鸡蛋 1 个＋香蕉 1 根",
-          "kcal": 275,
-          "name": "早餐",
-          "proteinG": 14
-        },
-        {
-          "desc": "关东煮（鱼豆腐 2 块＋魔芋丝＋白萝卜）＋水煮蛋 1 个",
-          "kcal": 160,
-          "name": "练后加餐",
-          "proteinG": 12
-        },
-        {
-          "desc": "牛肉粿条（牛肉约 200 克，面不到一半，汤基本没喝）",
-          "kcal": 355,
-          "name": "午餐",
-          "proteinG": 42
-        },
-        {
-          "desc": "红丝绒蛋糕一小块＋柚子 4–5 瓣",
-          "kcal": 135,
-          "name": "下午加餐",
-          "proteinG": 2
-        },
-        {
-          "desc": "清汤麻辣烫（莲藕、青菜、金针菇、鹌鹑蛋 2 个、少许粉）＋卤菜（卤牛肉约 150 克＋卤下水约 80 克）",
-          "kcal": 650,
-          "name": "晚餐",
-          "proteinG": 58
-        }
-      ],
-      "note": "日常活动385=手表总数665-腿日标准280（手表腿日数未记，老杨报总数）",
-      "proteinG": 128,
-      "restingHeartRate": 51,
-      "steps": 6482,
-      "suppCheckedCount": 11,
-      "surplusKcal": -587,
-      "totalKcal": 2100,
-      "exerciseKcal": 280
-    },
-    {
-      "activityKcal": 605,
-      "avgHeartRate": null,
-      "date": "2026-11-17",
-      "exercise": {
-        "kcal": 160,
-        "type": "推日",
-        "durationMin": 60
+      {
+       "name": "俯卧腘绳弯举",
+       "weights": [
+        20.0,
+        20.0,
+        20.0,
+        20.0
+       ],
+       "reps": [
+        12,
+        12,
+        12,
+        12
+       ]
       },
-      "expenditureKcal": 2262,
-      "intakeKcal": 1311,
-      "meals": [
-        {
-          "desc": "鸡蛋1个＋牛奶200ml＋玉米四分之一根＋烤面包片1片",
-          "kcal": 290,
-          "name": "早餐",
-          "proteinG": 16
-        },
-        {
-          "desc": "乳清蛋白粉 1 勺（约 20g）",
-          "kcal": 74,
-          "name": "练后加餐",
-          "proteinG": 18
-        },
-        {
-          "desc": "白切鸡腿一个（去皮，带姜蓉）＋白菜一半＋米饭半碗",
-          "kcal": 410,
-          "name": "午餐",
-          "proteinG": 32
-        },
-        {
-          "desc": "One's Member 希腊酸奶1杯100g＋一点点代糖",
-          "kcal": 57,
-          "name": "下午加餐",
-          "proteinG": 10
-        },
-        {
-          "desc": "牛肉粿条（牛肉约200g＋粉整碗＋青菜＋蘸料）",
-          "kcal": 480,
-          "name": "晚餐",
-          "proteinG": 44
-        }
-      ],
-      "note": "早餐约290千卡、蛋白约16克（牛奶是200ml一盒，不是250ml）；练后加了一勺乳清蛋白粉（约74千卡、蛋白18克）；午餐白切鸡腿（去皮）＋白菜一半＋米饭半碗，约410千卡、蛋白约32克；下午加餐 One's Member 希腊酸奶1杯（约57千卡、蛋白10克）＋一点点代糖；晚餐牛肉粿条，粉整碗都吃完了（牛肉约200g＋粉整碗＋青菜＋蘸料，约480千卡、蛋白约44克）。都是估算不是称重数。",
-      "proteinG": 120,
-      "restingHeartRate": 52,
-      "steps": 9895,
-      "suppCheckedCount": 12,
-      "surplusKcal": -951,
-      "totalKcal": null,
-      "exerciseKcal": 160
-    },
-    {
-      "activityKcal": 83,
-      "avgHeartRate": null,
-      "date": "2026-11-18",
-      "exercise": {
-        "kcal": 300,
-        "type": "瑜伽",
-        "durationMin": 75
+      {
+       "name": "臀推机",
+       "weights": [
+        40.0,
+        40.0,
+        40.0,
+        40.0
+       ],
+       "reps": [
+        12,
+        12,
+        12,
+        12
+       ]
       },
-      "expenditureKcal": 1884,
-      "intakeKcal": 1597,
-      "meals": [
-        {
-          "desc": "牛奶200ml一盒＋鸡蛋1个＋面包半片＋玉米四分之一根",
-          "kcal": 257,
-          "name": "早餐",
-          "proteinG": 15
-        },
-        {
-          "desc": "绿茶烤鸡半只（有点辣）＋炒青菜一大盘（过油还是挺油）",
-          "kcal": 550,
-          "name": "午餐",
-          "proteinG": 54
-        },
-        {
-          "desc": "拿铁1杯（中杯全脂奶估算）",
-          "kcal": 160,
-          "name": "下午加餐",
-          "proteinG": 9
-        },
-        {
-          "desc": "在外吃：烧鹅去皮约6块＋炒青菜半盘＋虾蒸蛋半碗，没吃米饭",
-          "kcal": 630,
-          "name": "晚餐",
-          "proteinG": 50
-        }
-      ],
-      "note": "早餐约257千卡、蛋白约15克（牛奶200ml一盒、鸡蛋1个、面包半片、玉米四分之一根）。午餐绿茶烤鸡半只＋炒青菜一大盘，约550千卡、蛋白约54克。下午拿铁1杯，约160千卡、蛋白约9克。晚餐在外吃：烧鹅去皮约6块＋炒青菜半盘＋虾蒸蛋半碗，没吃米饭，约630千卡、蛋白约50克。瑜伽75分钟，约304千卡（手表），感觉舒服。手表今日活动卡路里387（已含瑜伽304），总消耗1884，缺口287。都是估算不是称重数。",
-      "proteinG": 128,
-      "restingHeartRate": 55,
-      "steps": 6438,
-      "suppCheckedCount": 11,
-      "surplusKcal": -283,
-      "totalKcal": null,
-      "exerciseKcal": 300
-    },
-    {
-      "activityKcal": 505,
-      "date": "2026-11-19",
-      "expenditureKcal": 1807,
-      "meals": [
-        {
-          "desc": "吐司1片+鸡蛋1个+红薯1个+豆浆1杯",
-          "kcal": 305,
-          "name": "早餐",
-          "proteinG": 14
-        },
-        {
-          "desc": "乳清1勺（约20g）；练后加餐：乳清1勺、鸡蛋1个、One's Member希腊酸奶100g、枸杞叶少许、猪肝少许、鱼皮饺2块；下午加餐：柚子半个、烤面包1片、鸡蛋1个、One's Member希腊酸奶100g",
-          "kcal": 675,
-          "name": "其他",
-          "proteinG": 88
-        },
-        {
-          "desc": "清汤麻辣烫：青菜、菌菇、莲藕、番茄、鹌鹑蛋4颗、卤牛肉、鸡心、猪肺、豆芽、腐竹（肉剩约40%未吃）",
-          "kcal": 490,
-          "name": "晚餐",
-          "proteinG": 44
-        }
-      ],
-      "proteinG": 146,
-      "intakeKcal": 1470,
-      "restingHeartRate": 52,
-      "suppCheckedCount": null,
-      "surplusKcal": -692,
-      "steps": 6171,
-      "exercise": {
-        "durationMin": 43,
-        "kcal": 250,
-        "kind": "拉日",
-        "type": "拉日"
+      {
+       "name": "髋内收",
+       "weights": [
+        24.0,
+        29.0
+       ],
+       "reps": [
+        12,
+        12
+       ]
       },
-      "exerciseKcal": 160,
-      "note": "日常活动505=手表总数647-手表拉日142（老杨报总数）"
-    },
-    {
-      "activityKcal": 485,
-      "date": "2026-11-20",
-      "expenditureKcal": 2452,
-      "intakeKcal": 1710,
-      "meals": [
-        {
-          "desc": "鸡蛋1个+牛奶200ml+面包1片",
-          "kcal": 255,
-          "name": "早餐",
-          "proteinG": 14
-        },
-        {
-          "desc": "香港牛腩面：牛腩约180g+面约180g+汤",
-          "kcal": 630,
-          "name": "午餐",
-          "proteinG": 31
-        },
-        {
-          "desc": "练前：茶叶蛋1个+小面包1块",
-          "kcal": 150,
-          "name": "其他",
-          "proteinG": 8
-        },
-        {
-          "desc": "烧烤：生蚝2只、大虾1只、牛肉串3串、西葫芦、韭菜、西兰花、菠萝、青菜、酸萝卜、烤花生3-4颗（无鱿鱼）",
-          "kcal": 675,
-          "name": "晚餐",
-          "proteinG": 60
-        }
-      ],
-      "proteinG": 113,
-      "restingHeartRate": 53,
-      "steps": 17472,
-      "surplusKcal": -552,
-      "exerciseKcal": 280,
-      "exerciseType": "腿日（手表已算约90卡，手动补160）",
-      "suppCheckedCount": 0,
-      "exercise": {
-        "kcal": 160,
-        "type": "腿日（手表已算约90卡，手动补160）",
-        "durationMin": 60
+      {
+       "name": "髋外展",
+       "weights": [
+        25.0,
+        25.0
+       ],
+       "reps": [
+        12,
+        12
+       ]
       }
-    },
-    {
-      "date": "2026-11-21",
-      "intakeKcal": 1800,
-      "proteinG": 117,
-      "meals": [
-        {
-          "name": "早餐",
-          "desc": "鸡蛋1个+玉米1/4根+蒸南瓜几片+牛奶100ml",
-          "kcal": 175,
-          "proteinG": 11
-        },
-        {
-          "name": "午餐",
-          "desc": "羊肉煲（砂锅，羊肉共2斤，他吃了约1/4即250g）+ 马蹄 + 西洋菜/生菜（吃得多）+ 腐竹",
-          "kcal": 900,
-          "proteinG": 52
-        },
-        {
-          "name": "晚餐",
-          "desc": "滑蛋牛肉（吃一半，牛肉约100g+鸡蛋2个）+ 猪颈肉5粒 + 玉米团子半块 + 鸡翅1只 + 青菜",
-          "kcal": 680,
-          "proteinG": 53
-        },
-        {
-          "name": "其他",
-          "desc": "小柚子半个",
-          "kcal": 45,
-          "proteinG": 1
-        }
-      ],
-      "expenditureKcal": 1895,
-      "surplusKcal": -86,
-      "activityKcal": 229,
-      "exerciseKcal": 160,
-      "exerciseType": "推日",
-      "restingHeartRate": 54,
-      "steps": 9011,
-      "suppCheckedCount": null,
-      "exercise": {
-        "kcal": 250,
-        "type": "推日",
-        "durationMin": 65
-      },
-      "watchActivityTotalKcal": 390,
-      "watchTrainingKcal": 152
-    },
-    {
-      "date": "2026-11-22",
-      "intakeKcal": 2162,
-      "proteinG": 133,
-      "expenditureKcal": 2269,
-      "exerciseKcal": 622,
-      "exercise": {
-        "kcal": 622,
-        "type": "拉日+战绳",
-        "durationMin": 105
-      },
-      "surplusKcal": -138,
-      "steps": 7953,
-      "restingHeartRate": 59,
-      "sleepHours": 5.95,
-      "meals": [
-        {
-          "label": "早",
-          "kcal": 195,
-          "proteinG": 10,
-          "items": "芝士肠仔面包1片+牛奶200ml"
-        },
-        {
-          "label": "午",
-          "kcal": 775,
-          "proteinG": 68,
-          "items": "Gaga牛肉拌饭+鸡胸肉"
-        },
-        {
-          "label": "晚",
-          "kcal": 1100,
-          "proteinG": 55,
-          "items": "烧烤60串+脑花"
-        },
-        {
-          "label": "其他",
-          "kcal": 92,
-          "proteinG": 0,
-          "items": "东鹏电解质2/3瓶"
-        }
-      ],
-      "activityKcal": 181,
-      "note": "日常活动181=手表总数802-手表拉日159-手表战绳462（老杨报总数）"
-    },
-    {
-      "date": "2026-11-23",
-      "intakeKcal": 2010,
-      "proteinG": 126,
-      "bmrKcal": 1497,
-      "activityKcal": 198,
-      "exerciseKcal": 477,
-      "surplusKcal": -162,
-      "steps": 8380,
-      "meals": {
-        "breakfast": {
-          "kcal": 265,
-          "proteinG": 16
-        },
-        "lunch": {
-          "kcal": 398,
-          "proteinG": 36
-        },
-        "dinner": {
-          "kcal": 1100,
-          "proteinG": 60
-        },
-        "other": {
-          "kcal": 247,
-          "proteinG": 14
-        }
-      },
-      "restingHeartRate": 53,
-      "suppCheckedCount": 11
-    },
-    {
-      "date": "2026-11-24",
-      "intakeKcal": 995,
-      "proteinG": 71,
-      "bmrKcal": 1497,
-      "activityKcal": null,
-      "exerciseKcal": 439,
-      "surplusKcal": null,
-      "steps": null,
-      "meals": {
-        "breakfast": {
-          "kcal": 820,
-          "proteinG": 66
-        },
-        "lunch": {
-          "kcal": 0,
-          "proteinG": 0
-        },
-        "dinner": {
-          "kcal": 0,
-          "proteinG": 0
-        },
-        "other": {
-          "kcal": 175,
-          "proteinG": 5
-        }
-      },
-      "restingHeartRate": null,
-      "suppCheckedCount": null,
-      "note": "早午饭合并，午饭不吃"
+     ]
     }
-  ],
-  "fatLoss": {
-    "currentFatPct": 19.6,
-    "dailyDeficitTargetKcal": 379,
-    "dailyProteinTargetG": 120,
-    "estDaysRemaining": 12,
-    "fatToLoseKcal": 8000,
-    "fatToLoseKg": 1.04,
-    "goal": "体脂 19.6% → 18%，先到 18% 再商量 16% 的事",
-    "singleDayIntakeKcal": "1800",
-    "targetDate": "2026-12-06",
-    "targetFatPct": 18,
-    "today": {
-      "date": "2026-11-23",
-      "intakeSoFarKcal": 853,
-      "proteinSoFarG": 56,
-      "dinnerRemainingKcal": 947,
-      "dinnerRemainingProteinG": 64
-    },
-    "todayDeficitKcal": 3451,
-    "todayProgressPct": 43,
-    "totalDays": 21,
-    "twoADayIntakeKcal": "2200–2300",
-    "twoADayMaxPerWeek": 2,
-    "week": "第 2 周（11/23–11/29）",
-    "weeklyDeficitProgress": "已缺 3451 / 目标 8000 千卡（21天总目标）",
-    "totalDeficitSoFarKcal": 3451,
-    "weeklyDeficitTargetKcal": "2400",
-    "weeklyProteinTargetG": 840,
-    "startDate": "2026-11-16",
-    "currentDay": 9
-  },
-  "meta": {
-    "fatGapPoints": 1.6,
-    "fatTargetPct": 18,
-    "lastWatchSync": "2026-11-18",
-    "nextWeighIn": "2026-11-27",
-    "notes": [
-      "手动记录优先于手表。",
-      "没有数据的日子显示待记录，不编数。",
-      "静息心率和步数已从手表自动同步（Intervals.icu，11-16 起）；没有数据的日子显示待记录，不写 0。",
-      "减脂第 1 周（11/16–11/22）已完成：累计缺口 3074 千卡（目标 2400，超额 674），蛋白 885 克（日均 126 克，达标），训练 8 次。",
-      "减脂第 2 周（11/23–11/29）：目标体脂 19.6% → 18%，每周缺口 2400 千卡，蛋白每天 120 克、每周 840 克。",
-      "睡眠已到 11-18（手表自动同步）；11-13 至 11-15 的睡眠没有回填数据，保持空着，不编数。"
+   ],
+   "sleep": [
+    [
+     "总时长",
+     "7 小时 12 分"
     ],
-    "owner": "老杨",
-    "source": "飞书多维表格「生命森林」",
-    "sourceUrl": "https://my.feishu.cn/base/EqNYbA8PPaTzMPsYHjxck0WqnRc",
-    "title": "对抗时间引力",
-    "updatedAt": "2026-11-18",
-    "weighInRule": "1 到 2 周在同一台体脂秤上称一次"
-  },
-  "sleep": [
-    {
-      "bedTime": "23:43",
-      "date": "2026-11-16",
-      "deepHours": 3.3,
-      "hours": 7.2,
-      "lightHours": 1.9,
-      "remHours": 2.0,
-      "wakeTime": "06:52"
-    },
-    {
-      "bedTime": "22:59",
-      "date": "2026-11-17",
-      "deepHours": 4.4,
-      "hours": 8.1,
-      "lightHours": 2.3,
-      "remHours": 1.5,
-      "wakeTime": "07:06"
-    },
-    {
-      "bedTime": null,
-      "date": "2026-11-18",
-      "deepHours": null,
-      "hours": 7.37,
-      "lightHours": null,
-      "remHours": null,
-      "wakeTime": null
-    },
-    {
-      "bedTime": null,
-      "date": "2026-11-19",
-      "deepHours": null,
-      "hours": 5.62,
-      "lightHours": null,
-      "remHours": null,
-      "wakeTime": null
-    },
-    {
-      "date": "2026-11-20",
-      "hours": 6.42,
-      "deepHours": null,
-      "lightHours": null,
-      "remHours": null,
-      "bedTime": null,
-      "wakeTime": null
-    },
-    {
-      "date": "2026-11-22",
-      "hours": 5.95,
-      "deepHours": null,
-      "lightHours": null,
-      "remHours": null,
-      "bedTime": null,
-      "wakeTime": null
-    }
-  ],
-  "supplementCheckins": [],
-  "supplements": [
-    {
-      "dose": "3g，随早餐，和绿粉一起",
+    [
+     "入睡",
+     "23:43"
+    ],
+    [
+     "起床",
+     "06:52"
+    ],
+    [
+     "深睡",
+     "3 小时 18 分"
+    ],
+    [
+     "浅睡",
+     "1 小时 54 分"
+    ],
+    [
+     "REM",
+     "2 小时"
+    ]
+   ],
+   "heartRate": {
+    "restingBpm": 51,
+    "sleepAverageBpm": null
+   },
+   "supplements": {
+    "items": [
+     {
       "name": "肌酸",
-      "status": "在吃",
-      "timeOfDay": "早"
-    },
-    {
-      "dose": "3.5g/包",
+      "dose": "3g，随早餐，和绿粉一起",
+      "checked": false
+     },
+     {
       "name": "绿粉 eimele",
-      "status": "在吃",
-      "timeOfDay": "早"
-    },
-    {
-      "dose": "2 粒，共 270mg",
+      "dose": "3.5g/包",
+      "checked": false
+     },
+     {
       "name": "PS 磷脂酰丝氨酸",
-      "status": "在吃",
-      "timeOfDay": "午"
-    },
-    {
-      "dose": "200mg，1 粒",
+      "dose": "2 粒，共 270mg",
+      "checked": false
+     },
+     {
       "name": "辅酶 Q10",
-      "status": "在吃",
-      "timeOfDay": "午"
-    },
-    {
-      "dose": "D3 10000 IU + K1/K2，1 粒",
+      "dose": "200mg，1 粒",
+      "checked": false
+     },
+     {
       "name": "维生素 D3 + K",
-      "status": "在吃",
-      "timeOfDay": "午"
-    },
-    {
-      "dose": "500mg，1 粒",
+      "dose": "D3 10000 IU + K1/K2，1 粒",
+      "checked": false
+     },
+     {
       "name": "姜黄素",
-      "status": "在吃",
-      "timeOfDay": "午"
-    },
-    {
-      "dose": "EPA 900mg + DHA 660mg，2 粒",
+      "dose": "500mg，1 粒",
+      "checked": false
+     },
+     {
       "name": "鱼油",
-      "status": "在吃",
-      "timeOfDay": "午"
-    },
-    {
-      "dose": "1 粒随餐；吃动物肝当天跳过",
+      "dose": "EPA 900mg + DHA 660mg，2 粒",
+      "checked": false
+     },
+     {
       "name": "护眼 PRO EYE SHIELD",
-      "status": "在吃",
-      "timeOfDay": "午"
-    },
-    {
-      "dose": "8g 粉剂",
+      "dose": "1 粒随餐；吃动物肝当天跳过",
+      "checked": false
+     },
+     {
       "name": "牛骨胶原蛋白肽",
-      "status": "在吃",
-      "timeOfDay": "午"
-    },
-    {
-      "dose": "1 片；吃动物肝当天跳过",
+      "dose": "8g 粉剂",
+      "checked": false
+     },
+     {
       "name": "硒片",
-      "status": "在吃",
-      "timeOfDay": "隔天"
-    },
-    {
-      "dose": "2 片，元素镁 200mg",
+      "dose": "1 片；吃动物肝当天跳过",
+      "checked": false
+     },
+     {
       "name": "镁（甘氨酸镁）",
-      "status": "在吃",
-      "timeOfDay": "晚"
-    },
-    {
-      "dose": "3000mg/包",
+      "dose": "2 片，元素镁 200mg",
+      "checked": false
+     },
+     {
       "name": "海洋胶原 Vida Glow",
-      "status": "在吃",
-      "timeOfDay": "晚"
-    },
-    {
-      "dose": "Natrol 软糖 5mg，睡不着时睡前 30 分钟 1 粒，非常规",
+      "dose": "3000mg/包",
+      "checked": false
+     },
+     {
       "name": "褪黑素",
-      "status": "在吃",
-      "timeOfDay": "晚"
+      "dose": "Natrol 软糖 5mg，睡不着时睡前 30 分钟 1 粒，非常规",
+      "checked": false
+     }
+    ],
+    "note": "当天打卡 11 / 13 项（明细未按项记录）"
+   }
+  },
+  {
+   "date": "2026-11-17",
+   "closed": true,
+   "basal": 1497,
+   "activity": 605,
+   "exercise": 160,
+   "intake": 1311,
+   "protein": 120,
+   "deficit": 951,
+   "meals": [
+    {
+     "name": "早餐",
+     "kcal": 290,
+     "protein": 16,
+     "food": "鸡蛋1个＋牛奶200ml＋玉米四分之一根＋烤面包片1片"
+    },
+    {
+     "name": "练后加餐",
+     "kcal": 74,
+     "protein": 18,
+     "food": "乳清蛋白粉 1 勺（约 20g）"
+    },
+    {
+     "name": "午餐",
+     "kcal": 410,
+     "protein": 32,
+     "food": "白切鸡腿一个（去皮，带姜蓉）＋白菜一半＋米饭半碗"
+    },
+    {
+     "name": "下午加餐",
+     "kcal": 57,
+     "protein": 10,
+     "food": "One's Member 希腊酸奶1杯100g＋一点点代糖"
+    },
+    {
+     "name": "晚餐",
+     "kcal": 480,
+     "protein": 44,
+     "food": "牛肉粿条（牛肉约200g＋粉整碗＋青菜＋蘸料）"
     }
-  ],
-  "training": [
+   ],
+   "training": [
     {
-      "content": "广州店，早上 08:01–09:13，15 组、178 次。哈克蹲（45°）60×12、70×12、80×10（3 组，第 4 组因左膝刺停掉；45° 首用，股四头集中；80×10 那组脚尖外开多了，左膝盖头轻微刺了一下）；俯卧腘绳弯举 20×12×4（挡板第二格正好）；臀推机 40×12×4（第 2 组视频 8/10）；髋内收 24×12、29×12（工作组 29）；髋外展 25×12×2。拉伸：下犬式、鸽子式、矛式、蝴蝶式、坐姿分腿前屈，各 30 秒。",
-      "date": "2026-11-16",
-      "note": "左膝：哈克蹲脚尖外开别超 30°，膝盖顺着脚尖走，刺再出现就停。45° 哈克蹲工作组未定，下次从 80 起步找。广州店内夹工作组 29、外展 25。前臂：按压不疼了（11/16 确认），旋转到最大幅度才疼；拉日可回（下拉、划船、面拉），弯举再等等，硬拉仍别碰。",
-      "source": "手动",
-      "type": "腿日"
+     "name": "推日",
+     "summary": "广州店",
+     "sets": [
+      {
+       "name": "斜推",
+       "weights": [
+        24.0,
+        29.0,
+        29.0,
+        24.0
+       ],
+       "reps": [
+        12,
+        12,
+        12,
+        12
+       ]
+      },
+      {
+       "name": "分动平推",
+       "weights": [
+        10.0,
+        10.0,
+        10.0
+       ],
+       "reps": [
+        12,
+        10,
+        8
+       ]
+      },
+      {
+       "name": "夹胸",
+       "weights": [
+        20.0,
+        20.0,
+        20.0
+       ],
+       "reps": [
+        12,
+        12,
+        12
+       ]
+      },
+      {
+       "name": "哑铃肩推",
+       "weights": [
+        7.5,
+        10.0
+       ],
+       "reps": [
+        12,
+        12
+       ]
+      },
+      {
+       "name": "绳索下压",
+       "weights": [
+        10.0,
+        10.0,
+        10.0
+       ],
+       "reps": [
+        12,
+        8,
+        10
+       ]
+      }
+     ]
     },
     {
-      "content": "广州店。斜推24×12、29×12、29×12、24×12；分动平推每边10kg：12、10、8；夹胸20×12×3；哑铃肩推7.5×12、10×12；绳索下压（重架）10×12、10×8、10×10。共16组（含1组热身）180次3432kg·次。",
-      "date": "2026-11-17",
-      "note": "斜推29kg工作档；夹胸20kg已稳；左肩第三组因耸肩发紧；左前臂无不适。",
-      "source": "手动",
-      "type": "推日"
-    },
-    {
-      "content": "［手表］Evening 健走，约17分钟、1.27公里、平均心率84、热量43卡",
-      "date": "2026-11-17",
-      "note": "",
-      "source": "手表",
-      "type": "健走"
-    },
-    {
-      "content": "75分钟，约304千卡（手表），感觉舒服、挺好。体检前一天轻动日。",
-      "date": "2026-11-18",
-      "note": "轻动，不碰大重量。",
-      "source": "手动",
-      "type": "瑜伽"
-    },
-    {
-      "date": "2026-11-19",
-      "durationMin": 43,
-      "kcal": 250,
-      "kind": "拉日",
-      "note": "广州店，13组。坐姿划船24×12、29×12、29×12、24×12；下拉15×12、20×12、20×10；坐姿面拉20×12×3；二头弯举7.5×12、7.5×8、7.5×8。前臂恢复良好。",
-      "type": "拉日",
-      "source": "手动",
-      "content": "广州店，拉日，13组。坐姿划船24×12、29×12、29×12、24×12；下拉15×12、20×12、20×10；坐姿面拉20×12×3；二头弯举7.5×12、7.5×8、7.5×8。前臂恢复良好，二头已恢复。"
-    },
-    {
-      "date": "2026-11-20",
-      "type": "腿日",
-      "source": "手动",
-      "content": "广州店，腿日，20组。哈克深蹲45°：40×12、60×12、80×12、80×12、85×12（膝盖无刺，脚放高后不滑）。俯卧腘绳：20×10、20×12、20×12、20×10。臀推：50×12、60×12、60×12、60×12（从40涨到60）。髋内收：29×12、34×12、39×12（从29涨到39）。髋外展：30×12、30×12、30×10（从25涨到30）。绳索卷腹：12.5×12×3。波比跳100个。提踵跳过。拉伸：瑜伽下犬式、鸽子式、低弓步。",
-      "note": "香港出差日，手表未开训练模式，运动消耗手动算。哈克脚滑问题通过脚放高解决。臀推、内收、外展均破纪录。"
-    },
-    {
-      "date": "2026-11-21",
-      "type": "推日",
-      "source": "手动",
-      "content": "新健身房（无人健身房），推日，12组。斜推（坐姿推胸机，靠背调到30度）：20×12、30×10、30×10、25×10。夹胸（蝴蝶机）：20×12、25×12、25×12。哑铃肩推：10×12、10×12。颈后臂屈伸：杠铃片10kg、哑铃10kg×12、杠铃片10kg×12。",
-      "note": "左前臂无不适。状态好，力量有涨。牛面式压胸新变式（肘架箱子）效果好。"
-    },
-    {
-      "date": "2026-11-22",
-      "type": "拉日",
-      "source": "手动",
-      "content": "拉日，13组。坐姿划船 24×12/29×12/29×12；高位下拉 15/边×12/20/边×12/20/边×10；面拉 20×12×3；弯举 7.5×12/7.5×10；侧平举 5×12×2。手表训练159千卡。"
-    },
-    {
-      "date": "2026-11-22",
-      "type": "战绳课",
-      "source": "手动",
-      "content": "超级精英战绳课（战神带），45分钟高强度。手表462千卡。"
-    },
-    {
-      "date": "2026-11-22",
-      "type": "其他",
-      "source": "手表",
-      "content": "[手表] Morning 重量训练、约39分钟、热量112卡"
-    },
-    {
-      "date": "2026-11-23",
-      "type": "网球",
-      "source": "手动",
-      "content": "网球 17:00-18:00，手表 477 千卡（手表显示 577，多出 100 为忘关状态虚计，已扣除）",
-      "note": "左前臂无不适，反手正常"
-    },
-    {
-      "date": "2026-11-24",
-      "type": "网球",
-      "source": "手动",
-      "content": "网球 08:30-09:30，手表 439 千卡",
-      "note": ""
+     "name": "健走",
+     "summary": "［手表］Evening 健走，约17分钟、1.27公里、平均心率84、热量43卡"
     }
-  ],
-  "weekly": [
+   ],
+   "sleep": [
+    [
+     "总时长",
+     "8 小时 6 分"
+    ],
+    [
+     "入睡",
+     "22:59"
+    ],
+    [
+     "起床",
+     "07:06"
+    ],
+    [
+     "深睡",
+     "4 小时 24 分"
+    ],
+    [
+     "浅睡",
+     "2 小时 18 分"
+    ],
+    [
+     "REM",
+     "1 小时 30 分"
+    ]
+   ],
+   "heartRate": {
+    "restingBpm": 52,
+    "sleepAverageBpm": null
+   },
+   "supplements": {
+    "items": [
+     {
+      "name": "肌酸",
+      "dose": "3g，随早餐，和绿粉一起",
+      "checked": false
+     },
+     {
+      "name": "绿粉 eimele",
+      "dose": "3.5g/包",
+      "checked": false
+     },
+     {
+      "name": "PS 磷脂酰丝氨酸",
+      "dose": "2 粒，共 270mg",
+      "checked": false
+     },
+     {
+      "name": "辅酶 Q10",
+      "dose": "200mg，1 粒",
+      "checked": false
+     },
+     {
+      "name": "维生素 D3 + K",
+      "dose": "D3 10000 IU + K1/K2，1 粒",
+      "checked": false
+     },
+     {
+      "name": "姜黄素",
+      "dose": "500mg，1 粒",
+      "checked": false
+     },
+     {
+      "name": "鱼油",
+      "dose": "EPA 900mg + DHA 660mg，2 粒",
+      "checked": false
+     },
+     {
+      "name": "护眼 PRO EYE SHIELD",
+      "dose": "1 粒随餐；吃动物肝当天跳过",
+      "checked": false
+     },
+     {
+      "name": "牛骨胶原蛋白肽",
+      "dose": "8g 粉剂",
+      "checked": false
+     },
+     {
+      "name": "硒片",
+      "dose": "1 片；吃动物肝当天跳过",
+      "checked": false
+     },
+     {
+      "name": "镁（甘氨酸镁）",
+      "dose": "2 片，元素镁 200mg",
+      "checked": false
+     },
+     {
+      "name": "海洋胶原 Vida Glow",
+      "dose": "3000mg/包",
+      "checked": false
+     },
+     {
+      "name": "褪黑素",
+      "dose": "Natrol 软糖 5mg，睡不着时睡前 30 分钟 1 粒，非常规",
+      "checked": false
+     }
+    ],
+    "note": "当天打卡 12 / 13 项（明细未按项记录）"
+   }
+  },
+  {
+   "date": "2026-11-18",
+   "closed": true,
+   "basal": 1497,
+   "activity": 83,
+   "exercise": 300,
+   "intake": 1597,
+   "protein": 128,
+   "deficit": 283,
+   "meals": [
     {
-      "week": "第 1 周（11/16–11/22）",
-      "daysCompleted": 7,
-      "deficitKcal": 3289,
-      "deficitTargetKcal": 2400,
-      "proteinG": 885,
-      "proteinTargetG": 840,
-      "proteinAvgG": 126,
-      "trainingCount": 8,
-      "trainingBreakdown": "腿日 2 次、推日 2 次、拉日 2 次、瑜伽 1 次、战绳课 1 次",
-      "avgSleepHours": 6.8,
-      "weightStartKg": null,
-      "weightEndKg": null,
-      "fatStartPct": 19.6,
-      "fatEndPct": 19.6,
-      "muscleStartKg": 48.8,
-      "muscleEndKg": 48.8,
-      "summary": "第 1 周完成 7 天，累计缺口 3289 千卡（目标 2400，超额 889 千卡，日均缺口 470 千卡），完成总目标 8000 千卡的 41%。蛋白共 885 克，日均 126 克，7 天全部达标（最低 113 克，最高 146 克）。训练 8 次：腿日 2 次、推日 2 次、拉日 2 次、瑜伽 1 次、战绳课 1 次（11/22 上午拉日 + 战绳课两场），重量全部保住（哈克 85、臀推 60、斜推 30 均破纪录）。睡眠平均 6.8 小时，11-19 仅 5.62 小时偏短。体重未称（下次 11-27），体脂、肌肉待 11-27 称重验证。"
+     "name": "早餐",
+     "kcal": 257,
+     "protein": 15,
+     "food": "牛奶200ml一盒＋鸡蛋1个＋面包半片＋玉米四分之一根"
+    },
+    {
+     "name": "午餐",
+     "kcal": 550,
+     "protein": 54,
+     "food": "绿茶烤鸡半只（有点辣）＋炒青菜一大盘（过油还是挺油）"
+    },
+    {
+     "name": "下午加餐",
+     "kcal": 160,
+     "protein": 9,
+     "food": "拿铁1杯（中杯全脂奶估算）"
+    },
+    {
+     "name": "晚餐",
+     "kcal": 630,
+     "protein": 50,
+     "food": "在外吃：烧鹅去皮约6块＋炒青菜半盘＋虾蒸蛋半碗，没吃米饭"
     }
-  ]
+   ],
+   "training": [
+    {
+     "name": "瑜伽",
+     "summary": "75分钟，约304千卡（手表），感觉舒服、挺好"
+    }
+   ],
+   "sleep": [
+    [
+     "总时长",
+     "7 小时 22 分"
+    ]
+   ],
+   "heartRate": {
+    "restingBpm": 55,
+    "sleepAverageBpm": null
+   },
+   "supplements": {
+    "items": [
+     {
+      "name": "肌酸",
+      "dose": "3g，随早餐，和绿粉一起",
+      "checked": false
+     },
+     {
+      "name": "绿粉 eimele",
+      "dose": "3.5g/包",
+      "checked": false
+     },
+     {
+      "name": "PS 磷脂酰丝氨酸",
+      "dose": "2 粒，共 270mg",
+      "checked": false
+     },
+     {
+      "name": "辅酶 Q10",
+      "dose": "200mg，1 粒",
+      "checked": false
+     },
+     {
+      "name": "维生素 D3 + K",
+      "dose": "D3 10000 IU + K1/K2，1 粒",
+      "checked": false
+     },
+     {
+      "name": "姜黄素",
+      "dose": "500mg，1 粒",
+      "checked": false
+     },
+     {
+      "name": "鱼油",
+      "dose": "EPA 900mg + DHA 660mg，2 粒",
+      "checked": false
+     },
+     {
+      "name": "护眼 PRO EYE SHIELD",
+      "dose": "1 粒随餐；吃动物肝当天跳过",
+      "checked": false
+     },
+     {
+      "name": "牛骨胶原蛋白肽",
+      "dose": "8g 粉剂",
+      "checked": false
+     },
+     {
+      "name": "硒片",
+      "dose": "1 片；吃动物肝当天跳过",
+      "checked": false
+     },
+     {
+      "name": "镁（甘氨酸镁）",
+      "dose": "2 片，元素镁 200mg",
+      "checked": false
+     },
+     {
+      "name": "海洋胶原 Vida Glow",
+      "dose": "3000mg/包",
+      "checked": false
+     },
+     {
+      "name": "褪黑素",
+      "dose": "Natrol 软糖 5mg，睡不着时睡前 30 分钟 1 粒，非常规",
+      "checked": false
+     }
+    ],
+    "note": "当天打卡 11 / 13 项（明细未按项记录）"
+   }
+  },
+  {
+   "date": "2026-11-19",
+   "closed": true,
+   "basal": 1497,
+   "activity": 505,
+   "exercise": 160,
+   "intake": 1470,
+   "protein": 146,
+   "deficit": 692,
+   "meals": [
+    {
+     "name": "早餐",
+     "kcal": 305,
+     "protein": 14,
+     "food": "吐司1片+鸡蛋1个+红薯1个+豆浆1杯"
+    },
+    {
+     "name": "其他",
+     "kcal": 675,
+     "protein": 88,
+     "food": "乳清1勺（约20g）；练后加餐：乳清1勺、鸡蛋1个、One's Member希腊酸奶100g、枸杞叶少许、猪肝少许、鱼皮饺2块；下午加餐：柚子半个、烤面包1片、鸡蛋1个、One's Member希腊酸奶100g"
+    },
+    {
+     "name": "晚餐",
+     "kcal": 490,
+     "protein": 44,
+     "food": "清汤麻辣烫：青菜、菌菇、莲藕、番茄、鹌鹑蛋4颗、卤牛肉、鸡心、猪肺、豆芽、腐竹（肉剩约40%未吃）"
+    }
+   ],
+   "training": [
+    {
+     "name": "拉日",
+     "summary": "广州店，拉日，13组",
+     "sets": [
+      {
+       "name": "坐姿划船",
+       "weights": [
+        24.0,
+        29.0,
+        29.0,
+        24.0
+       ],
+       "reps": [
+        12,
+        12,
+        12,
+        12
+       ]
+      },
+      {
+       "name": "下拉",
+       "weights": [
+        15.0,
+        20.0,
+        20.0
+       ],
+       "reps": [
+        12,
+        12,
+        10
+       ]
+      },
+      {
+       "name": "坐姿面拉",
+       "weights": [
+        20.0,
+        20.0,
+        20.0
+       ],
+       "reps": [
+        12,
+        12,
+        12
+       ]
+      },
+      {
+       "name": "二头弯举",
+       "weights": [
+        7.5,
+        7.5,
+        7.5
+       ],
+       "reps": [
+        12,
+        8,
+        8
+       ]
+      }
+     ]
+    }
+   ],
+   "sleep": [
+    [
+     "总时长",
+     "5 小时 37 分"
+    ]
+   ],
+   "heartRate": {
+    "restingBpm": 52,
+    "sleepAverageBpm": null
+   },
+   "supplements": {
+    "items": [
+     {
+      "name": "肌酸",
+      "dose": "3g，随早餐，和绿粉一起",
+      "checked": false
+     },
+     {
+      "name": "绿粉 eimele",
+      "dose": "3.5g/包",
+      "checked": false
+     },
+     {
+      "name": "PS 磷脂酰丝氨酸",
+      "dose": "2 粒，共 270mg",
+      "checked": false
+     },
+     {
+      "name": "辅酶 Q10",
+      "dose": "200mg，1 粒",
+      "checked": false
+     },
+     {
+      "name": "维生素 D3 + K",
+      "dose": "D3 10000 IU + K1/K2，1 粒",
+      "checked": false
+     },
+     {
+      "name": "姜黄素",
+      "dose": "500mg，1 粒",
+      "checked": false
+     },
+     {
+      "name": "鱼油",
+      "dose": "EPA 900mg + DHA 660mg，2 粒",
+      "checked": false
+     },
+     {
+      "name": "护眼 PRO EYE SHIELD",
+      "dose": "1 粒随餐；吃动物肝当天跳过",
+      "checked": false
+     },
+     {
+      "name": "牛骨胶原蛋白肽",
+      "dose": "8g 粉剂",
+      "checked": false
+     },
+     {
+      "name": "硒片",
+      "dose": "1 片；吃动物肝当天跳过",
+      "checked": false
+     },
+     {
+      "name": "镁（甘氨酸镁）",
+      "dose": "2 片，元素镁 200mg",
+      "checked": false
+     },
+     {
+      "name": "海洋胶原 Vida Glow",
+      "dose": "3000mg/包",
+      "checked": false
+     },
+     {
+      "name": "褪黑素",
+      "dose": "Natrol 软糖 5mg，睡不着时睡前 30 分钟 1 粒，非常规",
+      "checked": false
+     }
+    ],
+    "note": "未打卡"
+   }
+  },
+  {
+   "date": "2026-11-20",
+   "closed": true,
+   "basal": 1497,
+   "activity": 485,
+   "exercise": 280,
+   "intake": 1710,
+   "protein": 113,
+   "deficit": 552,
+   "meals": [
+    {
+     "name": "早餐",
+     "kcal": 255,
+     "protein": 14,
+     "food": "鸡蛋1个+牛奶200ml+面包1片"
+    },
+    {
+     "name": "午餐",
+     "kcal": 630,
+     "protein": 31,
+     "food": "香港牛腩面：牛腩约180g+面约180g+汤"
+    },
+    {
+     "name": "其他",
+     "kcal": 150,
+     "protein": 8,
+     "food": "练前：茶叶蛋1个+小面包1块"
+    },
+    {
+     "name": "晚餐",
+     "kcal": 675,
+     "protein": 60,
+     "food": "烧烤：生蚝2只、大虾1只、牛肉串3串、西葫芦、韭菜、西兰花、菠萝、青菜、酸萝卜、烤花生3-4颗（无鱿鱼）"
+    }
+   ],
+   "training": [
+    {
+     "name": "腿日",
+     "summary": "广州店，腿日，20组",
+     "sets": [
+      {
+       "name": "哈克深蹲",
+       "weights": [
+        40.0,
+        60.0,
+        80.0,
+        80.0,
+        85.0
+       ],
+       "reps": [
+        12,
+        12,
+        12,
+        12,
+        12
+       ]
+      },
+      {
+       "name": "俯卧腘绳",
+       "weights": [
+        20.0,
+        20.0,
+        20.0,
+        20.0
+       ],
+       "reps": [
+        10,
+        12,
+        12,
+        10
+       ]
+      },
+      {
+       "name": "臀推",
+       "weights": [
+        50.0,
+        60.0,
+        60.0,
+        60.0
+       ],
+       "reps": [
+        12,
+        12,
+        12,
+        12
+       ]
+      },
+      {
+       "name": "髋内收",
+       "weights": [
+        29.0,
+        34.0,
+        39.0
+       ],
+       "reps": [
+        12,
+        12,
+        12
+       ]
+      },
+      {
+       "name": "髋外展",
+       "weights": [
+        30.0,
+        30.0,
+        30.0
+       ],
+       "reps": [
+        12,
+        12,
+        10
+       ]
+      },
+      {
+       "name": "绳索卷腹",
+       "weights": [
+        12.5,
+        12.5,
+        12.5
+       ],
+       "reps": [
+        12,
+        12,
+        12
+       ]
+      }
+     ]
+    }
+   ],
+   "sleep": [
+    [
+     "总时长",
+     "6 小时 25 分"
+    ]
+   ],
+   "heartRate": {
+    "restingBpm": 53,
+    "sleepAverageBpm": null
+   },
+   "supplements": {
+    "items": [
+     {
+      "name": "肌酸",
+      "dose": "3g，随早餐，和绿粉一起",
+      "checked": false
+     },
+     {
+      "name": "绿粉 eimele",
+      "dose": "3.5g/包",
+      "checked": false
+     },
+     {
+      "name": "PS 磷脂酰丝氨酸",
+      "dose": "2 粒，共 270mg",
+      "checked": false
+     },
+     {
+      "name": "辅酶 Q10",
+      "dose": "200mg，1 粒",
+      "checked": false
+     },
+     {
+      "name": "维生素 D3 + K",
+      "dose": "D3 10000 IU + K1/K2，1 粒",
+      "checked": false
+     },
+     {
+      "name": "姜黄素",
+      "dose": "500mg，1 粒",
+      "checked": false
+     },
+     {
+      "name": "鱼油",
+      "dose": "EPA 900mg + DHA 660mg，2 粒",
+      "checked": false
+     },
+     {
+      "name": "护眼 PRO EYE SHIELD",
+      "dose": "1 粒随餐；吃动物肝当天跳过",
+      "checked": false
+     },
+     {
+      "name": "牛骨胶原蛋白肽",
+      "dose": "8g 粉剂",
+      "checked": false
+     },
+     {
+      "name": "硒片",
+      "dose": "1 片；吃动物肝当天跳过",
+      "checked": false
+     },
+     {
+      "name": "镁（甘氨酸镁）",
+      "dose": "2 片，元素镁 200mg",
+      "checked": false
+     },
+     {
+      "name": "海洋胶原 Vida Glow",
+      "dose": "3000mg/包",
+      "checked": false
+     },
+     {
+      "name": "褪黑素",
+      "dose": "Natrol 软糖 5mg，睡不着时睡前 30 分钟 1 粒，非常规",
+      "checked": false
+     }
+    ],
+    "note": "当天打卡 0 / 13 项（明细未按项记录）"
+   }
+  },
+  {
+   "date": "2026-11-21",
+   "closed": true,
+   "basal": 1497,
+   "activity": 229,
+   "exercise": 160,
+   "intake": 1800,
+   "protein": 117,
+   "deficit": 86,
+   "meals": [
+    {
+     "name": "早餐",
+     "kcal": 175,
+     "protein": 11,
+     "food": "鸡蛋1个+玉米1/4根+蒸南瓜几片+牛奶100ml"
+    },
+    {
+     "name": "午餐",
+     "kcal": 900,
+     "protein": 52,
+     "food": "羊肉煲（砂锅，羊肉共2斤，他吃了约1/4即250g）+ 马蹄 + 西洋菜/生菜（吃得多）+ 腐竹"
+    },
+    {
+     "name": "晚餐",
+     "kcal": 680,
+     "protein": 53,
+     "food": "滑蛋牛肉（吃一半，牛肉约100g+鸡蛋2个）+ 猪颈肉5粒 + 玉米团子半块 + 鸡翅1只 + 青菜"
+    },
+    {
+     "name": "其他",
+     "kcal": 45,
+     "protein": 1,
+     "food": "小柚子半个"
+    }
+   ],
+   "training": [
+    {
+     "name": "推日",
+     "summary": "新健身房（无人健身房），推日，12组",
+     "sets": [
+      {
+       "name": "斜推",
+       "weights": [
+        20.0,
+        30.0,
+        30.0,
+        25.0
+       ],
+       "reps": [
+        12,
+        10,
+        10,
+        10
+       ]
+      },
+      {
+       "name": "夹胸",
+       "weights": [
+        20.0,
+        25.0,
+        25.0
+       ],
+       "reps": [
+        12,
+        12,
+        12
+       ]
+      },
+      {
+       "name": "哑铃肩推",
+       "weights": [
+        10.0,
+        10.0
+       ],
+       "reps": [
+        12,
+        12
+       ]
+      },
+      {
+       "name": "颈后臂屈伸",
+       "weights": [
+        10.0,
+        10.0,
+        10.0
+       ],
+       "reps": [
+        null,
+        12,
+        12
+       ]
+      }
+     ]
+    }
+   ],
+   "sleep": [],
+   "heartRate": {
+    "restingBpm": 54,
+    "sleepAverageBpm": null
+   },
+   "supplements": {
+    "items": [
+     {
+      "name": "肌酸",
+      "dose": "3g，随早餐，和绿粉一起",
+      "checked": false
+     },
+     {
+      "name": "绿粉 eimele",
+      "dose": "3.5g/包",
+      "checked": false
+     },
+     {
+      "name": "PS 磷脂酰丝氨酸",
+      "dose": "2 粒，共 270mg",
+      "checked": false
+     },
+     {
+      "name": "辅酶 Q10",
+      "dose": "200mg，1 粒",
+      "checked": false
+     },
+     {
+      "name": "维生素 D3 + K",
+      "dose": "D3 10000 IU + K1/K2，1 粒",
+      "checked": false
+     },
+     {
+      "name": "姜黄素",
+      "dose": "500mg，1 粒",
+      "checked": false
+     },
+     {
+      "name": "鱼油",
+      "dose": "EPA 900mg + DHA 660mg，2 粒",
+      "checked": false
+     },
+     {
+      "name": "护眼 PRO EYE SHIELD",
+      "dose": "1 粒随餐；吃动物肝当天跳过",
+      "checked": false
+     },
+     {
+      "name": "牛骨胶原蛋白肽",
+      "dose": "8g 粉剂",
+      "checked": false
+     },
+     {
+      "name": "硒片",
+      "dose": "1 片；吃动物肝当天跳过",
+      "checked": false
+     },
+     {
+      "name": "镁（甘氨酸镁）",
+      "dose": "2 片，元素镁 200mg",
+      "checked": false
+     },
+     {
+      "name": "海洋胶原 Vida Glow",
+      "dose": "3000mg/包",
+      "checked": false
+     },
+     {
+      "name": "褪黑素",
+      "dose": "Natrol 软糖 5mg，睡不着时睡前 30 分钟 1 粒，非常规",
+      "checked": false
+     }
+    ],
+    "note": "未打卡"
+   }
+  },
+  {
+   "date": "2026-11-22",
+   "closed": true,
+   "basal": 1497,
+   "activity": 181,
+   "exercise": 622,
+   "intake": 2162,
+   "protein": 133,
+   "deficit": 138,
+   "meals": [
+    {
+     "name": "早餐",
+     "kcal": 195,
+     "protein": 10,
+     "food": "芝士肠仔面包1片+牛奶200ml"
+    },
+    {
+     "name": "午餐",
+     "kcal": 775,
+     "protein": 68,
+     "food": "Gaga牛肉拌饭+鸡胸肉"
+    },
+    {
+     "name": "晚餐",
+     "kcal": 1100,
+     "protein": 55,
+     "food": "烧烤60串+脑花"
+    },
+    {
+     "name": "其他",
+     "kcal": 92,
+     "protein": 0,
+     "food": "东鹏电解质2/3瓶"
+    }
+   ],
+   "training": [
+    {
+     "name": "拉日",
+     "summary": "拉日，13组",
+     "sets": [
+      {
+       "name": "坐姿划船",
+       "weights": [
+        24.0,
+        29.0,
+        29.0
+       ],
+       "reps": [
+        12,
+        12,
+        12
+       ]
+      },
+      {
+       "name": "高位下拉",
+       "weights": [
+        15.0,
+        20.0,
+        20.0
+       ],
+       "reps": [
+        12,
+        12,
+        10
+       ]
+      },
+      {
+       "name": "面拉",
+       "weights": [
+        20.0,
+        20.0,
+        20.0
+       ],
+       "reps": [
+        12,
+        12,
+        12
+       ]
+      },
+      {
+       "name": "弯举",
+       "weights": [
+        7.5,
+        7.5
+       ],
+       "reps": [
+        12,
+        10
+       ]
+      },
+      {
+       "name": "侧平举",
+       "weights": [
+        5.0,
+        5.0
+       ],
+       "reps": [
+        12,
+        12
+       ]
+      }
+     ]
+    },
+    {
+     "name": "战绳课",
+     "summary": "超级精英战绳课（战神带），45分钟高强度"
+    },
+    {
+     "name": "其他",
+     "summary": "[手表] Morning 重量训练、约39分钟、热量112卡"
+    }
+   ],
+   "sleep": [
+    [
+     "总时长",
+     "5 小时 57 分"
+    ]
+   ],
+   "heartRate": {
+    "restingBpm": 59,
+    "sleepAverageBpm": null
+   },
+   "supplements": {
+    "items": [
+     {
+      "name": "肌酸",
+      "dose": "3g，随早餐，和绿粉一起",
+      "checked": false
+     },
+     {
+      "name": "绿粉 eimele",
+      "dose": "3.5g/包",
+      "checked": false
+     },
+     {
+      "name": "PS 磷脂酰丝氨酸",
+      "dose": "2 粒，共 270mg",
+      "checked": false
+     },
+     {
+      "name": "辅酶 Q10",
+      "dose": "200mg，1 粒",
+      "checked": false
+     },
+     {
+      "name": "维生素 D3 + K",
+      "dose": "D3 10000 IU + K1/K2，1 粒",
+      "checked": false
+     },
+     {
+      "name": "姜黄素",
+      "dose": "500mg，1 粒",
+      "checked": false
+     },
+     {
+      "name": "鱼油",
+      "dose": "EPA 900mg + DHA 660mg，2 粒",
+      "checked": false
+     },
+     {
+      "name": "护眼 PRO EYE SHIELD",
+      "dose": "1 粒随餐；吃动物肝当天跳过",
+      "checked": false
+     },
+     {
+      "name": "牛骨胶原蛋白肽",
+      "dose": "8g 粉剂",
+      "checked": false
+     },
+     {
+      "name": "硒片",
+      "dose": "1 片；吃动物肝当天跳过",
+      "checked": false
+     },
+     {
+      "name": "镁（甘氨酸镁）",
+      "dose": "2 片，元素镁 200mg",
+      "checked": false
+     },
+     {
+      "name": "海洋胶原 Vida Glow",
+      "dose": "3000mg/包",
+      "checked": false
+     },
+     {
+      "name": "褪黑素",
+      "dose": "Natrol 软糖 5mg，睡不着时睡前 30 分钟 1 粒，非常规",
+      "checked": false
+     }
+    ],
+    "note": "未打卡"
+   }
+  },
+  {
+   "date": "2026-11-23",
+   "closed": true,
+   "basal": 1497,
+   "activity": 198,
+   "exercise": 477,
+   "intake": 2010,
+   "protein": 126,
+   "deficit": 162,
+   "meals": [
+    {
+     "name": "早餐",
+     "kcal": 265,
+     "protein": 16
+    },
+    {
+     "name": "午餐",
+     "kcal": 398,
+     "protein": 36
+    },
+    {
+     "name": "晚餐",
+     "kcal": 1100,
+     "protein": 60
+    },
+    {
+     "name": "其他",
+     "kcal": 247,
+     "protein": 14
+    }
+   ],
+   "training": [
+    {
+     "name": "网球",
+     "summary": "网球 17:00-18:00，手表 477 千卡（手表显示 577，多出 100 为忘关状态虚计，已扣除）"
+    }
+   ],
+   "sleep": [],
+   "heartRate": {
+    "restingBpm": 53,
+    "sleepAverageBpm": null
+   },
+   "supplements": {
+    "items": [
+     {
+      "name": "肌酸",
+      "dose": "3g，随早餐，和绿粉一起",
+      "checked": false
+     },
+     {
+      "name": "绿粉 eimele",
+      "dose": "3.5g/包",
+      "checked": false
+     },
+     {
+      "name": "PS 磷脂酰丝氨酸",
+      "dose": "2 粒，共 270mg",
+      "checked": false
+     },
+     {
+      "name": "辅酶 Q10",
+      "dose": "200mg，1 粒",
+      "checked": false
+     },
+     {
+      "name": "维生素 D3 + K",
+      "dose": "D3 10000 IU + K1/K2，1 粒",
+      "checked": false
+     },
+     {
+      "name": "姜黄素",
+      "dose": "500mg，1 粒",
+      "checked": false
+     },
+     {
+      "name": "鱼油",
+      "dose": "EPA 900mg + DHA 660mg，2 粒",
+      "checked": false
+     },
+     {
+      "name": "护眼 PRO EYE SHIELD",
+      "dose": "1 粒随餐；吃动物肝当天跳过",
+      "checked": false
+     },
+     {
+      "name": "牛骨胶原蛋白肽",
+      "dose": "8g 粉剂",
+      "checked": false
+     },
+     {
+      "name": "硒片",
+      "dose": "1 片；吃动物肝当天跳过",
+      "checked": false
+     },
+     {
+      "name": "镁（甘氨酸镁）",
+      "dose": "2 片，元素镁 200mg",
+      "checked": false
+     },
+     {
+      "name": "海洋胶原 Vida Glow",
+      "dose": "3000mg/包",
+      "checked": false
+     },
+     {
+      "name": "褪黑素",
+      "dose": "Natrol 软糖 5mg，睡不着时睡前 30 分钟 1 粒，非常规",
+      "checked": false
+     }
+    ],
+    "note": "当天打卡 11 / 13 项（明细未按项记录）"
+   }
+  },
+  {
+   "date": "2026-11-24",
+   "closed": false,
+   "basal": 1497,
+   "activity": null,
+   "exercise": 439,
+   "intake": 995,
+   "protein": 71,
+   "deficit": null,
+   "meals": [
+    {
+     "name": "早餐",
+     "kcal": 820,
+     "protein": 66
+    },
+    {
+     "name": "午餐",
+     "kcal": 0,
+     "protein": 0
+    },
+    {
+     "name": "晚餐",
+     "kcal": 0,
+     "protein": 0
+    },
+    {
+     "name": "其他",
+     "kcal": 175,
+     "protein": 5
+    }
+   ],
+   "training": [
+    {
+     "name": "网球",
+     "summary": "网球 08:30-09:30，手表 439 千卡"
+    }
+   ],
+   "sleep": [],
+   "heartRate": {
+    "restingBpm": null,
+    "sleepAverageBpm": null
+   },
+   "supplements": {
+    "items": [
+     {
+      "name": "肌酸",
+      "dose": "3g，随早餐，和绿粉一起",
+      "checked": false
+     },
+     {
+      "name": "绿粉 eimele",
+      "dose": "3.5g/包",
+      "checked": false
+     },
+     {
+      "name": "PS 磷脂酰丝氨酸",
+      "dose": "2 粒，共 270mg",
+      "checked": false
+     },
+     {
+      "name": "辅酶 Q10",
+      "dose": "200mg，1 粒",
+      "checked": false
+     },
+     {
+      "name": "维生素 D3 + K",
+      "dose": "D3 10000 IU + K1/K2，1 粒",
+      "checked": false
+     },
+     {
+      "name": "姜黄素",
+      "dose": "500mg，1 粒",
+      "checked": false
+     },
+     {
+      "name": "鱼油",
+      "dose": "EPA 900mg + DHA 660mg，2 粒",
+      "checked": false
+     },
+     {
+      "name": "护眼 PRO EYE SHIELD",
+      "dose": "1 粒随餐；吃动物肝当天跳过",
+      "checked": false
+     },
+     {
+      "name": "牛骨胶原蛋白肽",
+      "dose": "8g 粉剂",
+      "checked": false
+     },
+     {
+      "name": "硒片",
+      "dose": "1 片；吃动物肝当天跳过",
+      "checked": false
+     },
+     {
+      "name": "镁（甘氨酸镁）",
+      "dose": "2 片，元素镁 200mg",
+      "checked": false
+     },
+     {
+      "name": "海洋胶原 Vida Glow",
+      "dose": "3000mg/包",
+      "checked": false
+     },
+     {
+      "name": "褪黑素",
+      "dose": "Natrol 软糖 5mg，睡不着时睡前 30 分钟 1 粒，非常规",
+      "checked": false
+     }
+    ],
+    "note": "未打卡"
+   }
+  }
+ ],
+ "weekly": [
+  {
+   "week": "第 1 周（11/16–11/22）",
+   "start": "2026-11-16",
+   "end": "2026-11-22",
+   "deficitTargetKcal": 2400,
+   "proteinTargetG": 840,
+   "proteinAvgG": 126,
+   "trainingCount": 8,
+   "trainingBreakdown": "腿日 2 次、推日 2 次、拉日 2 次、瑜伽 1 次、战绳课 1 次",
+   "avgSleepHours": 6.8
+  }
+ ]
 }

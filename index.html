@@ -1,245 +1,522 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>对抗时间引力 · 老杨的每日健康看板</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<title>与时间引力对抗 · 21 天减脂计划</title>
 <style>
-  :root{
-    --bg:#0c2318;
-    --bg2:#0f2d20;
-    --card:#143627;
-    --card2:#17402e;
-    --line:#1f4d36;
-    --ink:#e8f2ea;
-    --ink-dim:#a9c4b2;
-    --ink-faint:#7fa08d;
-    --accent:#8fd6a8;
-    --accent2:#e8c97a;
-    --amber:#e8c97a;
-    --deep:#5b8dd9;
-    --light:#8fd6a8;
-    --rem:#c9a7e8;
-    --warn:#e88a7a;
+  :root {
+    color-scheme: light;
+    --page: #f6f5ef;
+    --paper: #fdfcf8;
+    --forest: #15372c;
+    --ink: #1d2d24;
+    --muted: #526258;
+    --line: #d8ddd1;
+    --light: #e6eedc;
+    --on-dark: #f7faf2;
+    --dark-muted: #ccddce;
+    --dark-line: #527265;
+    --accent: #d4ecbd;
+    font: 16px/1.5 -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+    font-variant-numeric: tabular-nums;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    background:var(--bg);
-    color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
-    line-height:1.6;
-    padding:16px;
+
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body { margin: 0; background: var(--page); color: var(--ink); }
+  button, select { font: inherit; }
+  button, summary { cursor: pointer; }
+  :focus-visible { outline: 2px solid #397653; outline-offset: 3px; }
+  .plan :focus-visible { outline-color: var(--accent); }
+  .shell { width: min(100% - 56px, 1040px); margin: 0 auto; padding-bottom: 40px; }
+  .mast { display: flex; justify-content: space-between; align-items: center; min-height: 70px; gap: 12px; }
+  .identity { display: flex; gap: 12px; align-items: baseline; }
+  h1, h2, h3, p { margin: 0; }
+  h1 { font-size: 25px; color: var(--forest); white-space: nowrap; }
+  .identity span { font-size: 13px; color: var(--muted); }
+
+  .plan { background: var(--forest); color: var(--on-dark); border-radius: 14px; padding: 18px 25px 0; }
+  .plan-period { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 12px; border-bottom: 1px solid var(--dark-line); padding-bottom: 11px; font-size: 14px; }
+  .plan-period span { color: var(--dark-muted); }
+  .plan-period strong { font-size: 14px; font-weight: 650; }
+  .plan-main { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 30px; padding: 18px 0 16px; align-items: center; }
+  .plan h2, .plan-label { color: var(--dark-muted); font-size: 14px; font-weight: 550; }
+  .total { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin: 2px 0 9px; }
+  .total strong { font-size: 46px; line-height: 1.1; letter-spacing: -.04em; }
+  .target { color: var(--dark-muted); font-size: 19px; }
+  .coverage { margin-top: 8px; color: var(--dark-muted); font-size: 13px; }
+  .track { display: flex; gap: 12px; align-items: center; }
+  .track span { flex: none; min-width: 3ch; text-align: right; color: var(--accent); font-size: 15px; font-weight: 700; }
+  progress { appearance: none; border: 0; border-radius: 12px; overflow: hidden; background: #385d4e; color: var(--accent); height: 7px; min-width: 0; flex: 1; }
+  progress::-webkit-progress-bar { background: #385d4e; }
+  progress::-webkit-progress-value { background: var(--accent); border-radius: 12px; }
+  progress::-moz-progress-bar { background: var(--accent); border-radius: 12px; }
+  .pace { padding-left: 27px; border-left: 1px solid var(--dark-line); }
+  .pace-status { display: block; margin-top: 4px; color: var(--accent); font-size: 24px; font-weight: 750; }
+  .plan-bottom { display: flex; flex-wrap: wrap; gap: 5px 18px; font-size: 13px; padding: 11px 0; border-top: 1px solid var(--dark-line); }
+  .plan-bottom b { color: var(--on-dark); margin-left: 5px; }
+  .plan-bottom span { color: var(--dark-muted); }
+  .ledger { border-top: 1px solid var(--dark-line); font-size: 13px; }
+  .ledger summary { padding: 10px 0 12px; width: fit-content; font-weight: 650; }
+  .ledger p { color: var(--dark-muted); margin: 0 0 7px; }
+  .ledger .table-scroll { padding-bottom: 12px; }
+  .table-scroll { max-width: 100%; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); }
+  thead th { font-size: 13px; font-weight: 550; color: var(--muted); }
+  .ledger table { color: var(--on-dark); min-width: 420px; }
+  .ledger th, .ledger td { border-color: var(--dark-line); text-align: right; white-space: nowrap; }
+  .ledger th:first-child { text-align: left; padding-left: 0; }
+  .ledger thead th { color: var(--dark-muted); }
+  .ledger tfoot th, .ledger tfoot td { border-bottom: 0; }
+  .estimate { font-size: 12px; color: var(--accent); }
+
+  .day { padding-top: 23px; }
+  .day-nav { display: flex; align-items: baseline; justify-content: space-between; gap: 10px 14px; margin-bottom: 11px; }
+  .day-heading { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .day-heading h2 { font-size: 27px; color: var(--forest); line-height: 1.2; }
+  .day-heading span { color: var(--muted); font-size: 13px; }
+  .date-controls { display: flex; flex: none; gap: 5px; align-items: center; }
+  .date-controls button, .date-controls select { background: var(--paper); color: var(--forest); border: 1px solid var(--line); border-radius: 7px; height: 39px; }
+  .date-controls button { width: 40px; font-size: 23px; line-height: 1; }
+  .date-controls button:disabled { opacity: .4; cursor: default; }
+  .date-controls select { padding: 0 7px; font-size: 14px; }
+  .date-controls button:hover:not(:disabled) { background: var(--light); }
+  .daily-card { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; overflow: clip; }
+  .daily-energy { display: grid; grid-template-columns: 1fr 1fr; background: var(--light); padding: 12px 19px; }
+  .daily-energy > div + div { border-left: 1px solid #c9d6c1; padding-left: 18px; }
+  .daily-energy span { display: block; color: var(--muted); font-size: 13px; }
+  .daily-energy strong { display: block; min-height: 31px; font-size: 22px; color: var(--forest); }
+  .daily-energy .result-line { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 8px; }
+  .result-line small { color: var(--muted); font-size: 12px; }
+  .tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 0 16px; border-bottom: 1px solid var(--line); }
+  .tabs button { border: 0; border-bottom: 3px solid transparent; background: transparent; color: var(--muted); min-height: 46px; padding: 9px 4px 7px; font-size: 16px; font-weight: 620; }
+  .tabs button:hover { color: var(--forest); background: #f4f6ef; }
+  .tabs button[aria-selected="true"] { color: var(--forest); border-bottom-color: var(--forest); font-weight: 770; }
+  .tabs button:focus-visible { outline-offset: -4px; }
+  .tab-panel { padding: 8px 19px 14px; min-height: 40px; }
+  .tab-panel:empty { padding-bottom: 8px; }
+  .detail-list { margin: 0; padding: 0; }
+  .detail-list > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid var(--line); }
+  .detail-list > div:last-child { border-bottom: 0; }
+  .detail-list dt { font-size: 14px; font-weight: 650; }
+  .detail-list dd { margin: 0; color: var(--muted); text-align: right; font-size: 14px; }
+  .food-summary { display: flex; flex-wrap: wrap; column-gap: 34px; row-gap: 8px; padding: 7px 0 13px; border-bottom: 1px solid var(--line); }
+  .food-summary span { display: block; color: var(--muted); font-size: 13px; }
+  .food-summary strong { display: block; color: var(--forest); font-size: 20px; }
+  .meal, .session { border-bottom: 1px solid var(--line); }
+  .meal:last-child, .session:last-child { border-bottom: 0; }
+  .meal-heading { display: flex; align-items: baseline; gap: 7px; color: var(--forest); padding: 11px 0; min-height: 44px; }
+  summary.meal-heading { list-style: none; }
+  summary.meal-heading::-webkit-details-marker { display: none; }
+  summary.meal-heading::before { content: ''; width: 6px; height: 6px; flex: none; margin: 0 4px 2px 3px; border-right: 2px solid; border-bottom: 2px solid; transform: rotate(-45deg); }
+  .meal[open] > summary::before { transform: rotate(45deg); }
+  .meal-name { flex: 1 1 auto; font-size: 14px; }
+  .meal-name time, .meal-nutrients { font-size: 13px; color: var(--muted); }
+  .meal-name time { margin-left: 7px; }
+  .meal-nutrients { flex: none; }
+  .meal-note { padding-bottom: 9px; color: var(--muted); font-size: 13px; }
+  .meal .table-scroll { margin-bottom: 8px; }
+  .meal table th:first-child { padding-left: 0; }
+  .meal table th:nth-child(n+3), .meal table td:nth-child(n+3) { text-align: right; white-space: nowrap; }
+  .meal table tbody th { font-weight: 550; }
+  .plan-reference { color: var(--muted); font-size: 13px; padding: 7px 0 3px; }
+  .session summary, .activity-line { min-height: 44px; padding: 10px 0; color: var(--forest); }
+  .session summary span, .activity-line span { font-size: 13px; margin-left: 8px; color: var(--muted); }
+  .session .table-scroll { margin-bottom: 9px; }
+  .session td:first-child { font-weight: 650; }
+  .session th:first-child, .session td:first-child { padding-left: 0; }
+  .session td { white-space: nowrap; }
+  .session td:first-child { white-space: normal; }
+  .health-group h3 { font-size: 14px; color: var(--forest); padding: 7px 0 3px; }
+  .health-group + .health-group { border-top: 1px solid var(--line); margin-top: 5px; padding-top: 6px; }
+  .supplements td:last-child { white-space: nowrap; }
+  .supplements .taken { color: var(--forest); font-weight: 720; }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+  @media (max-width: 640px) {
+    .shell { width: calc(100% - 28px); }
+    .mast { min-height: 61px; }
+    h1 { font-size: 22px; }
+    .identity { gap: 8px; }
+    .identity span { font-size: 12px; }
+    .plan { padding: 13px 15px 0; }
+    .plan-period { font-size: 12px; padding-bottom: 8px; }
+    .plan-period strong { font-size: 12px; }
+    .plan-main { grid-template-columns: 1fr; gap: 9px; padding: 10px 0; }
+    .total { margin-bottom: 5px; }
+    .total strong { font-size: 36px; }
+    .target { font-size: 16px; }
+    .coverage { margin-top: 5px; }
+    .pace { display: grid; grid-template-columns: 1fr auto; gap: 1px 8px; border: 0; padding: 0; }
+    .pace .plan-label { font-size: 13px; }
+    .pace-status { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-size: 16px; margin: 0; }
+    .plan-bottom { gap: 3px 12px; font-size: 12px; padding: 8px 0; }
+    .ledger summary { padding: 8px 0 10px; }
+    .ledger table { min-width: 0; font-size: 12px; }
+    .ledger table th, .ledger table td { padding-inline: 3px; font-size: 12px; }
+    .day { padding-top: 16px; }
+    .day-nav { align-items: center; flex-wrap: wrap; }
+    .day-heading h2 { font-size: 21px; }
+    .day-heading span { font-size: 12px; }
+    .date-controls button { width: 36px; }
+    .date-controls button, .date-controls select { height: 38px; font-size: 13px; }
+    .date-controls button { font-size: 23px; }
+    .daily-energy { padding: 9px 13px; }
+    .daily-energy strong { font-size: 19px; min-height: 28px; }
+    .daily-energy > div + div { padding-left: 12px; }
+    .tabs { padding: 0 9px; }
+    .tab-panel { padding: 5px 12px 10px; }
+    .food-summary { column-gap: 21px; }
+    .food-summary strong { font-size: 18px; }
+    .meal-nutrients, .meal-name time, .meal table th { font-size: 12px; }
+    .detail-list dd, .meal td, .session td, .supplements td { font-size: 13px; }
+    th, td { padding: 8px 5px; }
   }
-  .wrap{max-width:1020px;margin:0 auto}
-  header{
-    background:linear-gradient(135deg,#123524,#0f2d20 60%,#123524);
-    border:1px solid var(--line);
-    border-radius:16px;
-    padding:20px 22px 16px;
-    margin-bottom:14px;
-  }
-  header h1{font-size:26px;letter-spacing:2px}
-  header h1 span{font-size:14px;color:var(--ink-dim);letter-spacing:1px;margin-left:8px}
-  .sub{color:var(--ink-dim);font-size:13px;margin-top:4px}
-  .datebar{display:flex;align-items:center;gap:12px;margin-top:14px}
-  .datebar button{
-    background:var(--card2);color:var(--ink);
-    border:1px solid var(--line);border-radius:8px;
-    width:36px;height:36px;font-size:18px;cursor:pointer;
-  }
-  .datebar button:disabled{opacity:.35;cursor:default}
-  .datebar .date{font-size:18px;font-weight:700;min-width:150px;text-align:center}
-  .datebar .today-note{font-size:12px;color:var(--ink-faint)}
-  .headstats{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-  .hstat{
-    flex:1 1 140px;background:rgba(255,255,255,.04);
-    border:1px solid var(--line);border-radius:12px;padding:10px 12px;
-  }
-  .hstat .k{font-size:12px;color:var(--ink-dim)}
-  .hstat .v{font-size:20px;font-weight:700;margin-top:2px}
-  .hstat .v small{font-size:12px;color:var(--ink-dim);font-weight:400}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  @media (max-width:760px){.grid{grid-template-columns:1fr}}
-  .card{
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:16px;
-    padding:16px 18px;
-  }
-  .card.wide{grid-column:1 / -1}
-  /* 第一板块：减脂看板，主看板 */
-  .card.main{border-width:2px;border-color:#3f7d58}
-  .card.main h2 .tag{color:var(--accent)}
-  /* 身体条件区：紫色块，相对稳定的数；体检项目以后加进本区 */
-  .card.purple{
-    background:linear-gradient(160deg,#2c1c52,#221640 70%,#241a4a);
-    border-color:#5b4a9e;
-  }
-  .card.purple h2{color:#ddd2ff}
-  .card.purple h2 .tag{color:#b7a6e8}
-  .card.purple .kv{border-bottom-color:#4a3a80}
-  .card.purple .kv .k{color:#c3b8e8}
-  .card.purple .faint{color:#a99bd4}
-  .supp-check{margin-top:10px}
-  .supp-check .ck{display:flex;gap:8px;align-items:baseline;font-size:13px;padding:4px 0;color:var(--ink-dim)}
-  .supp-check .ck b{color:var(--ink);font-weight:600}
-  .supp-check .box{font-size:15px}
-  .supp-check .box.done{color:var(--accent)}
-  .card h2{font-size:16px;letter-spacing:1px;margin-bottom:10px}
-  .card h2 .tag{font-size:11px;color:var(--ink-faint);font-weight:400;margin-left:6px}
-  .card h3{font-size:14px;color:var(--accent);margin:14px 0 6px;letter-spacing:1px}
-  .kv{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px dashed #1f4d36;font-size:14px}
-  .kv:last-child{border-bottom:none}
-  .kv .k{color:var(--ink-dim)}
-  .kv .v{font-weight:600;text-align:right}
-  .muted{color:var(--ink-dim);font-size:13px}
-  .faint{color:var(--ink-faint);font-size:12px}
-  .pending{color:var(--amber)}
-  .neg{color:#e88a7a;font-weight:700}
-  .pos{color:#8fd6a8;font-weight:700}
-  .note{
-    background:rgba(232,201,122,.08);border:1px solid rgba(232,201,122,.35);
-    border-radius:10px;padding:10px 12px;font-size:13px;margin-top:10px;color:#f0e2b8;
-  }
-  .progress-bar{
-    height:10px;background:#1f4d36;border-radius:99px;overflow:hidden;margin:8px 0 4px;
-  }
-  .progress-bar .fill{
-    height:100%;background:linear-gradient(90deg,#8fd6a8,#e8c97a);border-radius:99px;
-  }
-  canvas{width:100%;height:180px;display:block;margin-top:6px}
-  .legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--ink-dim);margin-top:6px}
-  .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
-  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px}
-  th,td{padding:7px 4px;border-bottom:1px dashed #1f4d36;text-align:left}
-  th{color:var(--ink-dim);font-weight:500}
-  td.num,th.num{text-align:right}
-  .pill{display:inline-block;font-size:11px;padding:1px 8px;border-radius:99px;border:1px solid var(--line);color:var(--ink-dim)}
-  .pill.watch{color:var(--accent);border-color:#2c6b47}
-  .pill.manual{color:var(--accent2);border-color:#6b5a2c}
-  .train{margin-bottom:12px}
-  .train .t-head{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
-  .train .t-date{font-weight:700}
-  .train .t-type{color:var(--accent);font-weight:600}
-  .train p{font-size:13px;color:var(--ink-dim);margin-top:4px}
-  .supp-group{margin-bottom:10px}
-  .supp-group h3{font-size:13px;color:var(--accent);margin-bottom:4px}
-  .supp-group li{list-style:none;font-size:13px;padding:3px 0;color:var(--ink-dim)}
-  .supp-group li b{color:var(--ink);font-weight:600}
-  .timeline-item{border-left:2px solid var(--line);padding:0 0 14px 14px;position:relative}
-  .timeline-item::before{
-    content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;
-    border-radius:50%;background:var(--accent);
-  }
-  .timeline-item .d{font-weight:700;font-size:14px}
-  .timeline-item p{font-size:13px;color:var(--ink-dim);margin-top:2px}
-  footer{color:var(--ink-faint);font-size:12px;margin:16px 4px 8px;line-height:1.8}
-  .err{background:#3d1a16;border:1px solid #7a3226;border-radius:12px;padding:14px;color:#f2b8ae}
-  .section-label{grid-column:1 / -1;font-size:12px;color:var(--ink-faint);letter-spacing:2px;margin:18px 4px 8px;text-transform:uppercase}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <h1>⏳ 对抗时间引力 <span>老杨的每日健康看板</span></h1>
-    <div class="sub">每天一块小石子，慢慢筑成基本盘 · 主曲线只看体脂和肌肉，不看体重 · 没有数据的日子显示待记录，不编数</div>
-    <div class="datebar">
-      <button id="prevDay" aria-label="前一天">‹</button>
-      <div class="date" id="dateLabel">—</div>
-      <button id="nextDay" aria-label="后一天">›</button>
-      <span class="today-note" id="dateNote"></span>
-    </div>
-    <div class="headstats" id="headStats"></div>
+<main class="shell">
+  <header class="mast">
+    <div class="identity"><h1>与时间引力对抗</h1><span>21 天减脂计划</span></div>
   </header>
 
-  <div id="loadError" class="err" style="display:none">数据没读到（data.json）。请确认 data.json 和这个页面放在同一个目录下。</div>
-
-  <div class="grid" id="board" style="display:none">
-    <!-- ========== 第一板块：减脂看板（主看板） ========== -->
-    <div class="section-label">第一板块 · 看板 — 今天的减脂状况，一眼看完</div>
-    <section class="card wide main">
-      <h2>🪨 减脂看板 <span class="tag">每天一块小石子</span></h2>
-      <div id="fatLossBoard"></div>
-    </section>
-
-    <section class="card wide">
-      <h2>📊 每周总结</h2>
-      <div id="review"></div>
-    </section>
-
-    <!-- ========== 第二板块：睡眠 + 补剂（左右并排） ========== -->
-    <div class="section-label">第二板块 · 睡眠与补剂</div>
-    <section class="card">
-      <h2>睡眠 <span class="tag">手表自动记</span></h2>
-      <div id="sleepLatest"></div>
-      <canvas id="sleepChart" height="180"></canvas>
-      <div class="legend">
-        <span><i style="background:#5b8dd9"></i>深睡</span>
-        <span><i style="background:#8fd6a8"></i>浅睡</span>
-        <span><i style="background:#c9a7e8"></i>REM</span>
+  <section class="plan" aria-labelledby="plan-title">
+    <div class="plan-period"><span id="plan-period"></span><strong id="plan-day"></strong></div>
+    <div class="plan-main">
+      <div>
+        <h2 id="plan-title">累计估算缺口</h2>
+        <div class="total"><strong id="plan-actual"></strong><span class="target" id="plan-target"></span></div>
+        <div class="track" id="plan-track"><progress max="100" id="progress" aria-label="21 天缺口目标完成度"></progress><span id="plan-percent" aria-hidden="true"></span></div>
+        <p class="coverage" id="plan-coverage"></p>
+        <p class="coverage" id="plan-protein"></p>
       </div>
-      <div id="sleepWeekTable"></div>
-    </section>
-
-    <section class="card">
-      <h2>补剂 <span class="tag">清单 + 今日打卡</span></h2>
-      <div id="suppList"></div>
-      <div class="supp-check" id="suppToday"></div>
-      <div class="faint" style="margin-top:8px">打卡状态：<span id="suppCheckin"></span></div>
-      <div id="suppWeek"></div>
-    </section>
-
-    <!-- ========== 第三板块：身体条件 + 具体记录 ========== -->
-    <div class="section-label">第三板块 · 身体条件与具体记录</div>
-    <section class="card purple">
-      <h2>身体条件 <span class="tag">相对稳定 · 最新一次体测</span></h2>
-      <div id="bodyLatest"></div>
-      <canvas id="trendChart" height="180"></canvas>
-      <div class="legend">
-        <span><i style="background:#8fd6a8"></i>体脂 %（左轴）</span>
-        <span><i style="background:#e8c97a"></i>肌肉 kg（右轴）</span>
+      <div class="pace">
+        <p class="plan-label" id="pace-target"></p>
+        <p class="plan-label" id="pace-actual" hidden></p>
+        <strong class="pace-status" id="pace-status" hidden></strong>
       </div>
-      <div class="faint" id="weighInNote" style="margin-top:8px"></div>
-      <div class="faint" id="bodyCheckupNote" style="margin-top:4px"></div>
-    </section>
-
-    <section class="card">
-      <h2>每日能量账 <span class="tag">能量盈余（到现在为止）= 摄入 − 消耗</span></h2>
-      <div id="energyTable"></div>
-      <div class="note" id="energyNote"></div>
-    </section>
-
-    <section class="card">
-      <h2>运动综合 <span class="tag">手动 + 手表</span></h2>
-      <div id="trainingList"></div>
-      <div id="trainingWeek"></div>
-    </section>
-
-    <section class="card wide">
-      <h2>📅 每周回顾 <span class="tag" id="weeklyTag"></span></h2>
-      <div id="weeklySummary"></div>
-      <canvas id="weekDeficitChart" height="180"></canvas>
-      <div class="legend">
-        <span><i style="background:#8fd6a8"></i>已缺</span>
-        <span><i style="background:#e88a7a"></i>已超</span>
+    </div>
+    <div class="plan-bottom">
+      <span>体脂目标 <b>19.6% → 18%</b></span>
+      <span>实测 <b>19.6%</b> · 11 月 13 日（Fitdays）</span>
+    </div>
+    <details class="ledger">
+      <summary>看热量账</summary>
+      <p>估算缺口 = 基础消耗 + 日常消耗 + 运动消耗 − 摄入（千卡）</p>
+      <p id="ledger-pace" hidden></p>
+      <p>标「估」为该项用估值。缺口以收账记录为准；日常消耗缺失时显示 —。</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="逐日热量账，可横向查看">
+        <table aria-label="逐日热量账，单位千卡">
+          <thead><tr><th scope="col">日期</th><th scope="col">基础</th><th scope="col">日常</th><th scope="col">运动</th><th scope="col">摄入</th><th scope="col">蛋白</th><th scope="col">缺口</th></tr></thead>
+          <tbody id="ledger-rows"></tbody>
+          <tfoot id="ledger-total"></tfoot>
+        </table>
       </div>
-      <div id="weeklyTable"></div>
-      <canvas id="weekSleepChart" height="180"></canvas>
-      <div class="legend">
-        <span><i style="background:#5b8dd9"></i>深睡</span>
-        <span><i style="background:#8fd6a8"></i>浅睡</span>
-        <span><i style="background:#c9a7e8"></i>REM</span>
+    </details>
+  </section>
+
+  <details class="ledger" style="border-top:0; padding-top:14px" id="weekly-review">
+    <summary>每 7 天回看</summary>
+    <p id="weekly-body"></p>
+  </details>
+
+  <section class="day" aria-labelledby="chosen-date">
+    <header class="day-nav">
+      <div class="day-heading"><h2 id="chosen-date"></h2><span id="day-position"></span></div>
+      <nav class="date-controls" aria-label="切换日期">
+        <button type="button" id="previous" aria-label="前一天">‹</button>
+        <label class="visually-hidden" for="date-picker">查看日期</label>
+        <select id="date-picker"></select>
+        <button type="button" id="next" aria-label="后一天">›</button>
+      </nav>
+    </header>
+    <div class="daily-card">
+      <div class="daily-energy" aria-live="polite">
+        <div><span>当天参考目标</span><strong id="daily-target"></strong></div>
+        <div><span id="daily-result-label">当天估算缺口</span>
+          <div class="result-line"><strong id="daily-result"></strong><small id="daily-percent"></small></div>
+        </div>
       </div>
-    </section>
+      <div class="tabs" role="tablist" aria-label="当天明细">
+        <button type="button" role="tab" id="tab-eat" aria-controls="eat" aria-selected="true">吃</button>
+        <button type="button" role="tab" id="tab-train" aria-controls="train" aria-selected="false" tabindex="-1">练</button>
+        <button type="button" role="tab" id="tab-sleep" aria-controls="sleep" aria-selected="false" tabindex="-1">睡</button>
+        <button type="button" role="tab" id="tab-supp" aria-controls="supp" aria-selected="false" tabindex="-1">补</button>
+      </div>
+      <div class="tab-panel" role="tabpanel" id="eat" aria-labelledby="tab-eat" tabindex="0"></div>
+      <div class="tab-panel" role="tabpanel" id="train" aria-labelledby="tab-train" tabindex="0" hidden></div>
+      <div class="tab-panel" role="tabpanel" id="sleep" aria-labelledby="tab-sleep" tabindex="0" hidden></div>
+      <div class="tab-panel" role="tabpanel" id="supp" aria-labelledby="tab-supp" tabindex="0" hidden></div>
+    </div>
+  </section>
+</main>
 
-    <section class="card wide">
-      <h2>体检报告</h2>
-      <div id="checkup"></div>
-    </section>
-  </div>
+<script>
+  "use strict";
 
-  <footer id="footer"></footer>
-</div>
-<script src="app.js?v=91"></script>
+  let data = null;
+  let plan = null;
+  let plannedDaily = null;
+  const $ = (id) => document.getElementById(id);
+  const weekday = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+  const datePicker = $("date-picker");
+  const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+  const formatter = new Intl.NumberFormat("zh-CN");
+  const number = (value) => Number.isFinite(value) ? formatter.format(value) : "";
+  const sum = (values) => values.reduce((total, value) => total + value, 0);
+  const kcal = (value) => number(value) + " 千卡";
+  const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (char) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
+
+  function addDays(iso, count) {
+    const date = new Date(iso + "T12:00:00Z");
+    date.setUTCDate(date.getUTCDate() + count);
+    return date.toISOString().slice(0, 10);
+  }
+
+  function shortDate(iso) {
+    return Number(iso.slice(5, 7)) + " 月 " + Number(iso.slice(8, 10)) + " 日";
+  }
+
+  let days = [];
+  let records = new Map();
+
+  function completeTotal(items, valueOf) {
+    const values = items?.map(valueOf);
+    return values?.length && values.every(Number.isFinite) ? sum(values) : null;
+  }
+
+  function mealTotal(meal, field) {
+    return completeTotal(meal.items, (item) => item[field]) ?? meal[field];
+  }
+
+  function dayIntake(row) {
+    return row.meals?.length ? completeTotal(row.meals, (meal) => mealTotal(meal, "kcal")) : row.intake;
+  }
+
+  function energy(row) {
+    if (!row?.closed) return null;
+    const intake = dayIntake(row);
+    const complete = [row.basal, row.activity, row.exercise, intake].every(Number.isFinite);
+    const deficit = Number.isFinite(row.deficit) ? row.deficit :
+      (complete ? row.basal + row.activity + row.exercise - intake : null);
+    return { ...row, intake, deficit };
+  }
+
+  function renderPlan() {
+    const closed = days.filter((iso) => iso <= data.latestDate).map((iso) => energy(records.get(iso))).filter(Boolean);
+    const counted = closed.filter((row) => Number.isFinite(row.deficit));
+    const cutoff = counted.at(-1)?.date;
+    const actual = sum(counted.map((row) => row.deficit));
+    const finishDay = days.indexOf(cutoff) + 1;
+    const latest = records.get(data.latestDate);
+    const percentage = Math.round(actual / plan.deficitTarget * 100);
+    $("plan-period").textContent = shortDate(days[0]) + "–" + shortDate(days.at(-1)) + " · 共 " + plan.length + " 天";
+    $("plan-day").textContent = "第 " + (days.indexOf(data.latestDate) + 1) + " 天";
+    $("plan-actual").textContent = cutoff ? (actual < 0 ? "盈余 " : "") + number(Math.abs(actual)) : "";
+    $("plan-target").textContent = (cutoff ? "/ " : "目标 ") + kcal(plan.deficitTarget);
+    $("plan-track").style.display = cutoff ? "" : "none";
+    $("progress").value = Math.max(0, percentage);
+    $("plan-percent").textContent = percentage + "%";
+    $("plan-coverage").textContent = cutoff ?
+      "最近计入 " + shortDate(cutoff) + "全天 · 已计入 " + counted.length + " / " + days.length + " 天" : "";
+
+    const recordedDaily = cutoff ? Math.round(actual / counted.length) : null;
+    const goal = Math.round(plannedDaily);
+    $("pace-target").textContent = "计划日均 约 " + kcal(goal);
+    $("pace-actual").hidden = !cutoff;
+    $("pace-actual").textContent = cutoff ? "已记日均 约 " + kcal(recordedDaily) : "";
+    const continuous = Boolean(cutoff) && counted.length === finishDay;
+    $("pace-status").hidden = !continuous;
+    $("ledger-pace").hidden = !continuous;
+    if (continuous) {
+      $("pace-status").textContent = recordedDaily === goal ? "按计划推进" :
+        recordedDaily > goal ? "快于计划" : "慢于计划";
+      $("ledger-pace").textContent = "按计划推进到第 " + finishDay + " 天，累计约 " +
+        kcal(Math.round(plannedDaily * finishDay)) + "。";
+    }
+
+    const lp = latest ? latest.protein : null;
+    $("plan-protein").textContent = Number.isFinite(lp) ?
+      "今天蛋白 已记 " + number(lp) + " / 目标 " + number(plan.proteinTarget) + " 克" : "";
+    $("ledger-rows").innerHTML = closed.map((row) =>
+      `<tr><th scope="row" aria-label="${shortDate(row.date)}">${Number(row.date.slice(5, 7))}/${Number(row.date.slice(8, 10))}</th>
+      <td>${number(row.basal)}</td><td>${Number.isFinite(row.activity) ? number(row.activity) : "—"}${row.activityEstimated ? ' <span class="estimate">估</span>' : ''}</td>
+      <td>${number(row.exercise)}</td><td>${number(row.intake)}</td><td>${Number.isFinite(row.protein) ? number(row.protein) : "—"}</td><td>${number(row.deficit)}</td></tr>`).join("");
+    renderWeekly();
+    $("ledger-total").innerHTML = cutoff ?
+      `<tr><th scope="row" colspan="6">已计入 ${counted.length} 天</th><td><strong>${number(actual)}</strong></td></tr>` : "";
+  }
+
+  function detailList(rows) {
+    return rows?.length ? '<dl class="detail-list">' + rows.map(([label, value]) =>
+      `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`).join("") + "</dl>" : "";
+  }
+
+  function mealDetails(meal) {
+    const calories = mealTotal(meal, "kcal");
+    const protein = mealTotal(meal, "protein");
+    const metrics = [Number.isFinite(calories) ? kcal(calories) : "",
+      Number.isFinite(protein) ? "蛋白 " + number(protein) + " 克" : ""].filter(Boolean).join(" · ");
+    const time = meal.time ? `<time>${escapeHtml(meal.time)}</time>` : "";
+    const heading = `<span class="meal-name"><strong>${escapeHtml(meal.name)}</strong>${time}</span>
+      <span class="meal-nutrients">${metrics}</span>`;
+    const note = meal.food ? `<p class="meal-note">${escapeHtml(meal.food)}</p>` : "";
+    if (!meal.items?.length) return `<div class="meal"><div class="meal-heading">${heading}</div>${note}</div>`;
+    const rows = meal.items.map((item) => `<tr><th scope="row">${escapeHtml(item.name)}</th>
+      <td>${escapeHtml(item.portion)}</td><td>${number(item.kcal)}</td><td>${number(item.protein)}</td></tr>`).join("");
+    return `<details class="meal"><summary class="meal-heading">${heading}</summary>${note}
+      <div class="table-scroll"><table aria-label="${escapeHtml(meal.name)}食物明细"><thead>
+      <tr><th scope="col">食物</th><th scope="col">份量</th><th scope="col">热量（千卡）</th><th scope="col">蛋白（克）</th></tr>
+      </thead><tbody>${rows}</tbody></table></div></details>`;
+  }
+
+  function foodDetails(row) {
+    if (!row) return "";
+    const intake = dayIntake(row);
+    const protein = completeTotal(row.meals, (meal) => mealTotal(meal, "protein"));
+    const prefix = row.closed ? "全天" : "已记";
+    const totals = [Number.isFinite(intake) ? `<div><span>${prefix}摄入</span><strong>${kcal(intake)}</strong></div>` : "",
+      Number.isFinite(protein) ? `<div><span>今天蛋白 · 目标 ${number(plan.proteinTarget)} 克</span><strong>${prefix === "已记" ? "已记 " : ""}${number(protein)} 克</strong></div>` : ""].join("");
+    const meals = row.meals?.map(mealDetails).join("") ?? "";
+    return (totals ? `<div class="food-summary">${totals}</div>` : "") + meals;
+  }
+
+  function trainingDetails(row) {
+    const total = Number.isFinite(row?.exercise) ? `<p class="plan-reference">运动消耗 ${kcal(row.exercise)}</p>` : "";
+    const sessions = row?.training?.map((session) => {
+      const name = `<strong>${escapeHtml(session.name)}</strong>`;
+      if (!session.sets?.length) {
+        const notes = [session.summary, ...(session.details ?? []).map(([, value]) => value)].filter(Boolean);
+        return `<div class="session activity-line">${name}<span>${escapeHtml([...new Set(notes)].join(" · "))}</span></div>`;
+      }
+      const count = Math.max(...session.sets.map((move) => move.reps.length));
+      const headings = Array.from({ length: count }, (_, index) => `<th scope="col">第 ${index + 1} 组</th>`).join("");
+      const rows = session.sets.map((move) => `<tr><td>${escapeHtml(move.name)}</td>` +
+        Array.from({ length: count }, (_, index) => Number.isFinite(move.reps[index]) ?
+          `<td>${number(move.weights[index])} kg × ${number(move.reps[index])}</td>` : "<td></td>").join("") + "</tr>").join("");
+      return `<details class="session"><summary>${name}<span>${escapeHtml(session.summary)}</span></summary>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="每组重量和次数">
+        <table><thead><tr><th scope="col">动作</th>${headings}</tr></thead><tbody>${rows}</tbody></table></div></details>`;
+    }).join("") ?? "";
+    return total + sessions;
+  }
+
+  function sleepDetails(row) {
+    const sleep = detailList(row?.sleep);
+    const readings = [["静息心率", row?.heartRate?.restingBpm], ["睡眠平均心率", row?.heartRate?.sleepAverageBpm]]
+      .filter(([, value]) => Number.isFinite(value)).map(([label, value]) => [label, number(value) + " 次/分"]);
+    const heart = detailList(readings);
+    return (sleep ? `<section class="health-group"><h3>睡眠</h3>${sleep}</section>` : "") +
+      (heart ? `<section class="health-group"><h3>心率</h3>${heart}</section>` : "");
+  }
+
+  function supplementDetails(supp) {
+    const items = supp?.items ?? supp;
+    const note = supp?.note;
+    if (!items?.length) return "";
+    const noteHtml = note ? `<p class="plan-reference">${escapeHtml(note)}</p>` : "";
+    const rows = items.map((item) => `<tr><td>${escapeHtml(item.name)}</td><td>${escapeHtml(item.dose)}</td>
+      <td class="${item.checked ? "taken" : ""}">${item.checked ? "已勾选" : "未勾选"}</td></tr>`).join("");
+    return noteHtml + '<table class="supplements"><thead><tr><th scope="col">项目</th><th scope="col">原清单</th>' +
+      '<th scope="col">当天记录</th></tr></thead><tbody>' + rows + "</tbody></table>";
+  }
+
+  function renderWeekly() {
+    const el = $("weekly-body");
+    if (!el) return;
+    const weeks = (data.weekly ?? []).map((w) => {
+      const wkDays = recordsArr().filter((r) => r.date >= w.start && r.date <= w.end);
+      const d = sum(wkDays.map((r) => r.deficit ?? 0));
+      const p = sum(wkDays.map((r) => r.protein ?? 0));
+      return `<div><strong>${escapeHtml(w.week)}</strong>：累计缺口 ${number(d)} 千卡` +
+        `（目标 ${number(w.deficitTargetKcal)}，${d >= w.deficitTargetKcal ? "超额 " + number(d - w.deficitTargetKcal) : "还差 " + number(w.deficitTargetKcal - d)}）` +
+        ` · 蛋白 ${number(p)} 克（目标 ${number(w.proteinTargetG)}，日均 ${number(w.proteinAvgG)} 克）` +
+        ` · 训练 ${number(w.trainingCount)} 次（${escapeHtml(w.trainingBreakdown)}）` +
+        ` · 平均睡眠 ${w.avgSleepHours} 小时</div>`;
+    }).join("");
+    el.innerHTML = weeks;
+  }
+
+  function recordsArr() { return data.records; }
+
+  function renderDay(iso) {
+    const index = days.indexOf(iso);
+    const row = records.get(iso);
+    const audit = energy(row);
+    const deficit = audit?.deficit;
+    datePicker.value = iso;
+    $("previous").disabled = index === 0;
+    $("next").disabled = index === days.length - 1;
+    $("chosen-date").textContent = shortDate(iso);
+    $("day-position").textContent = "第 " + (index + 1) + " 天" +
+      (row ? (row.closed ? " · 全天" : " · 尚未收账") : " · 待记录");
+    $("daily-target").textContent = "约 " + kcal(Math.round(plannedDaily));
+    $("daily-result-label").textContent = deficit < 0 ? "当天估算盈余" : "当天估算缺口";
+    $("daily-result").textContent = Number.isFinite(deficit) ? kcal(Math.abs(deficit)) :
+      (row ? "尚未收账" : "");
+    $("daily-percent").textContent = Number.isFinite(deficit) && deficit >= 0 ?
+      "达成 " + Math.round(deficit / plannedDaily * 100) + "%" : "";
+    $("eat").innerHTML = foodDetails(row) || (row ? "" : '<p class="plan-reference">待记录</p>');
+    $("train").innerHTML = trainingDetails(row);
+    $("sleep").innerHTML = sleepDetails(row);
+    $("supp").innerHTML = supplementDetails(row?.supplements);
+  }
+
+  function openDate(iso) {
+    if (days.includes(iso)) location.hash = iso;
+  }
+
+  function readDate() {
+    const requested = location.hash.slice(1);
+    renderDay(days.includes(requested) ? requested : data.defaultDate);
+  }
+
+  function selectTab(selected) {
+    for (const tab of tabs) {
+      const active = tab === selected;
+      tab.setAttribute("aria-selected", String(active));
+      tab.tabIndex = active ? 0 : -1;
+      $(tab.getAttribute("aria-controls")).hidden = !active;
+    }
+  }
+
+  for (const tab of tabs) {
+    tab.addEventListener("click", () => selectTab(tab));
+    tab.addEventListener("keydown", (event) => {
+      const index = tabs.indexOf(tab);
+      const target = { ArrowLeft: (index + tabs.length - 1) % tabs.length,
+        ArrowRight: (index + 1) % tabs.length, Home: 0, End: tabs.length - 1 }[event.key];
+      if (target === undefined) return;
+      event.preventDefault();
+      selectTab(tabs[target]);
+      tabs[target].focus();
+    });
+  }
+
+  datePicker.replaceChildren(...days.map((iso) =>
+    new Option(shortDate(iso) + " " + weekday[new Date(iso + "T12:00:00Z").getUTCDay()], iso)));
+  datePicker.addEventListener("change", () => openDate(datePicker.value));
+  $("previous").addEventListener("click", () => openDate(days[days.indexOf(datePicker.value) - 1]));
+  $("next").addEventListener("click", () => openDate(days[days.indexOf(datePicker.value) + 1]));
+  window.addEventListener("hashchange", readDate);
+  fetch("data.json?v=" + Date.now())
+    .then((response) => response.json())
+    .then((json) => {
+      data = json;
+      plan = data.plan;
+      plannedDaily = plan.deficitTarget / plan.length;
+      days = Array.from({ length: plan.length }, (_, offset) => addDays(plan.start, offset));
+      records = new Map(data.records.map((row) => [row.date, row]));
+      renderPlan();
+      readDate();
+    })
+    .catch(() => {
+      document.getElementById("plan-actual").textContent = "数据没读到";
+    });
+</script>
 </body>
 </html>
