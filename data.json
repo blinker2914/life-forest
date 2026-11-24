@@ -395,8 +395,8 @@
     },
     {
       "date": "2026-11-24",
-      "intakeKcal": 820,
-      "proteinG": 66,
+      "intakeKcal": 995,
+      "proteinG": 71,
       "bmrKcal": 1497,
       "activityKcal": null,
       "exerciseKcal": 439,
@@ -416,8 +416,8 @@
           "proteinG": 0
         },
         "other": {
-          "kcal": 0,
-          "proteinG": 0
+          "kcal": 175,
+          "proteinG": 5
         }
       },
       "restingHeartRate": null,
