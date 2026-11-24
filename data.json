@@ -330,8 +330,8 @@
         "durationMin": 105
       },
       "surplusKcal": -107,
-      "steps": 2141,
-      "restingHeartRate": null,
+      "steps": 7953,
+      "restingHeartRate": 59,
       "sleepHours": 5.95,
       "meals": [
         {
