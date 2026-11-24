@@ -497,8 +497,6 @@
     });
   }
 
-  datePicker.replaceChildren(...days.map((iso) =>
-    new Option(shortDate(iso) + " " + weekday[new Date(iso + "T12:00:00Z").getUTCDay()], iso)));
   datePicker.addEventListener("change", () => openDate(datePicker.value));
   $("previous").addEventListener("click", () => openDate(days[days.indexOf(datePicker.value) - 1]));
   $("next").addEventListener("click", () => openDate(days[days.indexOf(datePicker.value) + 1]));
@@ -510,6 +508,8 @@
       plan = data.plan;
       plannedDaily = plan.deficitTarget / plan.length;
       days = Array.from({ length: plan.length }, (_, offset) => addDays(plan.start, offset));
+      datePicker.replaceChildren(...days.map((iso) =>
+        new Option(shortDate(iso) + " " + weekday[new Date(iso + "T12:00:00Z").getUTCDay()], iso)));
       records = new Map(data.records.map((row) => [row.date, row]));
       renderPlan();
       readDate();
