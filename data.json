@@ -387,7 +387,8 @@
           "proteinG": 14
         }
       },
-      "restingHeartRate": 53
+      "restingHeartRate": 53,
+      "suppCheckedCount": 11
     }
   ],
   "fatLoss": {
