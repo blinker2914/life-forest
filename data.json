@@ -1347,7 +1347,12 @@
      "summary": "网球 17:00-18:00，手表 477 千卡（手表显示 577，多出 100 为忘关状态虚计，已扣除）"
     }
    ],
-   "sleep": [],
+   "sleep": [
+    [
+     "总时长",
+     "4 小时 23 分"
+    ]
+   ],
    "heartRate": {
     "restingBpm": 53,
     "sleepAverageBpm": null
@@ -1460,7 +1465,12 @@
      "summary": "网球 08:30-09:30，手表 439 千卡"
     }
    ],
-   "sleep": [],
+   "sleep": [
+    [
+     "总时长",
+     "6 小时 19 分"
+    ]
+   ],
    "heartRate": {
     "restingBpm": null,
     "sleepAverageBpm": null
