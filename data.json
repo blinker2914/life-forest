@@ -1430,13 +1430,13 @@
   },
   {
    "date": "2026-11-24",
-   "closed": false,
+   "closed": true,
    "basal": 1497,
-   "activity": null,
+   "activity": 142,
    "exercise": 439,
-   "intake": 1425,
-   "protein": 100,
-   "deficit": null,
+   "intake": 1495,
+   "protein": 117,
+   "deficit": 583,
    "meals": [
     {
      "name": "早餐",
@@ -1450,8 +1450,8 @@
     },
     {
      "name": "晚餐",
-     "kcal": 430,
-     "protein": 29
+     "kcal": 500,
+     "protein": 46
     },
     {
      "name": "其他",
@@ -1472,7 +1472,7 @@
     ]
    ],
    "heartRate": {
-    "restingBpm": null,
+    "restingBpm": 55,
     "sleepAverageBpm": null
    },
    "supplements": {
@@ -1543,7 +1543,7 @@
       "checked": false
      }
     ],
-    "note": "未打卡"
+    "note": "当天打卡 0 / 13 项（明细未按项记录）"
    }
   }
  ],
