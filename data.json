@@ -39,7 +39,7 @@
   "checkup": [],
   "daily": [
     {
-      "activityKcal": null,
+      "activityKcal": 320,
       "avgHeartRate": null,
       "date": "2026-11-16",
       "exercise": {
@@ -83,17 +83,17 @@
           "proteinG": 58
         }
       ],
-      "note": "全天：约 1575 千卡、蛋白约 128 克，缺口约 525 千卡（今天目标 400）。都是估算不是称重数。",
+      "note": "日常活动320为估算：手表当日总数未到，按已核实五天（605/83/485/229/198）均值320",
       "proteinG": 128,
       "restingHeartRate": 51,
       "steps": 6482,
       "suppCheckedCount": 11,
-      "surplusKcal": -555,
+      "surplusKcal": -522,
       "totalKcal": 2100,
       "exerciseKcal": 280
     },
     {
-      "activityKcal": 515,
+      "activityKcal": 605,
       "avgHeartRate": null,
       "date": "2026-11-17",
       "exercise": {
@@ -186,12 +186,12 @@
       "restingHeartRate": 55,
       "steps": 6438,
       "suppCheckedCount": 11,
-      "surplusKcal": -287,
+      "surplusKcal": -283,
       "totalKcal": null,
       "exerciseKcal": 300
     },
     {
-      "activityKcal": 150,
+      "activityKcal": 320,
       "date": "2026-11-19",
       "expenditureKcal": 1807,
       "meals": [
@@ -218,18 +218,19 @@
       "intakeKcal": 1470,
       "restingHeartRate": 52,
       "suppCheckedCount": null,
-      "surplusKcal": -337,
-      "steps": 1510,
+      "surplusKcal": -507,
+      "steps": 6171,
       "exercise": {
         "durationMin": 43,
         "kcal": 250,
         "kind": "拉日",
         "type": "拉日"
       },
-      "exerciseKcal": 160
+      "exerciseKcal": 160,
+      "note": "日常活动320为估算：手表当日总数未到，按已核实五天均值320；步数6171为准（重复行已删，1510为旧同步数）"
     },
     {
-      "activityKcal": 765,
+      "activityKcal": 485,
       "date": "2026-11-20",
       "expenditureKcal": 2452,
       "intakeKcal": 1710,
@@ -262,7 +263,7 @@
       "proteinG": 113,
       "restingHeartRate": 53,
       "steps": 17472,
-      "surplusKcal": -742,
+      "surplusKcal": -552,
       "exerciseKcal": 280,
       "exerciseType": "腿日（手表已算约90卡，手动补160）",
       "suppCheckedCount": 0,
@@ -303,8 +304,8 @@
         }
       ],
       "expenditureKcal": 1895,
-      "surplusKcal": -95,
-      "activityKcal": 238,
+      "surplusKcal": -86,
+      "activityKcal": 229,
       "exerciseKcal": 160,
       "exerciseType": "推日",
       "restingHeartRate": 54,
@@ -329,7 +330,7 @@
         "type": "拉日+战绳",
         "durationMin": 105
       },
-      "surplusKcal": -107,
+      "surplusKcal": -277,
       "steps": 7953,
       "restingHeartRate": 59,
       "sleepHours": 5.95,
@@ -358,7 +359,9 @@
           "proteinG": 0,
           "items": "东鹏电解质2/3瓶"
         }
-      ]
+      ],
+      "activityKcal": 320,
+      "note": "日常活动320为估算：手表当日总数未到，按已核实五天均值320"
     },
     {
       "date": "2026-11-23",
@@ -424,7 +427,7 @@
   ],
   "fatLoss": {
     "currentFatPct": 19.6,
-    "dailyDeficitTargetKcal": 350,
+    "dailyDeficitTargetKcal": 388,
     "dailyProteinTargetG": 120,
     "estDaysRemaining": 12,
     "fatToLoseKcal": 8000,
@@ -440,14 +443,14 @@
       "dinnerRemainingKcal": 947,
       "dinnerRemainingProteinG": 64
     },
-    "todayDeficitKcal": 3236,
-    "todayProgressPct": 40,
+    "todayDeficitKcal": 3340,
+    "todayProgressPct": 42,
     "totalDays": 21,
     "twoADayIntakeKcal": "2200–2300",
     "twoADayMaxPerWeek": 2,
     "week": "第 2 周（11/23–11/29）",
-    "weeklyDeficitProgress": "已缺 3074 / 目标 8000 千卡（21天总目标）",
-    "totalDeficitSoFarKcal": 3236,
+    "weeklyDeficitProgress": "已缺 3340 / 目标 8000 千卡（21天总目标）",
+    "totalDeficitSoFarKcal": 3340,
     "weeklyDeficitTargetKcal": "2400",
     "weeklyProteinTargetG": 840,
     "startDate": "2026-11-16",
@@ -700,7 +703,7 @@
     {
       "week": "第 1 周（11/16–11/22）",
       "daysCompleted": 7,
-      "deficitKcal": 3074,
+      "deficitKcal": 3178,
       "deficitTargetKcal": 2400,
       "proteinG": 885,
       "proteinTargetG": 840,
@@ -714,7 +717,7 @@
       "fatEndPct": 19.6,
       "muscleStartKg": 48.8,
       "muscleEndKg": 48.8,
-      "summary": "第 1 周完成 7 天，累计缺口 3074 千卡（目标 2400，超额 674 千卡，日均缺口 439 千卡），完成总目标 8000 千卡的 38%。蛋白共 885 克，日均 126 克，7 天全部达标（最低 113 克，最高 146 克）。训练 8 次：腿日 2 次、推日 2 次、拉日 2 次、瑜伽 1 次、战绳课 1 次（11/22 上午拉日 + 战绳课两场），重量全部保住（哈克 85、臀推 60、斜推 30 均破纪录）。睡眠平均 6.8 小时，11-19 仅 5.62 小时偏短。体重未称（下次 11-27），体脂、肌肉待 11-27 称重验证。"
+      "summary": "第 1 周完成 7 天，累计缺口 3178 千卡（目标 2400，超额 778 千卡，日均缺口 454 千卡），完成总目标 8000 千卡的 40%。蛋白共 885 克，日均 126 克，7 天全部达标（最低 113 克，最高 146 克）。训练 8 次：腿日 2 次、推日 2 次、拉日 2 次、瑜伽 1 次、战绳课 1 次（11/22 上午拉日 + 战绳课两场），重量全部保住（哈克 85、臀推 60、斜推 30 均破纪录）。睡眠平均 6.8 小时，11-19 仅 5.62 小时偏短。体重未称（下次 11-27），体脂、肌肉待 11-27 称重验证。"
     }
   ]
 }
