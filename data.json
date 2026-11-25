@@ -1548,13 +1548,13 @@
   },
   {
    "date": "2026-11-25",
-   "closed": false,
+   "closed": true,
    "basal": 1497,
    "activity": 300,
-   "exercise": 280,
+   "exercise": 380,
    "intake": 1569,
    "protein": 118,
-   "deficit": null,
+   "deficit": 608,
    "meals": [
     {
      "name": "早餐",
@@ -1676,6 +1676,10 @@
        ]
       }
      ]
+    },
+    {
+     "name": "瑜伽",
+     "summary": "晚上瑜伽课，因临时有事提前离开，约100千卡（未按标准300记）"
     }
    ],
    "sleep": [
