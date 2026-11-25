@@ -1552,8 +1552,8 @@
    "basal": 1497,
    "activity": null,
    "exercise": 280,
-   "intake": 882,
-   "protein": 62,
+   "intake": 939,
+   "protein": 72,
    "deficit": null,
    "meals": [
     {
@@ -1573,8 +1573,8 @@
     },
     {
      "name": "其他",
-     "kcal": 0,
-     "protein": 0
+     "kcal": 57,
+     "protein": 10
     }
    ],
    "training": [
