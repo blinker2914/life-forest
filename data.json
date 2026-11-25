@@ -1550,7 +1550,7 @@
    "date": "2026-11-25",
    "closed": false,
    "basal": 1497,
-   "activity": null,
+   "activity": 358,
    "exercise": 280,
    "intake": 1569,
    "protein": 118,
