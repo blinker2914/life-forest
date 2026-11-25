@@ -1513,11 +1513,11 @@
    "date": "2026-11-25",
    "closed": true,
    "basal": 1497,
-   "activity": 300,
+   "activity": 348,
    "exercise": 380,
    "intake": 1569,
    "protein": 118,
-   "deficit": 608,
+   "deficit": 656,
    "meals": [
     {
      "name": "早餐",
