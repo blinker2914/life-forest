@@ -1552,14 +1552,14 @@
    "basal": 1497,
    "activity": null,
    "exercise": 280,
-   "intake": 0,
-   "protein": 0,
+   "intake": 325,
+   "protein": 26,
    "deficit": null,
    "meals": [
     {
      "name": "早餐",
-     "kcal": 0,
-     "protein": 0
+     "kcal": 325,
+     "protein": 26
     },
     {
      "name": "午餐",
