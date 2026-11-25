@@ -5,8 +5,8 @@
   "deficitTarget": 8000,
   "proteinTarget": 120
  },
- "latestDate": "2026-11-24",
- "defaultDate": "2026-11-24",
+ "latestDate": "2026-11-25",
+ "defaultDate": "2026-11-25",
  "records": [
   {
    "date": "2026-11-16",
@@ -1544,6 +1544,214 @@
      }
     ],
     "note": "当天打卡 0 / 13 项（明细未按项记录）"
+   }
+  },
+  {
+   "date": "2026-11-25",
+   "closed": false,
+   "basal": 1497,
+   "activity": null,
+   "exercise": 280,
+   "intake": 0,
+   "protein": 0,
+   "deficit": null,
+   "meals": [
+    {
+     "name": "早餐",
+     "kcal": 0,
+     "protein": 0
+    },
+    {
+     "name": "午餐",
+     "kcal": 0,
+     "protein": 0
+    },
+    {
+     "name": "晚餐",
+     "kcal": 0,
+     "protein": 0
+    },
+    {
+     "name": "其他",
+     "kcal": 0,
+     "protein": 0
+    }
+   ],
+   "training": [
+    {
+     "name": "腿日",
+     "summary": "腿日 | 深圳店",
+     "sets": [
+      {
+       "name": "杠铃深蹲",
+       "weights": [
+        40.0,
+        40.0,
+        40.0,
+        40.0
+       ],
+       "reps": [
+        6,
+        8,
+        8,
+        7
+       ]
+      },
+      {
+       "name": "腿举",
+       "weights": [
+        70.0,
+        90.0,
+        90.0
+       ],
+       "reps": [
+        12,
+        12,
+        12
+       ]
+      },
+      {
+       "name": "臀推",
+       "weights": [
+        54.4,
+        54.4,
+        54.4
+       ],
+       "reps": [
+        12,
+        11,
+        12
+       ]
+      },
+      {
+       "name": "俯卧腘绳弯举",
+       "weights": [
+        18.0,
+        22.0,
+        22.0
+       ],
+       "reps": [
+        12,
+        12,
+        12
+       ]
+      },
+      {
+       "name": "腿屈伸",
+       "weights": [
+        27.0,
+        27.0,
+        27.0
+       ],
+       "reps": [
+        12,
+        12,
+        12
+       ]
+      },
+      {
+       "name": "髋内收",
+       "weights": [
+        27.0,
+        27.0,
+        27.0
+       ],
+       "reps": [
+        12,
+        12,
+        12
+       ]
+      },
+      {
+       "name": "髋外展",
+       "weights": [
+        27.0,
+        27.0,
+        27.0
+       ],
+       "reps": [
+        12,
+        12,
+        12
+       ]
+      }
+     ]
+    }
+   ],
+   "sleep": [],
+   "heartRate": {
+    "restingBpm": null,
+    "sleepAverageBpm": null
+   },
+   "supplements": {
+    "items": [
+     {
+      "name": "肌酸",
+      "dose": "3g，随早餐，和绿粉一起",
+      "checked": false
+     },
+     {
+      "name": "绿粉 eimele",
+      "dose": "3.5g/包",
+      "checked": false
+     },
+     {
+      "name": "PS 磷脂酰丝氨酸",
+      "dose": "2 粒，共 270mg",
+      "checked": false
+     },
+     {
+      "name": "辅酶 Q10",
+      "dose": "200mg，1 粒",
+      "checked": false
+     },
+     {
+      "name": "维生素 D3 + K",
+      "dose": "D3 10000 IU + K1/K2，1 粒",
+      "checked": false
+     },
+     {
+      "name": "姜黄素",
+      "dose": "500mg，1 粒",
+      "checked": false
+     },
+     {
+      "name": "鱼油",
+      "dose": "EPA 900mg + DHA 660mg，2 粒",
+      "checked": false
+     },
+     {
+      "name": "护眼 PRO EYE SHIELD",
+      "dose": "1 粒随餐；吃动物肝当天跳过",
+      "checked": false
+     },
+     {
+      "name": "牛骨胶原蛋白肽",
+      "dose": "8g 粉剂",
+      "checked": false
+     },
+     {
+      "name": "硒片",
+      "dose": "1 片；吃动物肝当天跳过",
+      "checked": false
+     },
+     {
+      "name": "镁（甘氨酸镁）",
+      "dose": "2 片，元素镁 200mg",
+      "checked": false
+     },
+     {
+      "name": "海洋胶原 Vida Glow",
+      "dose": "3000mg/包",
+      "checked": false
+     },
+     {
+      "name": "褪黑素",
+      "dose": "Natrol 软糖 5mg，睡不着时睡前 30 分钟 1 粒，非常规",
+      "checked": false
+     }
+    ],
+    "note": "未打卡"
    }
   }
  ],
