@@ -91,7 +91,7 @@
   .daily-energy strong { display: block; min-height: 31px; font-size: 22px; color: var(--forest); }
   .daily-energy .result-line { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 8px; }
   .result-line small { color: var(--muted); font-size: 12px; }
-  .tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 0 16px; border-bottom: 1px solid var(--line); }
+  .tabs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); padding: 0 16px; border-bottom: 1px solid var(--line); }
   .tabs button { border: 0; border-bottom: 3px solid transparent; background: transparent; color: var(--muted); min-height: 46px; padding: 9px 4px 7px; font-size: 16px; font-weight: 620; }
   .tabs button:hover { color: var(--forest); background: #f4f6ef; }
   .tabs button[aria-selected="true"] { color: var(--forest); border-bottom-color: var(--forest); font-weight: 770; }
@@ -245,11 +245,13 @@
         <button type="button" role="tab" id="tab-train" aria-controls="train" aria-selected="false" tabindex="-1">练</button>
         <button type="button" role="tab" id="tab-sleep" aria-controls="sleep" aria-selected="false" tabindex="-1">睡</button>
         <button type="button" role="tab" id="tab-supp" aria-controls="supp" aria-selected="false" tabindex="-1">补</button>
+        <button type="button" role="tab" id="tab-burn" aria-controls="burn" aria-selected="false" tabindex="-1">消耗</button>
       </div>
       <div class="tab-panel" role="tabpanel" id="eat" aria-labelledby="tab-eat" tabindex="0"></div>
       <div class="tab-panel" role="tabpanel" id="train" aria-labelledby="tab-train" tabindex="0" hidden></div>
       <div class="tab-panel" role="tabpanel" id="sleep" aria-labelledby="tab-sleep" tabindex="0" hidden></div>
       <div class="tab-panel" role="tabpanel" id="supp" aria-labelledby="tab-supp" tabindex="0" hidden></div>
+      <div class="tab-panel" role="tabpanel" id="burn" aria-labelledby="tab-burn" tabindex="0" hidden></div>
     </div>
   </section>
 </main>
@@ -425,6 +427,26 @@
       '<th scope="col">当天记录</th></tr></thead><tbody>' + rows + "</tbody></table>";
   }
 
+  function expenditureDetails(row) {
+    if (!row) return "";
+    const basal = row.basal, activity = row.activity, exercise = row.exercise;
+    const intake = dayIntake(row);
+    const total = [basal, activity, exercise].every(Number.isFinite) ? basal + activity + exercise : null;
+    const deficit = Number.isFinite(row.deficit) ? row.deficit :
+      (Number.isFinite(total) && Number.isFinite(intake) ? total - intake : null);
+    const val = (v) => Number.isFinite(v) ? kcal(v) : "—";
+    const rows = [
+      ["基础代谢", val(basal)],
+      ["日常活动", val(activity)],
+      ["运动", val(exercise)],
+      ["总消耗", val(total)],
+      ["摄入", val(intake)],
+      ["缺口", Number.isFinite(deficit) ? kcal(deficit) : "—"],
+    ];
+    return `<section class="health-group"><h3>消耗是怎么算出来的</h3>${detailList(rows)}</section>` +
+      `<p class="plan-reference">总消耗 = 基础代谢 + 日常活动 + 运动；缺口 = 总消耗 − 摄入。</p>`;
+  }
+
   function renderWeekly() {
     const el = $("weekly-body");
     if (!el) return;
@@ -464,6 +486,7 @@
     $("train").innerHTML = trainingDetails(row);
     $("sleep").innerHTML = sleepDetails(row);
     $("supp").innerHTML = supplementDetails(row?.supplements);
+    $("burn").innerHTML = expenditureDetails(row);
   }
 
   function openDate(iso) {
