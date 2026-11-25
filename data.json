@@ -1552,8 +1552,8 @@
    "basal": 1497,
    "activity": null,
    "exercise": 280,
-   "intake": 332,
-   "protein": 27,
+   "intake": 882,
+   "protein": 62,
    "deficit": null,
    "meals": [
     {
@@ -1563,8 +1563,8 @@
     },
     {
      "name": "午餐",
-     "kcal": 0,
-     "protein": 0
+     "kcal": 550,
+     "protein": 35
     },
     {
      "name": "晚餐",
@@ -1678,7 +1678,12 @@
      ]
     }
    ],
-   "sleep": [],
+   "sleep": [
+    [
+     "总时长",
+     "4 小时 26 分"
+    ]
+   ],
    "heartRate": {
     "restingBpm": null,
     "sleepAverageBpm": null
