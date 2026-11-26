@@ -90,6 +90,7 @@
   .daily-energy span { display: block; color: var(--muted); font-size: 13px; }
   .daily-energy strong { display: block; min-height: 31px; font-size: 22px; color: var(--forest); }
   .daily-energy .result-line { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 8px; }
+  .daily-calc { grid-column: 1 / -1; margin: 8px 0 0; font-size: 13px; color: var(--muted); }
   .result-line small { color: var(--muted); font-size: 12px; }
   .tabs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); padding: 0 16px; border-bottom: 1px solid var(--line); }
   .tabs button { border: 0; border-bottom: 3px solid transparent; background: transparent; color: var(--muted); min-height: 46px; padding: 9px 4px 7px; font-size: 16px; font-weight: 620; }
@@ -239,6 +240,7 @@
         <div><span id="daily-result-label">当天估算缺口</span>
           <div class="result-line"><strong id="daily-result"></strong><small id="daily-percent"></small></div>
         </div>
+        <p class="daily-calc" id="daily-calc"></p>
       </div>
       <div class="tabs" role="tablist" aria-label="当天明细">
         <button type="button" role="tab" id="tab-eat" aria-controls="eat" aria-selected="true">吃</button>
@@ -482,6 +484,11 @@
       (row ? "尚未收账" : "");
     $("daily-percent").textContent = Number.isFinite(deficit) && deficit >= 0 ?
       "达成 " + Math.round(deficit / plannedDaily * 100) + "%" : "";
+    const totalExp = row && [row.basal, row.activity, row.exercise].every(Number.isFinite) ?
+      row.basal + row.activity + row.exercise : null;
+    const intakeVal = row ? dayIntake(row) : null;
+    $("daily-calc").textContent = Number.isFinite(deficit) && Number.isFinite(totalExp) && Number.isFinite(intakeVal) ?
+      `总消耗 ${kcal(totalExp)} − 摄入 ${kcal(intakeVal)} = ${kcal(deficit)}；${kcal(deficit)} ÷ ${kcal(Math.round(plannedDaily))} = ${Math.round(deficit / plannedDaily * 100)}%` : "";
     $("eat").innerHTML = foodDetails(row) || (row ? "" : '<p class="plan-reference">待记录</p>');
     $("train").innerHTML = trainingDetails(row);
     $("sleep").innerHTML = sleepDetails(row);
