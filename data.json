@@ -1727,13 +1727,13 @@
   },
   {
    "date": "2026-11-26",
-   "closed": false,
+   "closed": true,
    "basal": 1497,
-   "activity": null,
-   "exercise": 100,
-   "intake": 1250,
-   "protein": 110,
-   "deficit": null,
+   "activity": 350,
+   "exercise": 65,
+   "intake": 1330,
+   "protein": 128,
+   "deficit": 582,
    "meals": [
     {
      "name": "早餐",
@@ -1755,15 +1755,15 @@
     },
     {
      "name": "其他",
-     "kcal": 70,
-     "protein": 1,
-     "food": "小柚子半个"
+     "kcal": 150,
+     "protein": 19,
+     "food": "小柚子半个70/1 + 睡前乳清1勺80/18"
     }
    ],
    "training": [
     {
      "name": "瑜伽",
-     "summary": "下午前臂倒立蝎子准备练习（海豚式、前臂平板、靠墙倒立、开背），约25-30分钟，约100千卡"
+     "summary": "下午前臂倒立蝎子准备练习（海豚式、前臂平板、靠墙倒立、开背），约25-30分钟，约65千卡"
     }
    ],
    "sleep": [],
