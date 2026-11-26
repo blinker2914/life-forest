@@ -1730,9 +1730,9 @@
    "closed": false,
    "basal": 1497,
    "activity": null,
-   "exercise": null,
-   "intake": 760,
-   "protein": 58,
+   "exercise": 100,
+   "intake": 1250,
+   "protein": 110,
    "deficit": null,
    "meals": [
     {
@@ -1748,13 +1748,24 @@
      "food": "牛肉两盒各吃一半、米饭一半"
     },
     {
+     "name": "晚餐",
+     "kcal": 490,
+     "protein": 52,
+     "food": "卤味一盒（卤牛肉、猪肺、鸭胗）+清汤麻辣烫纯菜（生菜、香菜、金针菇、番茄、莲藕、白菜）"
+    },
+    {
      "name": "其他",
      "kcal": 70,
      "protein": 1,
      "food": "小柚子半个"
     }
    ],
-   "training": [],
+   "training": [
+    {
+     "name": "瑜伽",
+     "summary": "下午前臂倒立蝎子准备练习（海豚式、前臂平板、靠墙倒立、开背），约25-30分钟，约100千卡"
+    }
+   ],
    "sleep": [],
    "heartRate": {
     "restingBpm": null,
