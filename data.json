@@ -1766,7 +1766,12 @@
      "summary": "下午前臂倒立蝎子准备练习（海豚式、前臂平板、靠墙倒立、开背），约25-30分钟，约65千卡"
     }
    ],
-   "sleep": [],
+   "sleep": [
+    [
+     "总时长",
+     "4 小时 9 分"
+    ]
+   ],
    "heartRate": {
     "restingBpm": null,
     "sleepAverageBpm": null
