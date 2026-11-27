@@ -1844,13 +1844,13 @@
   },
   {
    "date": "2026-11-27",
-   "closed": false,
+   "closed": true,
    "basal": 1497,
-   "activity": 600,
+   "activity": 793,
    "exercise": 300,
    "intake": 2210,
    "protein": 92,
-   "deficit": null,
+   "deficit": 380,
    "meals": [
     {
      "name": "早餐",
