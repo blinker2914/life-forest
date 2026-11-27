@@ -1848,15 +1848,15 @@
    "basal": 1497,
    "activity": null,
    "exercise": null,
-   "intake": 800,
-   "protein": 35,
+   "intake": 650,
+   "protein": 32,
    "deficit": null,
    "meals": [
     {
      "name": "早餐",
-     "kcal": 800,
-     "protein": 35,
-     "food": "酸菜牛肉面一碗+肉夹馍半个"
+     "kcal": 650,
+     "protein": 32,
+     "food": "酸菜牛肉面一碗（汤基本没喝、面没吃完）+肉夹馍半个"
     }
    ],
    "training": [],
