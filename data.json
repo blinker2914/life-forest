@@ -1848,9 +1848,9 @@
    "basal": 1497,
    "activity": 793,
    "exercise": 300,
-   "intake": 2210,
-   "protein": 92,
-   "deficit": 380,
+   "intake": 2390,
+   "protein": 95,
+   "deficit": 200,
    "meals": [
     {
      "name": "早餐",
@@ -1872,9 +1872,9 @@
     },
     {
      "name": "其他",
-     "kcal": 140,
-     "protein": 4,
-     "food": "烧饼半个（下午加吃）"
+     "kcal": 320,
+     "protein": 7,
+     "food": "烧饼半个（下午加吃）140/4 + 雪糕一个约700千焦180/3"
     }
    ],
    "training": [
