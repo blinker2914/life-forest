@@ -1848,8 +1848,8 @@
    "basal": 1497,
    "activity": 600,
    "exercise": 300,
-   "intake": 1070,
-   "protein": 58,
+   "intake": 2210,
+   "protein": 92,
    "deficit": null,
    "meals": [
     {
@@ -1863,6 +1863,18 @@
      "kcal": 420,
      "protein": 26,
      "food": "小馄饨约10个+烧饼半个"
+    },
+    {
+     "name": "晚餐",
+     "kcal": 1000,
+     "protein": 30,
+     "food": "永春熙园淮扬菜（碳水多、肉少）"
+    },
+    {
+     "name": "其他",
+     "kcal": 140,
+     "protein": 4,
+     "food": "烧饼半个（下午加吃）"
     }
    ],
    "training": [
