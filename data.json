@@ -1846,8 +1846,8 @@
    "date": "2026-11-27",
    "closed": false,
    "basal": 1497,
-   "activity": null,
-   "exercise": null,
+   "activity": 600,
+   "exercise": 300,
    "intake": 1070,
    "protein": 58,
    "deficit": null,
@@ -1865,7 +1865,12 @@
      "food": "小馄饨约10个+烧饼半个"
     }
    ],
-   "training": [],
+   "training": [
+    {
+     "name": "匹克球",
+     "summary": "下午匹克球约1小时，约300千卡"
+    }
+   ],
    "sleep": [],
    "heartRate": {
     "restingBpm": null,
