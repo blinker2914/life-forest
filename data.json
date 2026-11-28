@@ -1965,8 +1965,8 @@
    "basal": 1497,
    "activity": null,
    "exercise": null,
-   "intake": 590,
-   "protein": 34,
+   "intake": 2340,
+   "protein": 84,
    "deficit": null,
    "meals": [
     {
@@ -1974,6 +1974,18 @@
      "kcal": 590,
      "protein": 34,
      "food": "两个叉烧酥+牛奶一杯+鸡蛋一个+牛肉两三块"
+    },
+    {
+     "name": "午餐",
+     "kcal": 550,
+     "protein": 20,
+     "food": "午饭，约500-600卡，菜没吃多"
+    },
+    {
+     "name": "晚餐",
+     "kcal": 1200,
+     "protein": 30,
+     "food": "下午煎炸零食+晚饭，合计1200卡"
     }
    ],
    "training": [],
