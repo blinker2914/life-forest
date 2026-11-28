@@ -1965,15 +1965,15 @@
    "basal": 1497,
    "activity": null,
    "exercise": null,
-   "intake": 350,
-   "protein": 12,
+   "intake": 590,
+   "protein": 34,
    "deficit": null,
    "meals": [
     {
      "name": "早餐",
-     "kcal": 350,
-     "protein": 12,
-     "food": "早餐含两个叉烧酥"
+     "kcal": 590,
+     "protein": 34,
+     "food": "两个叉烧酥+牛奶一杯+鸡蛋一个+牛肉两三块"
     }
    ],
    "training": [],
