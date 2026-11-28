@@ -1773,7 +1773,7 @@
     ]
    ],
    "heartRate": {
-    "restingBpm": null,
+    "restingBpm": 53,
     "sleepAverageBpm": null
    },
    "supplements": {
@@ -1883,7 +1883,12 @@
      "summary": "下午匹克球约1小时，约300千卡"
     }
    ],
-   "sleep": [],
+   "sleep": [
+    [
+     "总时长",
+     "5 小时 54 分"
+    ]
+   ],
    "heartRate": {
     "restingBpm": null,
     "sleepAverageBpm": null
